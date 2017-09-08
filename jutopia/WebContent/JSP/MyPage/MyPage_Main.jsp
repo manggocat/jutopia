@@ -9,13 +9,13 @@
  <script type = "text/javascript">
  	$(document).ready(function(){
  		$('#my_imformation').click(function(){
- 			$('#Chang_Stage').load("My_Imformation.jsp");
+ 			$('#myPage_Menu').load("My_Imformation.jsp");
  		});
  		$('#my_secession').click(function(){
- 			$('#Chang_Stage').load("My_Modified.jsp");
+ 			$('#myPage_Menu').load("My_Modified.jsp");
  		});
  		$('#my_modified').click(function(){
- 			$('#Chang_Stage').load("My_Secession.jsp");
+ 			$('#myPage_Menu').load("My_Secession.jsp");
  		});
  	});
  </script>
@@ -43,7 +43,7 @@
 	</center>
 </div>
 
-<div id = "Chang_Stage">
+<div id = "myPage_Menu">
 
 </div>
 

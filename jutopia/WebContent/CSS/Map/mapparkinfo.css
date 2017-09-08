@@ -1,0 +1,39 @@
+.juchaname {
+	text-align: center !important;
+	font-size: 20px;
+}
+
+.subcontent {
+	margin-top: 10px;
+}
+
+.subtitle {
+	color: #008bff;
+	font-weight: 700;
+	font-size: 15px;
+}
+
+.address {
+	margin-top: 15px;
+}
+
+.juso {
+	color: #555;
+	font-size: 15px;
+}
+
+.tac {
+	margin-top: 15px;
+}
+
+hr {
+	margin-top: 50px;
+	margin-bottom: 20px;
+	border: 0;
+	border-top: 1px solid #eeeeee;
+}
+
+.col-xs-10 {
+	width: 83.33333333%;
+}
+

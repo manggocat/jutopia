@@ -1,28 +1,24 @@
-.juchaname {
+.placeinfo-maintitle {
+	margin-top: 15px;
+}
+
+.placeinfo-title {
 	text-align: center !important;
 	font-size: 20px;
+	margin-top: 15px;
 }
 
-.subcontent {
-	margin-top: 10px;
-}
-
-.subtitle {
+.placeinfo-subtitle {
 	color: #008bff;
 	font-weight: 700;
 	font-size: 15px;
 }
 
-.address {
-	margin-top: 15px;
+.placeinfo-content-wrap {
+	margin-top: 10px;
 }
 
-.juso {
-	color: #555;
-	font-size: 15px;
-}
-
-.tac {
+.placeinfo-address {
 	margin-top: 15px;
 }
 
@@ -33,7 +29,11 @@ hr {
 	border-top: 1px solid #eeeeee;
 }
 
-.col-xs-10 {
-	width: 83.33333333%;
+#map {
+	width: 500px;
+	height: 400px;
 }
 
+.width83 {
+	width: 83.33333333%;
+}

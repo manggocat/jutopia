@@ -28,16 +28,16 @@
 			}
 			
 	%>
-	<div class="tac">
-		<div class="juchaname"><%=name%></div>
-	</div>
+	
+		<div class="placeinfo-title"><%=name%></div>
+	
 	<br>
 	<div class="col-sm-6">
 
-		<div id="map" style="width: 500px; height: 400px;"></div>
+		<div id="map"></div>
 	</div>
 <script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=043faef8509eb178b42cbcafc976bea9&libraries=services"></script>
+	src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=043faef8509eb178b42cbcafc976bea9&libraries=services"></script>
 	<script>
 		var container = document.getElementById('map');
 		var options = {
@@ -70,17 +70,17 @@
 	</script>
 
 	<div class="col-sm-6">
-		<div class="address12">
-			<div class="subtitle">주소</div>
-			<div class="subcontent">
-				<div class="col-xs-10 desc555-15"><%=address%></div>
+		<div class="placeinfo-address">
+			<div class="placeinfo-subtitle">주소</div>
+			<div class="placeinfo-content-wrap">
+				<div class="col-xs-10"><%=address%></div>
 			</div>
 		</div>
 
 		<hr>
-		<div class="address">
-			<div class="subtitle">요금 정보</div>
-			<div class="subcontent">
+		<div class="placeinfo-address">
+			<div class="placeinfo-subtitle">요금 정보</div>
+			<div class="placeinfo-content-wrap">
 				<div class="col-xs-3">
 					<span class="label label-default">기본요금</span>
 				</div>
@@ -100,9 +100,9 @@
 		</div>
 
 		<hr>
-		<div class="address">
-			<div class="subtitle">시간 정보</div>
-			<div class="subcontent">
+		<div class="placeinfo-address">
+			<div class="placeinfo-subtitle">시간 정보</div>
+			<div class="placeinfo-content-wrap">
 				<div class="col-xs-3">
 					<span class="label label-default">주 중</span>
 				</div>

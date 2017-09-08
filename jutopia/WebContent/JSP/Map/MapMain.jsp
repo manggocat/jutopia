@@ -5,18 +5,11 @@
 <html dir="ltr" lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JSP Basic</title>
-
-<!-- <style>   
-ul{max-width:100%;height:60px;background:black;opacity:0.5;list-style:none;padding-top:25px;}
-li{ float:right; margin-right:50px }
-a{font-size:20px;color:white;font-weight:bold;text-decoration:none}
-</style> -->
 
 <title>우편번호 검색</title>
 <!--  <link href="../css/Popup.css" rel="stylesheet" type="text/css" >  -->
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" charset="UTF-8"></script>
-<script type="text/javascript" src="../../JS/Address_Search/Pop.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../JS/Address_Search/Address_Search.js" charset="UTF-8"></script>
 <link href = "../../CSS/Map/mapstyle.css" rel = "stylesheet" type = "text/css">
 <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
 
@@ -31,38 +24,34 @@ a{font-size:20px;color:white;font-weight:bold;text-decoration:none}
       <li><a href = "#">마이페이지</a></li>
    </ul>
 <div align = "center">
-   <input  type="button" name="juso" value = "도로명 주소"  id = "doro"/>&nbsp;&nbsp; 
-   <input  type="button" name="juso" value = "지번 주소"    id = "zibun"/>
-   <p><input align = "center" type = 'text' size = '20' placeholder = '검색 버튼을 눌러주세요'> <button id='search_button' >검색</button></p> 
+   <input  type="button" name="road_address" value = "도로명 주소"  id = "road_address"/>&nbsp;&nbsp; 
+   <input  type="button" name="address" value = "지번 주소"    id = "address"/>
+  <!--  <p><input align = "center" type = 'text' size = '20'  id = "search_text" class='postcodify_address'> <button id='search_button' >검색</button></p> --> 
 </div>
-<div align = "center" id = "stage1">
+
+<div align = "center" id = "Address_informaiton">
    
 </div>
+
 
 <script type = "text/javascript">
     $(document).ready(function(){
       
-      $("#doro").click(function(){
-         $("#stage1").html
-            ("<label>도로명주소&nbsp;&nbsp;</label><input type='text' class='postcodify_address' id = 'address'/><label>우편번호&nbsp;&nbsp;</label><input type='text' size='4' class='postcodify_postcode6_1' />&nbsp;&nbsp;<label>-</label>&nbsp;&nbsp;<input type='text' size='4' class='postcodify_postcode6_2' />&nbsp;&nbsp;<label>참고항목&nbsp;&nbsp;</label><input type='text' class='postcodify_extra_info' />");
+      $("#road_address").click(function(){
+    	  
+         $("#Address_informaiton").load("Street_Address.jsp");
       });
       
-      $("#zibun").click(function(){
-         $("#stage1").html
-            ("<label>지번주소&nbsp;&nbsp;</label><input type='text' class='postcodify_jibeon_address' id = 'jibeon_address'/><label>우편번호&nbsp;&nbsp;</label><input type='text' size='4' class='postcodify_postcode6_1' />&nbsp;&nbsp;<label>-</label>&nbsp;&nbsp;<input type='text' size='4' class='postcodify_postcode6_2' />&nbsp;&nbsp;<label>참고항목&nbsp;&nbsp;</label><input type='text' class='postcodify_extra_info' name='etc'/>");
+      $("#address").click(function(){
+         $("#Address_informaiton").load("Address.jsp");
       
       });
-      
-      $("#search_button").click(function(){
-         $("#search_button").postcodifyPopUp();
-      });
-      
 
     });
     
 </script>
 <br>
- 
+
 <%String a = "판교"; %>
 
 <div class="map_wrap">
@@ -73,7 +62,7 @@ a{font-size:20px;color:white;font-weight:bold;text-decoration:none}
             <div>
                 <form onsubmit="searchPlaces(); return false;" name="frm">
                     상세주소 : <input type='text' class='postcodify_address' id="keyword" size="15"> <br>
-                    <%-- 키 워 드 : <input type="text" value="<%=a %> 주차장" id="keyword" size="15"> --%>
+                   <%--  키 워 드 : <input type="text" value="<%=a %> 주차장" id="keyword" size="15"> --%>
                     <button type="submit">검색하기</button> 
                 </form>
             </div>
@@ -309,14 +298,9 @@ function removeAllChildNods(el) {
     while (el.hasChildNodes()) {
         el.removeChild (el.lastChild);
     }
-    
-}
-function moveMapParkInfo(place){
-	location.href="MapParkInfo.jsp?name="+places.place_name+"&address="+places.road_address_name+"&address2="+places.address_name+"";	
 }
 </script>
 
-   
    <table align = "center">
    
       <tr>

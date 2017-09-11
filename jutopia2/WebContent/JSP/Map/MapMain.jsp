@@ -45,7 +45,7 @@
 			});
 
 			$("#address").click(function() {
-				$("#Address_informaiton").load("Address.jsp");
+				$("#Address_informaiton").load("JSP/Map/Address.jsp");
 
 			});
 

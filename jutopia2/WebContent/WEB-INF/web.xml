@@ -25,7 +25,7 @@
 		<servlet-class>controller.JutopiaController</servlet-class>
 		<init-param>
 			<param-name>jutopiaConfig</param-name>
-			<param-value>C:/Users/wangi/softspace/jutopia2/WebContent/WEB-INF/jutopia.properties</param-value>
+			<param-value>C:/Users/wangi/git/jutopia/jutopia2/WebContent/WEB-INF/jutopia.properties</param-value>
 		</init-param>
 	</servlet>
 

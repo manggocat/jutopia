@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context reloadable="true">
+ <WatchedResource>WEB-INF/web.xml</WatchedResource>
+ 
+ 
+ <Resource name="jdbc:SignupDB" type="javax.sql.DataSource" auth="Container" username="hong" password="tiger"
+ 		   driverClassName="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@localhost:1521:ORCL" 
+ 		   maxActive="20" maxIdel="10" maxwait="-1"/> 
+ <!-- <Resource name="jdbc:dbcpTestDB" type="javax.sql.DataSource" auth="Container" username="hong" password="tiger"
+ 		   driverClassName="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@localhost:1521:ORCL" 
+ 		   maxActive="20" maxIdel="10" maxwait="-1"/> -->  <!-- url까지는 필수사항 그 뒤는 선택 사항  
+ 		   													maxActive="20"최대 접속 가능 갯수 maxIdel="10"최대 연결 유지 가능 갯수 maxwait="-1" 무한정 대기-->
+</Context>

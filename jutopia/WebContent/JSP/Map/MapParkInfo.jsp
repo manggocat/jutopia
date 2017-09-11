@@ -47,7 +47,7 @@
 		var map = new daum.maps.Map(container, options);
 		var geocoder = new daum.maps.services.Geocoder();
 		
-		geocoder.addressSearch('<%=address%>', function(result, status) {
+		geocoder.addressSearch('<q%=address%>', function(result, status) {
 
 		    // 정상적으로 검색이 완료됐으면 
 		     if (status === daum.maps.services.Status.OK) {
@@ -128,7 +128,7 @@
 		<br>
 		<br>
 		
-	<button>ㅁㅁㄴㅇㄻㄴㅇㄹ</button>
+	<button>주차장 정보 문자로 전송</button>
 	</div>
 
 

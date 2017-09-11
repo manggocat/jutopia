@@ -12,8 +12,8 @@
 	src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
 	charset="UTF-8"></script>
 <script type="text/javascript"
-	src="../../JS/Address_Search/Address_Search.js" charset="UTF-8"></script>
-<link href="../../CSS/Map/mapstyle.css" rel="stylesheet" type="text/css">
+	src="./JS/Address_Search/Address_Search.js" charset="UTF-8"></script>
+<link href="./CSS/Map/mapstyle.css" rel="stylesheet" type="text/css">
 <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
 
 
@@ -41,11 +41,11 @@
 
 			$("#road_address").click(function() {
 
-				$("#Address_informaiton").load("Street_Address.jsp");
+				$("#Address_informaiton").load("JSP/Map/Street_Address.jsp");
 			});
 
 			$("#address").click(function() {
-				$("#Address_informaiton").load("Address.jsp");
+				$("#Address_informaiton").load("JSP/Map/Address.jsp");
 
 			});
 
@@ -53,10 +53,7 @@
 	</script>
 	<br>
 
-	<%
-		String a = "판교";
-	%>
-
+	
 	<div class="map_wrap">
 		<div id="map"
 			style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
@@ -207,7 +204,7 @@
 					+ (index + 1)
 					+ '"></span>'
 					+ '<div class="info" onclick="location.href='
-					+ "'MapParkInfo.jsp?name="
+					+ "'mapparkinfo.do?name="
 					+ places.place_name
 					+ "&address="
 					+places.road_address_name

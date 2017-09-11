@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="email.TempKey" %>
+<%@ page import="jutopia.email.TempKey" %>
 
 <%
 // 인증코드를 생성한다.
@@ -174,7 +174,7 @@ String key = new TempKey().getKey(6, false);
       } 
       
       alert("가입되었습니다.");
-      
+      document.userinfo.submit();
    }   
    
 </script>
@@ -202,7 +202,7 @@ String key = new TempKey().getKey(6, false);
 <center>
 <nav class="navi">
 <br>
-<form method="post" action="member_login_Form.jsp" name="userinfo" id="userinfo" onsubmit="checkIt();return false;">
+<form method="post" action="signupPro.do" name="userinfo" id="userinfo" onsubmit="checkIt();return false;">
 <table class="insert_form" border="1" cellspacing="0" cellpadding="3" width="700">
    <tr>
    <td colspan="2" align="center">

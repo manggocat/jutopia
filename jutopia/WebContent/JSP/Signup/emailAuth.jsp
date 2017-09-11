@@ -4,7 +4,7 @@
 <%@ page import="javax.mail.internet.MimeMessage" %>
 <%@ page import="javax.mail.internet.MimeUtility" %>
 <%@ page import="java.util.Properties" %>
-<%@ page import="email.TempKey" %>
+<%@ page import="jutopia.email.TempKey" %>
 
 <%!
     public class MyAuthentication extends Authenticator { //아이디 패스워드 인증받기 함수

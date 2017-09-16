@@ -6,9 +6,6 @@ import java.sql.ResultSet;
 
 import dbclose.util.CloseUtil;
 import dbconnManager.DbManager;
-import jutopia.login.LoginVO;
-import jutopia.signup.SignupDAO;
-import jutopia.signup.SignupVO;
 
 public class MypageDAO {
 
@@ -33,7 +30,7 @@ public class MypageDAO {
 		try{
 			
 			conn = DbManager.getConnection("SignupDB");
-			// 현재 board 테이블에 레코드 유무 판단과 글 번호 지정
+			// �쁽�옱 board �뀒�씠釉붿뿉 �젅肄붾뱶 �쑀臾� �뙋�떒怨� 湲� 踰덊샇 吏��젙
 						
 			pstmt = conn.prepareStatement(DbManager.delete("Sign_up", "sz_user_id_email", mypageVO.getStr_User_ID_Email()));
 			
@@ -57,7 +54,7 @@ public class MypageDAO {
 		
 		try{
 			conn =DbManager.getConnection("SignupDB");
-			// 현재 board 테이블에 레코드 유무 판단과 글 번호 지정
+			// �쁽�옱 board �뀒�씠釉붿뿉 �젅肄붾뱶 �쑀臾� �뙋�떒怨� 湲� 踰덊샇 吏��젙
 			String[] arrAttribute={"sz_user_id_email","sz_user_pwd"};
 			
 			

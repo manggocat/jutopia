@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context reloadable="true">
+ <WatchedResource>WEB-INF/web.xml</WatchedResource>
+ 
+ 
+ <Resource name="jdbc:SignupDB" type="javax.sql.DataSource" auth="Container" username="hong" password="tiger"
+ 		   driverClassName="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@localhost:1521:ORCL" 
+ 		   maxActive="20" maxIdel="10" maxwait="-1"/> 
+ 
+ <!-- <Resource name = "jdbc:BookingDB"
+		      auth = "Container"
+		      type = "javax.sql.DataSource"
+		      username = "bamm"
+		      password = "oracle"
+		      driverClassName = "oracle.jdbc.OracleDriver"
+		      url = "jdbc:oracle:thin:@localhost:1521:XE"
+	/>
+	
+	<Resource name = "jdbc:ParkingDB"
+		      auth = "Container"
+		      type = "javax.sql.DataSource"
+		      username = "bamm"
+		      password = "oracle"
+		      driverClassName = "oracle.jdbc.OracleDriver"
+		      url = "jdbc:oracle:thin:@localhost:1521:XE"
+	/> -->
+</Context>

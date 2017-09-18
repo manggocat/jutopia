@@ -5,8 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import jutopia.Sign_Up.Sign_up_DAO;
-import jutopia.Sign_Up.Sign_up_VO;
+import jutopia.SignUp.Sign_up_DAO;
+import jutopia.SignUp.Sign_up_VO;
 import jutopia.action.CommandAction;
 import jutopia.mypage.MypageDAO;
 import jutopia.mypage.MypageVO;

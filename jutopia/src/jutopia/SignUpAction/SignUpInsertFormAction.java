@@ -10,7 +10,8 @@ public class SignUpInsertFormAction extends HttpServlet implements CommandAction
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return "/JSP/Sign_Up/Sign_Up_Insert_Form.jsp";
+		
+		return "/JSP/SignUp/SignUp_Insert_Form.jsp";
 	}
 
 }

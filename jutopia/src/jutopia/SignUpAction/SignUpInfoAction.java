@@ -10,8 +10,8 @@ public class SignUpInfoAction extends HttpServlet implements CommandAction {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
-		return "JSP/Sign_Up/Sign_Up_Info.jsp";
+		
+		return "JSP/SignUp/SignUp_Insert_Info.jsp";
 	}
 
 }

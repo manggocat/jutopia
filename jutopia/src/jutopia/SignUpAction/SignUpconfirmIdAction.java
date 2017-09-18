@@ -11,7 +11,7 @@ public class SignUpconfirmIdAction extends HttpServlet implements CommandAction 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		return "JSP/Sign_Up/Sign_Up_confirmId.jsp";
+		return "JSP/SignUp/SignUp_confirmId.jsp";
 	}
 
 }

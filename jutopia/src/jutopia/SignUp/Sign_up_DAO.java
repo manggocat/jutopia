@@ -1,4 +1,4 @@
-package jutopia.Sign_Up;
+package jutopia.SignUp;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 
 import dbclose.util.CloseUtil;
 import dbconnManager.DbManager;
-import jutopia.Sign_Up.Sign_up_VO;
+import jutopia.SignUp.Sign_up_VO;
 
 public class Sign_up_DAO {
 

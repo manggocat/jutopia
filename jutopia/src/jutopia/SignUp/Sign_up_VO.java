@@ -1,4 +1,4 @@
-package jutopia.Sign_Up;
+package jutopia.SignUp;
 
 public class Sign_up_VO {
 	

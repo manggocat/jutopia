@@ -4,8 +4,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jutopia.Sign_Up.Sign_up_DAO;
-import jutopia.Sign_Up.Sign_up_VO;
+import jutopia.SignUp.Sign_up_DAO;
+import jutopia.SignUp.Sign_up_VO;
 import jutopia.action.CommandAction;
 
 public class SignUpInsertProAction extends HttpServlet implements CommandAction {
@@ -38,7 +38,7 @@ public class SignUpInsertProAction extends HttpServlet implements CommandAction 
 		//response.sendRedirect("Main_Test.jsp");
 
 		
-		return "/JSP/Sign_Up/Sign_Up_Insert_Pro.jsp";
+		return "/JSP/SignUp/SignUp_Insert_Pro.jsp";
 	}
 
 }

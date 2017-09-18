@@ -1,19 +1,13 @@
 package jutopia.booking;
 
-import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-
 import dbclose.util.CloseUtil;
+import dbconnManager.DbManager;
 
 public class BookingDAO {
 	
@@ -29,12 +23,12 @@ public class BookingDAO {
 		
 	}
 	
-	public Connection getConnection() throws Exception
+	/*public Connection getConnection() throws Exception
 	{
 		Context ctx = new InitialContext();
 		DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc:BookingDB");
 		return ds.getConnection();
-	}
+	}*/
 	
 	
 	public void insert(BookingVO vo) throws Exception
@@ -45,7 +39,7 @@ public class BookingDAO {
 		StringBuffer sb = new StringBuffer();
 		sb.append("INSERT INTO BOOKING(N_BOOK_NUM, SZ_BOOK_ID_EMAIL, SZ_BOOK_NAME, SZ_BOOK_CAR_NUM, SZ_BOOK_CAR_KINDS, SZ_BOOK_TEL, DATE_BOOK_DAY, DATE_BOOK_START_TIME, DATE_BOOK_END_TIME, SZ_PARKING_PLACE, N_RESERVE_DISCRIMINATE ) ");
 		sb.append(" VALUES(BOOKING_N_BOOK_NUM.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) ");
-		conn = getConnection();
+		conn = DbManager.getConnection("BookingDB");
 		pstmt = conn.prepareStatement(sb.toString());
 			
 		pstmt.setString(1, vo.getStr_book_id_email());
@@ -80,7 +74,7 @@ public class BookingDAO {
 		try
 		{
 			
-			conn = getConnection();
+			conn = DbManager.getConnection("BookingDB");
 			pstmt = conn.prepareStatement("SELECT SZ_BOOK_CAR_NUM FROM BOOKING WHERE SZ_BOOK_CAR_NUM = ?");
 			pstmt.setString(1, str_book_car_num);
 			System.out.println(str_book_car_num);
@@ -128,7 +122,7 @@ public class BookingDAO {
 	    
 	    try 
 	    {
-			conn = getConnection();
+			conn = DbManager.getConnection("BookingDB");
 			StringBuffer sb = new StringBuffer();
 			
 			sb.append("SELECT SZ_PARKING_PLACE, N_RESERVE_DISCRIMINATE  FROM BOOKING");

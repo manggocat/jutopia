@@ -113,7 +113,7 @@ public class DbManager {
 
 		for (int nStartarr = 0; nStartarr < arrAttribute.length; nStartarr++) {
 
-			strSetAttribute += arrAttribute[nStartarr] + " = " + arrValue[nStartarr];
+			strSetAttribute += arrAttribute[nStartarr] + " = '" + arrValue[nStartarr]+"'";
 			if (nStartarr < arrAttribute.length - 1) {
 				strSetAttribute += " , ";
 			}
@@ -121,7 +121,7 @@ public class DbManager {
 		}
 
 		String strQuery = "update " + strDbname + " set " + strSetAttribute + " where " + strWhereAttribute + " = "
-				+ strWhere;
+				+"'" +strWhere+"'";
 		System.out.println("strQuery:" + strQuery);
 		return strQuery;
 	}

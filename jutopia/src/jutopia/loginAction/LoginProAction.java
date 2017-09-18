@@ -34,6 +34,6 @@ public class LoginProAction implements CommandAction {
 		}
 		
 		
-		return "/JSP/Signup/test.jsp";
+		return "/JSP/Sign_Up/test.jsp";
 	}
 }

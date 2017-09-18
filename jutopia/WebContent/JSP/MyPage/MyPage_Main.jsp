@@ -33,7 +33,20 @@ window.location.href="mapmainForm.do";
 <c:if test="${nCheck==-1}">
 <script type="text/javascript">
 alert("비밀번호가 다릅니다");
+</c:if>
 </script>
+
+<c:if test="${nUpdateCheck==1 }">
+<script type="text/javascript">
+
+window.location.href="MyPageUpdateFormAction.do";
+</script>
+</c:if>
+<c:if test="${nUpdateCheck==-1}">
+<script type="text/javascript">
+alert("비밀번호가 다릅니다");
+</script>
+
 </c:if>
 	<br>
 	<br>
@@ -42,15 +55,15 @@ alert("비밀번호가 다릅니다");
 		<tr>
 			<td rowspan="3" width="100px"></td>
 			<td>이 름</td>
-			<td width="200px">정보</td>
+			<td width="200px">${mypageVO.getStr_User_Name()}</td>
 		</tr>
 		<tr>
 			<td>전화번호</td>
-			<td width="200px">정보</td>
+			<td width="200px">${mypageVO.getStr_User_Tel()}</td>
 		</tr>
 		<tr>
 			<td>E-mail</td>
-			<td width="200px">정보</td>
+			<td width="200px">${mypageVO.getStr_User_ID_Email()}</td>
 		</tr>
 	</table>
 

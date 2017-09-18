@@ -4,7 +4,7 @@ update SIGN_UP set sz_user_name  where sz_user_name
 
 desc SIGN_UP;
 
-insert into sign_up(sz_user_id_email , sz_user_name , sz_user_pwd , sz_user_tel,sz_manamer) values( 'wangi0305@naver.com' , 'qwe' , 'q' , '111' , null ) 
+insert into sign_up(sz_user_id_email , sz_user_name , sz_user_pwd , sz_user_tel,sz_manamer) values( 'wangi0304@naver.com' , 'hong' , 'q' , '010-5055-0240' , null ) 
 
 select sz_user_id_email, sz_user_pwd from Sign_up;
 

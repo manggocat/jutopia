@@ -10,6 +10,6 @@ public class LoginFormAction implements CommandAction {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		// TODO Auto-generated method stub
-		return "/JSP/Signup/member_login_Form.jsp";
+		return "/JSP/Sign_Up/member_login_Form.jsp";
 	}
 }

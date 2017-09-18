@@ -8,29 +8,25 @@ import jutopia.action.CommandAction;
 import jutopia.mypage.MypageDAO;
 import jutopia.mypage.MypageVO;
 
-public class MyModifiedAction implements CommandAction{
-
+public class MyPageSecessionProAction implements CommandAction {
+	
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		// TODO Auto-generated method stub
+		
+		
 		HttpSession session = req.getSession(true);
 		MypageDAO mypageDAO = MypageDAO.get_Instance();
 		MypageVO mypageVO = new MypageVO();
 		mypageVO.setStr_User_ID_Email(req.getParameter("strUserId"));
 		mypageVO.setStr_User_Pwd(req.getParameter("strUserpwd"));
 		
-		int nCheck=mypageDAO.MypageSelect(mypageVO);
+		int nUpdateCheck=mypageDAO.MypageSelect(mypageVO);
 		
-		if(nCheck==1){
-			mypageDAO.MyPageDelete(mypageVO);
-			session.invalidate();
-		}
-			
 		
-		req.setAttribute("nCheck", nCheck);
+		req.setAttribute("nUpdateCheck", nUpdateCheck);
 		
-		return "JSP/MyPage/MyPage_Main.jsp";
-		
+		return "MyPageMainForm.do";
 	}
 
-	
 }

@@ -1,13 +1,22 @@
 package jutopia.booking;
 
+import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 import dbclose.util.CloseUtil;
-import dbconnManager.DbManager;
 
 public class BookingDAO {
 	
@@ -23,12 +32,12 @@ public class BookingDAO {
 		
 	}
 	
-	/*public Connection getConnection() throws Exception
+	public Connection getConnection() throws Exception
 	{
 		Context ctx = new InitialContext();
-		DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc:BookingDB");
+		DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc:jutopiaDB");
 		return ds.getConnection();
-	}*/
+	}
 	
 	
 	public void insert(BookingVO vo) throws Exception
@@ -37,22 +46,23 @@ public class BookingDAO {
 		PreparedStatement pstmt=null;
 
 		StringBuffer sb = new StringBuffer();
-		sb.append("INSERT INTO BOOKING(N_BOOK_NUM, SZ_BOOK_ID_EMAIL, SZ_BOOK_NAME, SZ_BOOK_CAR_NUM, SZ_BOOK_CAR_KINDS, SZ_BOOK_TEL, DATE_BOOK_DAY, DATE_BOOK_START_TIME, DATE_BOOK_END_TIME, SZ_PARKING_PLACE, N_RESERVE_DISCRIMINATE ) ");
-		sb.append(" VALUES(BOOKING_N_BOOK_NUM.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) ");
-		conn = DbManager.getConnection("BookingDB");
+		sb.append("INSERT INTO BOOKING(N_BOOK_NUM, SZ_PARKING_LOCATION, SZ_BOOK_ID_EMAIL, SZ_BOOK_NAME, SZ_BOOK_CAR_NUM, SZ_BOOK_CAR_KINDS, SZ_BOOK_TEL, DATE_BOOK_DAY, SZ_BOOK_START, SZ_BOOK_END, SZ_PARKING_PLACE, N_RESERVE_DISCRIMINATE ) ");
+		sb.append(" VALUES(BOOKING_N_BOOK_NUM.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) ");
+		conn = getConnection();
 		pstmt = conn.prepareStatement(sb.toString());
 			
-		pstmt.setString(1, vo.getStr_book_id_email());
-		pstmt.setString(2, vo.getStr_book_name());
-		pstmt.setString(3, vo.getStr_book_car_num());
-		pstmt.setString(4, vo.getStr_book_car_kinds());
-		pstmt.setString(5, vo.getStr_book_tel());
+		pstmt.setString(1, vo.getStr_parking_location());
+		pstmt.setString(2, vo.getStr_book_id_email());
+		pstmt.setString(3, vo.getStr_book_name());
+		pstmt.setString(4, vo.getStr_book_car_num());
+		pstmt.setString(5, vo.getStr_book_car_kinds());
+		pstmt.setString(6, vo.getStr_book_tel());
 		
-		pstmt.setTimestamp(6, vo.getDate_book_day());
-		pstmt.setTimestamp(7, vo.getDate_book_start_time());
-		pstmt.setTimestamp(8, vo.getDate_book_end_time());
-		pstmt.setString(9, vo.getStr_parking_place());
-		pstmt.setInt(10, vo.getN_reserve_discrimintae());
+		pstmt.setString(7, vo.getDate_book_day());
+		pstmt.setString(8,vo.getDate_book_start_time());
+		pstmt.setString(9,vo.getDate_book_end_time());
+		pstmt.setString(10, vo.getStr_parking_place());
+		pstmt.setInt(11, vo.getN_reserve_discrimintae());
 						
 		int result = pstmt.executeUpdate();
 		
@@ -74,7 +84,7 @@ public class BookingDAO {
 		try
 		{
 			
-			conn = DbManager.getConnection("BookingDB");
+			conn = getConnection();
 			pstmt = conn.prepareStatement("SELECT SZ_BOOK_CAR_NUM FROM BOOKING WHERE SZ_BOOK_CAR_NUM = ?");
 			pstmt.setString(1, str_book_car_num);
 			System.out.println(str_book_car_num);
@@ -113,7 +123,7 @@ public class BookingDAO {
 		
 	}
 	
-	public List<BookingVO> getSelectPosition(String str_parking_position)
+	public List<BookingVO> getSelectPosition(String str_parking_location, String Date_book_day, String Date_book_start_time, String Date_book_end_time)
 	{
 		Connection conn = null;
 	    PreparedStatement pstmt = null;
@@ -122,31 +132,49 @@ public class BookingDAO {
 	    
 	    try 
 	    {
-			conn = DbManager.getConnection("BookingDB");
+			conn = getConnection();
 			StringBuffer sb = new StringBuffer();
 			
-			sb.append("SELECT SZ_PARKING_PLACE, N_RESERVE_DISCRIMINATE  FROM BOOKING");
-			/*sb.append("SELECT SZ_PARKING_PLACE FROM BOOKING WHERE DATE_BOOK_DAY = ? AND DATE_BOOK_START_TIME = ? AND DATE_BOOK_END_TIME = ?");*/
-			
+			sb.append("SELECT SZ_PARKING_PLACE, N_RESERVE_DISCRIMINATE FROM BOOKING WHERE SZ_PARKING_LOCATION = ? AND SZ_BOOK_START=? AND DATE_BOOK_DAY=? ");
+			conn = getConnection();
 			pstmt = conn.prepareStatement(sb.toString());
-			/*pstmt.setString(1, );
-			pstmt.setString(2, );
-			pstmt.setString(3, );*/
-			rs = pstmt.executeQuery();
+			BookingVO vo = new BookingVO();
 			
+			pstmt.setString(1, str_parking_location);
+			pstmt.setString(3, Date_book_day);
+			pstmt.setString(2, Date_book_start_time);
+			
+			System.out.println("Date_book_day = " + Date_book_day);
+			System.out.println("Date_book_start_time = " + Date_book_start_time);
+			/*pstmt.setString(3, Date_book_end_time);*/
+			
+			rs = pstmt.executeQuery();
+			System.out.println("rs = " + rs);
 			if(rs.next())
 			{
 				Booking_list = new ArrayList();
 				
 				do
-				{
-					BookingVO vo = new BookingVO();
+				{			
+					BookingVO lvo = new BookingVO();
+					lvo.setStr_parking_place(rs.getString("SZ_PARKING_PLACE"));
+					System.out.println("SZ_PARKING_PLACE_list = " + rs.getString("SZ_PARKING_PLACE"));
+					lvo.setN_reserve_discrimintae(rs.getInt("N_RESERVE_DISCRIMINATE"));
+					System.out.println("N_RESERVE_DISCRIMINATE_list = " + rs.getInt("N_RESERVE_DISCRIMINATE"));
 					
-					vo.setStr_parking_place(rs.getString("SZ_PARKING_PLACE"));
-					vo.setN_reserve_discrimintae(rs.getInt("N_RESERVE_DISCRIMINATE"));
+					Booking_list.add(lvo);
 					
-					Booking_list.add(vo);
+					for(int i = 0 ; i < Booking_list.size(); i++)
+					{
+					System.out.println("리스트 = " + Booking_list.get(i));
+					}
 				}while(rs.next());
+				
+				
+			}
+			else
+			{
+				Booking_list = new ArrayList();
 			}
 		} 
 	    catch (Exception e) 

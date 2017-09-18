@@ -1,16 +1,35 @@
 package jutopia.booking;
 
+import java.sql.Time;
 import java.sql.Timestamp;
-import java.util.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import java.sql.Date;
 
 public class BookingVO {
 	private int n_book_num, n_reserve_discrimintae;
-	private String str_book_id_email, str_book_name, str_book_car_num, str_book_car_kinds, str_book_tel, str_parking_place;
-	private Timestamp date_book_day, date_book_start_time, date_book_end_time;
+	private String str_parking_location, str_book_id_email, str_book_name, str_book_car_num, str_book_car_kinds, str_book_tel, str_parking_place;
+
+	private String str_book_start, str_book_end, date_book_day;
+	/*private Date date_book_day;*/
 	public BookingVO()
 	{
 		
 	}
+	
+	
+	public String getStr_parking_location() {
+		return str_parking_location;
+	}
+
+
+	public void setStr_parking_location(String str_parking_location) {
+		this.str_parking_location = str_parking_location;
+	}
+
+
 	public int getN_book_num() {
 		return n_book_num;
 	}
@@ -59,25 +78,37 @@ public class BookingVO {
 	public void setStr_parking_place(String str_parking_place) {
 		this.str_parking_place = str_parking_place;
 	}
-	public Timestamp getDate_book_day() {
+	public String getDate_book_day() {
+		
 		return date_book_day;
 	}
-	public void setDate_book_day(Timestamp date_book_day) {
+	
+	
+	public void setDate_book_day(String date_book_day) throws ParseException 
+	{
+		/*DateFormat	 sdf = new SimpleDateFormat("yyyy-MM-dd");
+		System.out.println(date_book_day);
+		java.util.Date utildate = sdf.parse(date_book_day);
+		java.sql.Date sqlDate = new java.sql.Date(utildate.getTime());
+		this.date_book_day = sqlDate;
+		System.out.println("result: "+this.date_book_day);*/
 		this.date_book_day = date_book_day;
 	}
-	public Timestamp getDate_book_start_time() {
-		return date_book_start_time;
+	
+	public String getDate_book_start_time() {
+		return str_book_start;
 	}
-	public void setDate_book_start_time(Timestamp date_book_start_time) {
-		this.date_book_start_time = date_book_start_time;
+	public void setDate_book_start_time(String book_start_time)  {
+	
+		System.out.println(book_start_time);
+		this.str_book_start = book_start_time;
 	}
-	public Timestamp getDate_book_end_time() {
-		return date_book_end_time;
+	public String getDate_book_end_time() {
+		return str_book_end;
 	}
-	public void setDate_book_end_time(Timestamp date_book_end_time) {
-		this.date_book_end_time = date_book_end_time;
-	}
+	public void setDate_book_end_time(String date_book_end_time) {
 
-
-
+		System.out.println(date_book_end_time);
+		this.str_book_end = date_book_end_time;
+	}
 }

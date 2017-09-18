@@ -14,7 +14,7 @@ public class BookingDeleteFormAction implements CommandAction {
 		
 		request.setAttribute("str_book_car_num", str_book_car_num);
 		
-		return "/JSP/Booking/BookingDeleteForm.jsp";
+		return "JSP/Booking/BookingDeleteForm.jsp";
 	}
 
 }

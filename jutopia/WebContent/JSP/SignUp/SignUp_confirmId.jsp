@@ -96,6 +96,7 @@
 	function setemail(){
 	opener.document.userinfo.text_mail_1.value="<%=email1%>";
  	opener.document.userinfo.text_mail_2.value="<%=email2%>";
+ 	opener.document.userinfo.select_email.value="<%=email2%>";
 	self.close();
 	}
 //--> 

@@ -21,13 +21,15 @@
 	onclick="setMain()">
 	</center>
 	
-	<script type="text/javascript">
-	function setMain() {
-		var main =  window.open("mapmainForm.do");
-		self.close();
-		/* main.document.write("<center><pre>주토피아 홈페이지에 접속하신 걸 환영합니다. <br><br> 즐거운 시간 보내시길 바랍니다.</pre></center>"); */
-	}
-	</script>
+	 <script type="text/javascript">
+   function setMain() {
+      window.opener.location.href="mapmainForm.do"; // 부모창을 변경해라.
+      window.close(); // popup1.html은 닫쳐라.
+      /* var main =  window.open("Main_Te2t.do");
+      self.close(); */
+      /* main.document.write("<center><pre>주토피아 홈페이지에 접속하신 걸 환영합니다. <br><br> 즐거운 시간 보내시길 바랍니다.</pre></center>"); */
+   }
+   </script>
 
 	<!-- <meta http-equiv="Refresh" content="0; url=javascript:window.location='Main_Te2t.do' "> -->
 </c:if>

@@ -15,7 +15,7 @@ public class MyPageUpdateProAction extends HttpServlet implements CommandAction 
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		
-		
+		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession(true);
 		MypageDAO mypageDAO = MypageDAO.get_Instance();
 		MypageVO mypageVO = new MypageVO();
@@ -28,7 +28,7 @@ public class MyPageUpdateProAction extends HttpServlet implements CommandAction 
 		mypageVO.setStr_User_Tel(request.getParameter("strUsertel"));
 		mypageVO.setStr_User_Pwd(request.getParameter("strUserpwd"));
 		
-		
+		System.out.println("strUsername"+request.getParameter("strUsername"));
 		mypageDAO.MypageInfoUpdate(mypageVO);
 		
 		/*HttpSession session = request.getSession(true);

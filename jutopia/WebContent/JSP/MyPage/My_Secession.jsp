@@ -21,7 +21,7 @@
 				
 		<tr>
 			<td>비밀번호 :</td>
-			<td><input type="text" placeholder="비밀번호확인" name="strUserpwd"></td>
+			<td><input type="password" placeholder="비밀번호확인" name="strUserpwd"></td>
 		</tr>
 		<tr>
 			<td colspan="2"><input type="submit" value="확인" /></td>

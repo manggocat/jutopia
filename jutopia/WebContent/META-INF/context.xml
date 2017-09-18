@@ -4,7 +4,7 @@
  <WatchedResource>WEB-INF/web.xml</WatchedResource>
  
  
- <Resource name="jdbc:SignupDB" type="javax.sql.DataSource" auth="Container" username="hong" password="tiger"
+ <Resource name="jdbc:jutopiaDB" type="javax.sql.DataSource" auth="Container" username="hong" password="tiger"
  		   driverClassName="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@localhost:1521:ORCL" 
  		   maxActive="20" maxIdel="10" maxwait="-1"/> 
  

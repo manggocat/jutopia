@@ -12,9 +12,11 @@ select sz_user_id_email, sz_user_pwd from Sign_up ;
 
 select sz_user_id_email, sz_user_pwd from Sign_up where sz_user_id_email = 'wangi0304@naver.com';
 commit
+
+drop table SIGN_UP;
  
 
 
 delete from Sign_up where sz_user_name = 'qqqqqqqqqq';
 delete from Sign_up where sz_user_id_Email = '15150304@hanmail.net';
-delete from Sign_up where sz_user_id_Email = 'wangi0304@naver.com';
+delete from Sign_up where szuser_id_Email = 'wangi0304@naver.com';

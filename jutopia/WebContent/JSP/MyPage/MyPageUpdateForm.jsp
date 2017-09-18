@@ -8,7 +8,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원의 정보 수정할 거야</title>
 </head>
-
 <body bgcolor="${ bodyback_c }"> 
 <form method="post" action="MyPageUpdateProAction.do">
 <c:catch>

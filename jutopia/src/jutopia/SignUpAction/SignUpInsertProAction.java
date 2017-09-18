@@ -31,14 +31,14 @@ public class SignUpInsertProAction extends HttpServlet implements CommandAction 
 		vo.setSIGN_UP_TEL(request.getParameter("sign_up_tel"));
 		vo.setSIGN_UP_REDUCTION(request.getParameter("sign_up_Reduction"));
 
-		Sign_up_DAO dao = Sign_up_DAO.getInstance(); //연결
+		Sign_up_DAO dao = Sign_up_DAO.getInstance(); //�뿰寃�
 		int result = dao.insert(vo);
 		
 		
 		//response.sendRedirect("Main_Test.jsp");
 
 		
-		return "/JSP/SignUp/SignUp_Insert_Pro.jsp";
+		return "mapmainForm.do";
 	}
 
 }

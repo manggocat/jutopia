@@ -1,25 +1,25 @@
 create table SIGN_UP (
-	SIGN_UP_ID_EMAIL varchar2(50),  -- : 아이디대체
-	SIGN_UP_NAME varchar2(50),      -- : 이름
-	SIGN_UP_PWD varchar2(50),       -- : 비번
-	SIGN_UP_TEL varchar2(50),       -- : 번호
-	SIGN_UP_REDUCTION varchar2(50),	-- : 감면 정책
+	sz_SIGN_UP_ID_EMAIL varchar2(50),  -- : 아이디대체
+	sz_SIGN_UP_NAME varchar2(50),      -- : 이름
+	sz_SIGN_UP_PWD varchar2(50),       -- : 비번
+	sz_SIGN_UP_TEL varchar2(50),       -- : 번호
+	sz_SIGN_UP_REDUCTION varchar2(50),	-- : 감면 정책
 	primary key(SIGN_UP_ID_EMAIL)
 	);
 	select * from SIGN_UP;
 
 	create table SIGN_UP (
-	SIGN_UP_ID_EMAIL varchar2(50),  -- : 아이디대체
-	SIGN_UP_NAME varchar2(50),      -- : 이름
-	SIGN_UP_PWD varchar2(5s0),       -- : 비번
-	SIGN_UP_TEL varchar2(50),       -- : 번호
-	SIGN_UP_REDUCTION varchar2(50),	-- : 감면 정책
-	MANAGER char(1),             -- : 매니저 여부
-	primary key(SIGN_UP_ID_EMAIL)
+	szSIGN_UP_ID_EMAIL varchar2(50),  -- : 아이디대체
+	szSIGN_UP_NAME varchar2(50),      -- : 이름
+	szSIGN_UP_PWD varchar2(50),       -- : 비번
+	szSIGN_UP_TEL varchar2(50),       -- : 번호
+	szSIGN_UP_REDUCTION varchar2(50),	-- : 감면 정책
+	szMANAGER char(1) ,            -- : 매니저 여부
+	primary key(szSIGN_UP_ID_EMAIL)
 	);
 
 ALTER TABLE SIGN_UP add SIGN_UP_REDUCTION varchar2(50);
-DELETE FROM SIGN_UP where SIGN_UP_ID_EMAIL = '1212@naver.com';
+DELETE FROM SIGN_UP where szSIGN_UP_ID_EMAIL = 'wangi0304@naver.com';
 
 select * from SIGN_UP;
 drop table SIGN_UP;

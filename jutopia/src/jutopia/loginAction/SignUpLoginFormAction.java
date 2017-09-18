@@ -11,7 +11,7 @@ public class SignUpLoginFormAction extends HttpServlet implements CommandAction 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		return "JSP/SignUp/SignUp_Login_Form.jsp";
+		return "JSP/Login/SignUp_Login_Form.jsp";
 	}
 
 }

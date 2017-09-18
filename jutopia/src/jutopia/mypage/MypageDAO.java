@@ -27,12 +27,12 @@ public class MypageDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String[] arrAttribute = {"sz_user_name","sz_user_pwd","sz_user_tel"};
+		String[] arrAttribute = {"szSIGN_UP_name","szSIGN_UP_pwd","szSIGN_UP_tel"};
 		String[] arrValue = {mypageVO.getStr_User_Name(),mypageVO.getStr_User_Pwd(),mypageVO.getStr_User_Tel()};
 		
 		try{
 			conn = DbManager.getConnection("SignupDB");
-			pstmt = conn.prepareStatement(DbManager.update("Sign_up", arrAttribute, arrValue, "sz_user_id_email", mypageVO.getStr_User_ID_Email()));
+			pstmt = conn.prepareStatement(DbManager.update("Sign_up", arrAttribute, arrValue, "szSIGN_UP_id_email", mypageVO.getStr_User_ID_Email()));
 			
 			pstmt.executeUpdate();
 			
@@ -58,17 +58,17 @@ public class MypageDAO {
 		
 		try {
 			conn = DbManager.getConnection("SignupDB");
-			String[] arrAttribute = { "sz_user_id_email","sz_user_name","sz_user_tel","sz_user_pwd"};
+			String[] arrAttribute = { "szSIGN_UP_ID_EMAIL","szSIGN_UP_name","szSIGN_UP_tel","szSIGN_UP_pwd"};
 
-			pstmt = conn.prepareStatement(DbManager.select("Sign_up", arrAttribute, "sz_user_id_email", mypageVO.getStr_User_ID_Email()));
+			pstmt = conn.prepareStatement(DbManager.select("Sign_up", arrAttribute, "szSIGN_UP_id_email", mypageVO.getStr_User_ID_Email()));
 			
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
-				mypageVO.setStr_User_ID_Email(rs.getString("sz_user_id_email"));
-				mypageVO.setStr_User_Name(rs.getString("sz_user_name"));
-				mypageVO.setStr_User_Tel(rs.getString("sz_user_tel"));
-				mypageVO.setStr_User_Pwd(rs.getString("sz_user_pwd"));
+				mypageVO.setStr_User_ID_Email(rs.getString("szSIGN_UP_id_email"));
+				mypageVO.setStr_User_Name(rs.getString("szSIGN_UP_name"));
+				mypageVO.setStr_User_Tel(rs.getString("szSIGN_UP_tel"));
+				mypageVO.setStr_User_Pwd(rs.getString("szSIGN_UP_pwd"));
 				
 			}
 		} catch (Exception e) {
@@ -118,10 +118,10 @@ public class MypageDAO {
 		try {
 			conn = DbManager.getConnection("SignupDB");
 			// �쁽�옱 board �뀒�씠釉붿뿉 �젅肄붾뱶 �쑀臾� �뙋�떒怨� 湲� 踰덊샇 吏��젙
-			String[] arrAttribute = { "sz_user_id_email", "sz_user_pwd" };
+			String[] arrAttribute = { "szSIGN_UP_id_email", "szSIGN_UP_pwd" };
 
 			pstmt = conn.prepareStatement(
-					DbManager.select("Sign_Up", arrAttribute, "sz_user_id_email", mypageVO.getStr_User_ID_Email()));
+					DbManager.select("Sign_Up", arrAttribute, "szSIGN_UP_id_email", mypageVO.getStr_User_ID_Email()));
 
 			rs = pstmt.executeQuery();
 

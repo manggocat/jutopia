@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -65,6 +66,7 @@
 }
   
 </script>
+
 <style>
 
 .navi {
@@ -93,6 +95,26 @@
 
 </head>
 <body>
+<c:if test="${ check == 1 }" >
+	<script>
+	window.opener.location.href="mapmainForm.do"; // 부모창을 변경해라.
+	 window.close();
+      </script>
+</c:if>
+<c:if test="${ check ==0 }" >
+	<script type="text/javascript">
+	alert("비밀번호가 틀렸습니다");
+	
+	</script>
+</c:if>
+<c:if test="${ check == -1 }" >
+	<script type="text/javascript">
+	alert("아이디가 없습니다");
+
+		</script>
+</c:if>
+
+
 <center>
 <form name="inForm" method="post" action="SignUp_LoginPro.do"  onSubmit="return checkIt();">
 <table width=500 cellpadding="5" align="center" border="1" >
@@ -115,7 +137,7 @@
 	<tr>
 		<td bgcolor="${ othercolor }"  width="100" align="center">패스워드</td>
 		<td width="200" height="20">
-		<input type="password" name="login_pwd" size="15" maxlength="10">
+		<input type="password" name="login_pwd" size="15" maxlength="20">
 		<input type="submit" name="Submit" value="로그인" >
 		</td>
 	</tr>

@@ -29,13 +29,13 @@ public class SignUpLoginProAction extends HttpServlet implements CommandAction {
 		int check = dao.userCheck(SIGN_UP_ID_EMAIL, SIGN_UP_PWD);
 
 		if ( check == 1 ) {
-		session.setAttribute("SIGN_UP_ID_EMAIL", SIGN_UP_ID_EMAIL);
+		session.setAttribute("memID", SIGN_UP_ID_EMAIL);
 		
 		
 		}
 		request.setAttribute("check", check);
 
-		return "JSP/SignUp/SignUp_Login_Pro.jsp";
+		return "SignUp_LoginForm.do";
 	}
 
 }

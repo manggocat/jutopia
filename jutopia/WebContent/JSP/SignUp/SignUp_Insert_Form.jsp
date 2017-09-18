@@ -102,7 +102,7 @@ String key = new TempKey().getKey(6, false);
 	    	return false;
     	} 
          
-		window.open("JSP/SignUp/Sign_Up_Insert_Popup.jsp?", "회원가입 완료", 
+		window.open("JSP/SignUp/SignUp_Insert_Popup.jsp?", "회원가입 완료", 
 			"width=400, height=300, left=100, top=50");
 		
    }
@@ -175,7 +175,7 @@ String key = new TempKey().getKey(6, false);
             });
       
        
-       alert("이메일 인증을 보냈습니다");
+      
    }
    
    // 인증확인버튼

@@ -41,11 +41,11 @@ public class Sign_up_DAO {
 		int result = -1;
 
 		try {
-			conn = DbManager.getConnection("JUTOPIADB");
+			conn = DbManager.getConnection("jutopiaDB");
 
 			StringBuffer sb = new StringBuffer();
 
-			sb.append("INSERT INTO SIGN_UP(SIGN_UP_ID_EMAIL, SIGN_UP_NAME, SIGN_UP_PWD, SIGN_UP_TEL, SIGN_UP_REDUCTION) values(?, ?, ?, ?, ?) ");
+			sb.append("INSERT INTO SIGN_UP(szSIGN_UP_ID_EMAIL, szSIGN_UP_NAME, szSIGN_UP_PWD, szSIGN_UP_TEL, szSIGN_UP_REDUCTION) values(?, ?, ?, ?, ?) ");
 
 			pstmt = conn.prepareStatement(sb.toString());
 
@@ -70,7 +70,7 @@ public class Sign_up_DAO {
 
 	// userCheck(id_email, pwd) - 로그인 시 사용할 메소드 id/password 체크함
 	public int userCheck(String email, String pwd) throws Exception {
-		String sql = "SELECT SIGN_UP_PWD FROM SIGN_UP WHERE SIGN_UP_ID_EMAIL = ? ";
+		String sql = "SELECT szSIGN_UP_PWD FROM SIGN_UP WHERE szSIGN_UP_ID_EMAIL = ? ";
 		String dbpwd = "";
 		int result = -1;
 		
@@ -81,7 +81,7 @@ public class Sign_up_DAO {
 		ResultSet rs = pstmt.executeQuery();
 		
 		if (rs.next()) {
-			dbpwd = rs.getString("SIGN_UP_PWD");
+			dbpwd = rs.getString("szSIGN_UP_PWD");
 			if (dbpwd.equals(pwd))
 				result = 1; // 인증 성공
 			else
@@ -100,7 +100,7 @@ public class Sign_up_DAO {
 
 	// confirmID(email) - 회원가입 시 email 중복 체크할 때 사용할 메소드
 	public int confirmID(String email) throws Exception {
-		String sql = "SELECT SIGN_UP_ID_EMAIL FROM SIGN_UP WHERE SIGN_UP_ID_EMAIL = ? ";
+		String sql = "SELECT szSIGN_UP_ID_EMAIL FROM SIGN_UP WHERE szSIGN_UP_ID_EMAIL = ? ";
 		int result = -1;
 
 		Connection conn = DbManager.getConnection("JUTOPIADB");

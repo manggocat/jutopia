@@ -18,7 +18,7 @@ public class DbManager {
 	public static Connection getConnection(String strDbname) throws Exception {
 		Context ctx = new InitialContext();
 		Context env = (Context) ctx.lookup("java:comp/env");
-		DataSource ds = (DataSource) env.lookup("jdbc:" + strDbname);
+		DataSource ds = (DataSource) env.lookup("jdbc:jutopiaDB");
 
 		return ds.getConnection();
 	}

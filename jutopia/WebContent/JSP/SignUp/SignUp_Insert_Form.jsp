@@ -170,11 +170,11 @@ String key = new TempKey().getKey(6, false);
                
                data.result;
                
-               alert("이메일 인증을 보냈습니다");
+               
          
             });
       
-       
+       alert("이메일 인증을 보냈습니다");
       
    }
    

@@ -164,7 +164,7 @@ function loginshowPopup() {
 										</ul></li>
 								</ul>
 								<ul class="nav navbar-nav pull-right">
-									<li class=""><a onclick="loginshowPopup()">Login</a></li>
+									<li class=""><a href =""onclick="loginshowPopup()">Login</a></li>
 									<li class=""><a href="SignUp_InsertForm.do">SignUp</a></li>
 								</ul>
 

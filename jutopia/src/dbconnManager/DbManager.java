@@ -14,6 +14,7 @@ public class DbManager {
 	public DbManager() {
 		// TODO Auto-generated constructor stub
 	}
+	
 
 	public static Connection getConnection(String strDbname) throws Exception {
 		Context ctx = new InitialContext();

@@ -14,7 +14,7 @@ public class MapParkInfoAction implements CommandAction {
 		String strname = req.getParameter("name");
 		String straddress = req.getParameter("address");
 		String straddress2 = req.getParameter("address2");
-		String strUrl="http://192.168.0.129:8080/jutopia/mapmainForm.do";
+		String strUrl=req.getRequestURI();
 		if (straddress.length() == 0) {
 			straddress = straddress2;
 		}

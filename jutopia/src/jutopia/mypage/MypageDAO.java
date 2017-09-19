@@ -95,7 +95,7 @@ public class MypageDAO {
 			// �쁽�옱 board �뀒�씠釉붿뿉 �젅肄붾뱶 �쑀臾� �뙋�떒怨� 湲� 踰덊샇 吏��젙
 
 			pstmt = conn
-					.prepareStatement(DbManager.delete("Sign_up", "sz_user_id_email", mypageVO.getStr_User_ID_Email()));
+					.prepareStatement(DbManager.delete("Sign_up", "szSIGN_UP_ID_EMAIL", mypageVO.getStr_User_ID_Email()));
 
 			pstmt.executeUpdate();
 		} catch (Exception e) {

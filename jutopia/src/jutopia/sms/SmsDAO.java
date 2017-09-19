@@ -7,18 +7,53 @@ import java.io.OutputStreamWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.security.MessageDigest;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dbclose.util.CloseUtil;
+import dbconnManager.DbManager;
 import sun.misc.BASE64Encoder;
 
 public class SmsDAO {
 	HttpServletRequest request;
 	HttpServletResponse response;
 
+	
+	public String smsSelect(String szSIGN_UP_ID_EMAIL){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String rphone="";
+		String[] arrAttribute = {"szSIGN_UP_TEL"};
+		
+		try{
+			conn = DbManager.getConnection("jutopiaDB");
+			pstmt = conn.prepareStatement(DbManager.select("Sign_up", arrAttribute, "szSIGN_UP_ID_EMAIL", szSIGN_UP_ID_EMAIL));
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				rphone= rs.getString("szSIGN_UP_TEL");
+				
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			CloseUtil.close(rs);
+			CloseUtil.close(pstmt);
+			CloseUtil.close(conn);
+		}
+		
+		return rphone;
+	}
+	
 	public SmsDAO(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		this.request = request;
 		this.response = response;
@@ -44,9 +79,9 @@ public class SmsDAO {
 		return result;
 	}
 
-	public  void send()throws Exception{
+	public  void send(String strPhone)throws Exception{
 		
-		   String charsetType = "UTF-8"; //EUC-KR 또는 UTF-8
+		   String charsetType = "UTF-8"; //EUC-KR �삉�뒗 UTF-8
 
 		    request.setCharacterEncoding(charsetType);
 		    response.setCharacterEncoding(charsetType);
@@ -54,13 +89,13 @@ public class SmsDAO {
 		    if(action.equals("go")) {
 
 		        String sms_url = "";
-		        sms_url = "https://sslsms.cafe24.com/sms_sender.php"; // SMS 전송요청 URL
-		        String user_id = base64Encode("wangi0304"); // SMS아이디
-		        String secure = base64Encode("76cbbe87090606943f1c49cf98588d5d");//인증키
+		        sms_url = "https://sslsms.cafe24.com/sms_sender.php"; // SMS �쟾�넚�슂泥� URL
+		        String user_id = base64Encode("wangi0304"); // SMS�븘�씠�뵒
+		        String secure = base64Encode("76cbbe87090606943f1c49cf98588d5d");//�씤利앺궎
 		        String msg = base64Encode(nullcheck(request.getParameter("msg"), ""));
 		        System.out.println("msg:"+request.getParameter("msg"));
 		        System.out.println("msg64:"+msg);
-		        String rphone = base64Encode(nullcheck(request.getParameter("rphone"), ""));
+		        String rphone = base64Encode(nullcheck(strPhone, ""));
 		        String sphone1 = base64Encode(nullcheck(request.getParameter("sphone1"), ""));
 		        String sphone2 = base64Encode(nullcheck(request.getParameter("sphone2"), ""));
 		        String sphone3 = base64Encode(nullcheck(request.getParameter("sphone3"), ""));
@@ -85,7 +120,7 @@ public class SmsDAO {
 		        String path = "/" + host_info[3];
 		        int port = 80;
 
-		        // 데이터 맵핑 변수 정의
+		        // �뜲�씠�꽣 留듯븨 蹂��닔 �젙�쓽
 		        String arrKey[]
 		            = new String[] {"user_id","secure","msg", "rphone","sphone1","sphone2","sphone3","rdate","rtime"
 		                        ,"mode","testflag","destination","repeatFlag","repeatNum", "repeatTime", "smsType", "subject"};
@@ -121,7 +156,7 @@ public class SmsDAO {
 		        }
 		        boundary = "---------------------"+boundary.substring(0,11);
 
-		        // 본문 생성
+		        // 蹂몃Ц �깮�꽦
 		        String data = "";
 		        String index = "";
 		        String value = "";
@@ -139,18 +174,18 @@ public class SmsDAO {
 
 		        InetAddress addr = InetAddress.getByName(host);
 		        Socket socket = new Socket(host, port);
-		        // 헤더 전송
+		        // �뿤�뜑 �쟾�넚
 		        BufferedWriter wr = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream(), charsetType));
 		        wr.write("POST "+path+" HTTP/1.0\r\n");
 		        wr.write("Content-Length: "+data.length()+"\r\n");
 		        wr.write("Content-type: multipart/form-data, boundary="+boundary+"\r\n");
 		        wr.write("\r\n");
 
-		        // 데이터 전송
+		        // �뜲�씠�꽣 �쟾�넚
 		        wr.write(data);
 		        wr.flush();
 
-		        // 결과값 얻기
+		        // 寃곌낵媛� �뼸湲�
 		        BufferedReader rd = new BufferedReader(new InputStreamReader(socket.getInputStream(),charsetType));
 		        String line;
 		        String alert = "";
@@ -163,21 +198,21 @@ public class SmsDAO {
 
 		        String tmpMsg = (String)tmpArr.get(tmpArr.size()-1);
 		        String[] rMsg = tmpMsg.split(",");
-		        String Result= rMsg[0]; //발송결과
-		        String Count= ""; //잔여건수
+		        String Result= rMsg[0]; //諛쒖넚寃곌낵
+		        String Count= ""; //�옍�뿬嫄댁닔
 		        if(rMsg.length>1) {Count= rMsg[1]; }
 
-		                        //발송결과 알림
+		                        //諛쒖넚寃곌낵 �븣由�
 		        if(Result.equals("success")) {
-		            alert = "성공적으로 발송하였습니다.";
-		            alert += " 잔여건수는 "+ Count+"건 입니다.";
+		            alert = "�꽦怨듭쟻�쑝濡� 諛쒖넚�븯���뒿�땲�떎.";
+		            alert += " �옍�뿬嫄댁닔�뒗 "+ Count+"嫄� �엯�땲�떎.";
 		        }
 		        else if(Result.equals("reserved")) {
-		            alert = "성공적으로 예약되었습니다";
-		            alert += " 잔여건수는 "+ Count+"건 입니다.";
+		            alert = "�꽦怨듭쟻�쑝濡� �삁�빟�릺�뿀�뒿�땲�떎";
+		            alert += " �옍�뿬嫄댁닔�뒗 "+ Count+"嫄� �엯�땲�떎.";
 		        }
 		        else if(Result.equals("3205")) {
-		            alert = "잘못된 번호형식입니다.";
+		            alert = "�옒紐삳맂 踰덊샇�삎�떇�엯�땲�떎.";
 		        }
 		        else {
 		            alert = "[Error]"+Result;

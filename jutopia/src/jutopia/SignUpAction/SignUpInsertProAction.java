@@ -11,8 +11,7 @@ import jutopia.action.CommandAction;
 public class SignUpInsertProAction extends HttpServlet implements CommandAction {
 
 	@Override
-	public String process(HttpServletRequest request, 
-			HttpServletResponse response) throws Exception {
+	public String process(HttpServletRequest request,HttpServletResponse response) throws Exception {
 		
 		
 		request.setCharacterEncoding("UTF-8");

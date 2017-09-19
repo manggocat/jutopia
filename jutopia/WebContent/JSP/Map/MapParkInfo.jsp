@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +20,11 @@
 
 </head>
 <body onload="loadJSON()">
+<c:if test="${ smsCheck == 1}">
+<script type="text/javascript">
+alert("문자가 전송되었습니다");
+</script>
+</c:if>
 	<form action="smsPro.do">
 		<input type="hidden" name="smsType" value="L">
 <input type="hidden" name="name" value="${name }">
@@ -122,16 +127,17 @@
 			</div>
 			<br> <br> <br> <input type="hidden" name="action"
 				value="go"> <input type="hidden" name="msg" value="${name}
-				${address}
-				${url}">
+				${address}">
 
-			<input type="hidden" name="rphone" value="01044461939"> <input
+			<!-- <input type="hidden" name="rphone" value="01031934635"> --> <input
 				type="hidden" name="sphone1" value="010"> <input
 				type="hidden" name="sphone2" value="5055"> <input
 				type="hidden" name="sphone3" value="0240">
 
+<c:if test="${sessionScope.memID!=null}">
 			<button type="submit">주차장 정보 문자로 전송</button>
-
+			<c:out value="${url }"></c:out>
+			</c:if>
 		</div>
 
 

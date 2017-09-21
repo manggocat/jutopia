@@ -22,12 +22,6 @@
 	margin-top: 15px;
 }
 
-hr {
-	margin-top: 50px;
-	margin-bottom: 20px;
-	border: 0;
-	border-top: 1px solid #eeeeee;
-}
 
 #map {
 	width: 500px;
@@ -37,3 +31,15 @@ hr {
 .width83 {
 	width: 83.33333333%;
 }
+
+#mapinfowrap {
+	align: center;
+	text-align: left;
+}
+
+hr{
+	margin-top: 50px;
+	margin-bottom: 20px;
+	border: 0;
+	border-top: 3px solid #ffffff;
+} 

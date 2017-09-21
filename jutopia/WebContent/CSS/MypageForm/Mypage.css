@@ -1,0 +1,80 @@
+
+table {
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: left;
+    line-height: 1.5;
+    
+    border-top: 1px solid #ccc;
+  margin : 20px 10px;
+}
+table tr {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+table td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+    text-align : center;
+    border-bottom: 1px solid #ccc;
+}
+.height{
+   height : 15px;
+}
+.name {
+    width: 150px;
+    padding: 10px;
+    vertical-align: top;
+    background: #efefef;
+    border-bottom: 1px solid #ccc;
+    text-align : center;
+}
+
+/* ------------------------------------¹öÆ°--------------------------- */
+body{
+  text-align:center;
+}
+
+button{
+  background:#91b9f3;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:60px;
+  width: 200px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  border-radius: 7px;
+}
+table h3{color : #fff;}
+
+button:hover{
+  background:#fff;
+  color:#91b9f3;
+}
+button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #91b9f3;
+  transition:400ms ease all;
+}
+button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}

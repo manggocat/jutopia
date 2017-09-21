@@ -92,11 +92,11 @@ public class MypageDAO {
 		try {
 
 			conn = DbManager.getConnection("SignupDB");
-			// �쁽�옱 board �뀒�씠釉붿뿉 �젅肄붾뱶 �쑀臾� �뙋�떒怨� 湲� 踰덊샇 吏��젙
+			
 
 			pstmt = conn
 					.prepareStatement(DbManager.delete("Sign_up", "szSIGN_UP_ID_EMAIL", mypageVO.getStr_User_ID_Email()));
-
+			
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -122,7 +122,7 @@ public class MypageDAO {
 
 			pstmt = conn.prepareStatement(
 					DbManager.select("Sign_Up", arrAttribute, "szSIGN_UP_id_email", mypageVO.getStr_User_ID_Email()));
-
+			
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {

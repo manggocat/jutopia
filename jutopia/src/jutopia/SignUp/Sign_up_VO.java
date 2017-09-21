@@ -1,7 +1,7 @@
 package jutopia.SignUp;
 
 public class Sign_up_VO {
-	
+
 	private String SIGN_UP_ID_EMAIL, SIGN_UP_NAME, SIGN_UP_PWD, SIGN_UP_TEL, SIGN_UP_REDUCTION;
 
 	public String getSIGN_UP_ID_EMAIL() {
@@ -43,7 +43,5 @@ public class Sign_up_VO {
 	public void setSIGN_UP_REDUCTION(String sIGN_UP_REDUCTION) {
 		this.SIGN_UP_REDUCTION = sIGN_UP_REDUCTION;
 	}
-
-	
 
 }

@@ -15,8 +15,21 @@ commit
 
 drop table SIGN_UP;
  
+create table SearchWord(
+szSIGN_UP_ID_EMAIL varchar2(50) not null,
+szSearch varchar2(30)not null,
+szAddress varchar2(50)not null,
+datesearchtime date not null
+)
+
+drop table SearchWord;
+select * from searchword;
+
+delete from searchword where szsearch = '판교공영주차장';
 
 
 delete from Sign_up where sz_user_name = 'qqqqqqqqqq';
 delete from Sign_up where sz_user_id_Email = '15150304@hanmail.net';
 delete from Sign_up where szuser_id_Email = 'wangi0304@naver.com';
+
+select szSearch,szAddress from searchword where szsign_up_id_email= 'vovug@hanmail.net' order by datesearchtime desc;

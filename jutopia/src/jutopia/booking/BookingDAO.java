@@ -17,6 +17,8 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import dbclose.util.CloseUtil;
+import dbconnManager.DbManager;
+import jutopia.mypage.MypageVO;
 
 public class BookingDAO {
 	
@@ -39,6 +41,41 @@ public class BookingDAO {
 		return ds.getConnection();
 	}
 	
+	
+	
+	public MypageVO BookingInfoSelect(MypageVO mypageVO) {
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		
+		try {
+			conn = DbManager.getConnection("SignupDB");
+			String[] arrAttribute = { "szSIGN_UP_ID_EMAIL","szSIGN_UP_name","szSIGN_UP_tel","szSIGN_UP_REDUCTION"};
+
+			pstmt = conn.prepareStatement(DbManager.select("Sign_up", arrAttribute, "szSIGN_UP_id_email", mypageVO.getStr_User_ID_Email()));
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				mypageVO.setStr_User_ID_Email(rs.getString("szSIGN_UP_id_email"));
+				mypageVO.setStr_User_Name(rs.getString("szSIGN_UP_name"));
+				mypageVO.setStr_User_Tel(rs.getString("szSIGN_UP_tel"));
+				mypageVO.setStr_User_REDUCTION(rs.getString("szSIGN_UP_REDUCTION"));
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			CloseUtil.close(rs);
+			CloseUtil.close(pstmt);
+			CloseUtil.close(conn);
+		}
+		
+		
+		return mypageVO;
+	}
 	
 	public void insert(BookingVO vo) throws Exception
 	{
@@ -166,7 +203,7 @@ public class BookingDAO {
 					
 					for(int i = 0 ; i < Booking_list.size(); i++)
 					{
-					System.out.println("리스트 = " + Booking_list.get(i));
+					System.out.println("由ъ뒪�듃 = " + Booking_list.get(i));
 					}
 				}while(rs.next());
 				

@@ -6,6 +6,15 @@ public class MypageVO {
 	private String str_User_Name;
 	private String str_User_Pwd;
 	private String str_User_Tel;
+	private String str_User_REDUCTION;
+	
+	public String getStr_User_REDUCTION() {
+		return str_User_REDUCTION;
+	}
+	public void setStr_User_REDUCTION(String str_User_REDUCTION) {
+		this.str_User_REDUCTION = str_User_REDUCTION;
+	}
+	
 	public String getStr_User_ID_Email() {
 		return str_User_ID_Email;
 	}

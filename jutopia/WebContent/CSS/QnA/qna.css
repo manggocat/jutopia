@@ -1,0 +1,62 @@
+<style>
+body{
+   background: #8999A8;
+   background: url('../../image/QnA.jpg') fixed;
+   background-repeat: no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+   font-family: ¸¼Àº °íµñ;
+
+    
+}
+
+.backg {
+	width:90%;
+	background-color: rgba(140, 140, 140, 0.8);
+}
+
+.qnatable {
+	color: #FFFFFF;
+	width: 90%;
+}
+
+
+.allfontcolor {
+	font-color: white;
+	color:#FFFFFF;
+	
+}
+
+.question {
+	border-top: 2px solid;
+	border-color: white;
+	width: 250px;
+	font-size: 18px;
+
+}
+
+.question2 {
+	border-top: 2px solid;
+	border-color: white;
+	width: 300px;
+	font-size: 18px;
+
+}
+
+.answer {
+	witdh: 250px;
+	font-size: 15px;
+	height: 150px;
+	
+}
+
+.answer2 {
+	witdh: 300px;
+	font-size: 15px;
+	height: 150px;
+	
+}
+
+</style>

@@ -15,15 +15,18 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <link href="./CSS/Map/mapparkinfo.css" rel="stylesheet" type="text/css">
+<link href="./CSS/MainForm/MainForm.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="../../JS/send_Sms/sms.js"></script>
 
 </head>
+
 <body onload="loadJSON()">
-	<%-- 	<c:if test="${sessionScope.memID != null}">
+	<c:if test="${sessionScope.memID != null}">
 		<form class="background">
 			<div class="navbar-wrapper">
 				<div class="container-fluid">
-					<nav id="aaa" class="navbar navbar-fixed-top"">
+					<nav id="aaa" class="navbar navbar-fixed-top"
+						style="position: relative;">
 						<div class="container">
 							<div class="navbar-header">
 								<button type="button" class="navbar-toggle collapsed"
@@ -33,49 +36,33 @@
 										class="icon-bar"></span> <span class="icon-bar"></span> <span
 										class="icon-bar"></span>
 								</button>
-								<a class="navbar-brand" href="#"
-									style="background-image: url('./images/MainForm/Logo.png'); height: 65px; width: 109px; background-size: cover"></a>
+								
+						<div style="position: relative;">
+									<img src="./images/MainForm/Logo.png" style="width: 160px; height: 90px; position: absolute;"/></div>
+						
 							</div>
 							<div id="navbar" class="navbar-collapse collapse">
-								<ul class="nav navbar-nav">
-									<li class="active"><a href="#" class="">Home</a></li>
-									<li class=" dropdown"><a href="#" class="dropdown-toggle "
-										data-toggle="dropdown" role="button" aria-haspopup="true"
-										aria-expanded="false">Departments <span class="caret"></span></a>
+								<ul class="nav navbar-nav" style="padding-left: 17%;">
+									<li class="active" style="padding-right: 20px; padding-left: 20px;"><a href="mapmainForm.do" class="">Home</a></li> 
+									
+									<li class=" dropdown" style="padding-right: 30px; padding-left: 20px;">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">예약 하기<span class="caret"></span></a>
 										<ul class="dropdown-menu">
-											<li class=" dropdown"><a href="#"
-												class="dropdown-toggle " data-toggle="dropdown"
-												role="button" aria-haspopup="true" aria-expanded="false">View
-													Departments</a></li>
-											<li><a href="#">Add New</a></li>
+											<li><a href="Season_Ticket_Info_Action.do"><font
+													color="white">주차 정기권</font></a></li>
+													<li><a href="BookingForm.do"><font color="white">주차 예약권</font></a></li>
 										</ul></li>
-									<li><a href="#">Add New</a></li>
-									<li class=" dropdown"><a href="#" class="dropdown-toggle "
-										data-toggle="dropdown" role="button" aria-haspopup="true"
-										aria-expanded="false">Managers <span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li><a href="#">View Managers</a></li>
-											<li><a href="#">Add New</a></li>
-										</ul></li>
-									<li class=" dropdown"><a href="#"
-										class="dropdown-toggle active" data-toggle="dropdown"
-										role="button" aria-haspopup="true" aria-expanded="false">Staff
-											<span class="caret"></span>
-									</a>
-										<ul class="dropdown-menu">
-											<li><a href="#">View Staff</a></li>
-											<li><a href="#">Add New</a></li>
-											<li><a href="#">Bulk Upload</a></li>
-										</ul></li>
-									<li class=" down"><a href="#"
-										class="dropdown-toggle active" data-toggle="dropdown"
-										role="button" aria-haspopup="true" aria-expanded="false">HR
-											<span class="caret"></span>
-									</a>
-										<ul class="dropdown-menu">
-											<li><a href="#">Change Time Entry</a></li>
-											<li><a href="#">Report</a></li>
-										</ul></li>
+									 <c:if test="${sessionScope.memID!='jutopia@gmail.com'}">
+										<li style="padding-right: 20px;"><a href="noteList.do">
+												쪽지함 </a></li>
+									</c:if>
+									<c:if test="${sessionScope.memID=='jutopia@gmail.com'}">
+										<li style="padding-right: 20px;"><a
+											href="noteListAdmin.do"> 쪽지함 </a></li>
+									</c:if>									<li style="padding-right: 20px;"><a href="list.do">공지사항</a></li>
+									
+									<li><a href="#">회사 소개</a></li>
+								
 								</ul>
 								<ul class="nav navbar-nav pull-right">
 									<li class=""><a href="MyPageMainForm.do">MyPage</a></li>
@@ -106,52 +93,21 @@
 										class="icon-bar"></span> <span class="icon-bar"></span> <span
 										class="icon-bar"></span>
 								</button>
-								<a class="navbar-brand" href="#"
-									style="background-image: url('./images/MainForm/Logo.png'); height: 65px; width: 109px; background-size: cover"></a>
+								
+								<div style="position: relative;">
+									<img src="./images/MainForm/Logo.png" style="width: 160px; height: 90px; position: absolute;"/></div>
 							</div>
 							<div id="navbar" class="navbar-collapse collapse">
-								<ul class="nav navbar-nav">
-									<li class="active"><a href="#" class="">Home</a></li>
-									<li class=" dropdown"><a href="#" class="dropdown-toggle "
-										data-toggle="dropdown" role="button" aria-haspopup="true"
-										aria-expanded="false">Departments <span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li class=" dropdown"><a href="#"
-												class="dropdown-toggle " data-toggle="dropdown"
-												role="button" aria-haspopup="true" aria-expanded="false">View
-													Departments</a></li>
-											<li><a href="#">Add New</a></li>
-										</ul></li>
-									<li><a href="#">Add New</a></li>
-									<li class=" dropdown"><a href="#" class="dropdown-toggle "
-										data-toggle="dropdown" role="button" aria-haspopup="true"
-										aria-expanded="false">Managers <span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li><a href="#">View Managers</a></li>
-											<li><a href="#">Add New</a></li>
-										</ul></li>
-									<li class=" dropdown"><a href="#"
-										class="dropdown-toggle active" data-toggle="dropdown"
-										role="button" aria-haspopup="true" aria-expanded="false">Staff
-											<span class="caret"></span>
-									</a>
-										<ul class="dropdown-menu">
-											<li><a href="#">View Staff</a></li>
-											<li><a href="#">Add New</a></li>
-											<li><a href="#">Bulk Upload</a></li>
-										</ul></li>
-									<li class=" down"><a href="#"
-										class="dropdown-toggle active" data-toggle="dropdown"
-										role="button" aria-haspopup="true" aria-expanded="false">HR
-											<span class="caret"></span>
-									</a>
-										<ul class="dropdown-menu">
-											<li><a href="#">Change Time Entry</a></li>
-											<li><a href="#">Report</a></li>
-										</ul></li>
+								<ul class="nav navbar-nav" style="padding-left: 17%;">
+									<li class="active" style="padding-right: 20px; padding-left: 20px;"><a href="mapmainForm.do" class="">Home</a></li> 
+									
+									<li style="padding-right: 20px;"><a href="list.do">공지사항</a></li>
+									
+									<li><a href="#">회사 소개</a></li>
+								
 								</ul>
 								<ul class="nav navbar-nav pull-right">
-									<li class=""><a href="" onclick="loginshowPopup()">Login</a></li>
+									<li class="" style="padding-right: 20px;"><a href="" onclick="loginshowPopup();">Login</a></li>
 									<li class=""><a href="SignUp_InsertForm.do">SignUp</a></li>
 								</ul>
 
@@ -164,8 +120,9 @@
 			</div>
 		</form>
 	</c:if>
- --%>
+	<br>
 
+<!-- 주차 정보 보여주는 부분 -->
 	<c:if test="${ smsCheck == 1}">
 		<script type="text/javascript">
 			alert("문자가 전송되었습니다");
@@ -180,7 +137,7 @@
 						type="hidden" name="name" value="${name }"> <input
 						type="hidden" name="address" value="${address}">
 					<div class="placeinfo-title">
-						<Strong>${name }</Strong>
+						<Strong><font size="6">${name }</font></Strong>
 					</div>
 					<br> <br>
 					<div class="col-sm-6" style="padding-left: 10%">
@@ -287,7 +244,8 @@
 							type="hidden" name="sphone3" value="0240">
 
 						<c:if test="${sessionScope.memID!=null}">
-							<button type="submit">주차장 정보 문자로 전송</button>
+							
+							<button type = "submit" class="btn btn-info" style="margin-left: 5%;" >주차장 정보 문자로 전송<span class="icon-cog icon-white"></span></button>
 						</c:if>
 					</div>
 			</div>

@@ -8,7 +8,7 @@
 <head>
 	 <link href="./CSS/BookingForm/BookingForm.css" rel="stylesheet" type="text/css">
 	 <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
-	 <link rel="stylesheet" href="./CSS/BookingForm/icono.min.css">
+	 <link rel="stylesheet" href="./css/icono.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>JSP Basic</title>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
@@ -48,18 +48,18 @@
    <tr>
    	
       <td width="200"><i class="icono-mail"></i><b>&nbsp;&nbsp;I&nbsp;&nbsp;D&nbsp;&nbsp;(&nbsp;email&nbsp;) :</b></td>
-      <td>${BookingVO.getStr_User_ID_Email() }
+      <td><input type="hidden" name="str_book_id_email" value="${BookingVO.getStr_User_ID_Email()}">${BookingVO.getStr_User_ID_Email()}
       </td>
    </tr>
 
    <tr>
       <td><i class ="icono-user"></i><b>&nbsp;&nbsp;이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;름 :</b></td>
-      <td><input type="text" size="15" name="str_book_name" id="str_book_name" value="${BookingVO.getStr_User_Name() }" autofocus></td>
+      <td><input type="text" size="15" name="str_book_name" id="str_book_name" value="${BookingVO.getStr_User_Name()}" autofocus></td>
    </tr>
    
    <tr>
       <td><i class ="icono-iphone"></i><b>&nbsp;&nbsp;휴&nbsp;대&nbsp;폰&nbsp;&nbsp; 번&nbsp;호 :</b></td>
-      <td><input type="text" size="15" name="str_book_tel" id="str_book_tel" value="${BookingVO.getStr_User_Tel() }"></td>
+      <td><input type="text" size="15" name="str_book_tel" id="str_book_tel" value="${BookingVO.getStr_User_Tel()}"></td>
    </tr>
    
    <tr>

@@ -14,17 +14,17 @@
   crossorigin="anonymous"></script>
 
 <script type="text/javascript">
-/* // 로그인 팝업
+ // 로그인 팝업
 function loginshowPopup() {	  
 	window.open("Sign_Up_Login_Form.do", "로그인", 
-	"width=700, height=300, left=100, top=50");
-  } */
+	"width=450, height=300, left=450, top=100");
+  } 
 
-// 비밀번호 찾기 팝업
-function passwdshowPopup() {	  
+// 비밀번호 찾기 팝업/* 
+/* function passwdshowPopup() {	  
 	window.open("Sign_Up_PasswdFind_Form.do", "비밀번호 찾기", 
 	"width=550, height=250, left=100, top=50");
-  }
+  }  */
 
 </script>
 

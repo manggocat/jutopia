@@ -1,33 +1,16 @@
 package jutopia.parking;
 
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
 public class ParkingVO {
 
-	private int n_parking_num;
-	private String date_parking_start_time, date_parking_end_time,str_parking_place;
-	private Date date_parking_day;
+	private int n_parking_book_start, n_parking_num, n_parking_discriminate, n_parking_season_start_date , n_parking_book_end;
+	private String str_parking_lot, str_parking_position;
+	
+	private String str_parking_book_day;
+
 	public ParkingVO()
 	{
 		
 	}
-
-	
-	
-	public String getStr_parking_place() {
-		return str_parking_place;
-	}
-
-
-
-	public void setStr_parking_place(String str_parking_place) {
-		this.str_parking_place = str_parking_place;
-	}
-
-
 
 	public int getN_parking_num() {
 		return n_parking_num;
@@ -37,35 +20,66 @@ public class ParkingVO {
 		this.n_parking_num = n_parking_num;
 	}
 
-	public Date getDate_parking_day() {
-		return date_parking_day;
+	public String getStr_parking_lot() {
+		return str_parking_lot;
 	}
 
-	public void setDate_parking_day(String date_parking_day) throws ParseException
-	{
-		DateFormat	 sdf = new SimpleDateFormat("yyyy-MM-dd");
-		System.out.println(date_parking_day);
-		java.util.Date utildate = sdf.parse(date_parking_day);
-		java.sql.Date sqlDate = new java.sql.Date(utildate.getTime());
-		this.date_parking_day = sqlDate;
-		System.out.println("result: "+this.date_parking_day);
+	public void setStr_parking_lot(String str_parking_lot) {
+		this.str_parking_lot = str_parking_lot;
 	}
 
-	public String getDate_parking_start_time() {
-		return date_parking_start_time;
+
+
+	public String getStr_parking_position() {
+		return str_parking_position;
 	}
 
-	public void setDate_parking_start_time(String date_parking_start_time) {
-		this.date_parking_start_time = date_parking_start_time;
+	public int getN_parking_season_start_date() {
+		return n_parking_season_start_date;
 	}
 
-	public String getDate_parking_end_time() {
-		return date_parking_end_time;
+	public void setN_parking_season_start_date(int n_parking_season_start_date) {
+		this.n_parking_season_start_date = n_parking_season_start_date;
 	}
 
-	public void setDate_parking_end_time(String date_parking_end_time) {
-		this.date_parking_end_time = date_parking_end_time;
+	public void setStr_parking_position(String str_parking_position) {
+		this.str_parking_position = str_parking_position;
 	}
-	
+
+	public int getN_parking_discriminate() {
+		return n_parking_discriminate;
+	}
+
+	public void setN_parking_discriminate(int n_parking_discriminate) {
+		this.n_parking_discriminate = n_parking_discriminate;
+	}
+
+	public String getStr_parking_book_day() {
+		return str_parking_book_day;
+	}
+
+	public void setStr_parking_book_day(String str_parking_book_day) {
+		this.str_parking_book_day = str_parking_book_day;
+	}
+
+	public int getN_parking_book_start() {
+		return n_parking_book_start;
+	}
+
+	public void setN_parking_book_start(int n_parking_book_start) {
+		this.n_parking_book_start = n_parking_book_start;
+	}
+
+	public int getN_parking_book_end() {
+		return n_parking_book_end;
+	}
+
+	public void setN_parking_book_end(int n_parking_book_end) {
+		this.n_parking_book_end = n_parking_book_end;
+	}
+
+
+
+
 	
 }

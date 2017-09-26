@@ -5,29 +5,58 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>주토파이 회원 정보</title>
+
 </head>
 <body>
-	<table align = "center" border = "1">
-		<h1 align = "center">예약 및 정기권 정보</h1>
-		<br><br>
-		<tr>
-			<td>예약 횟수</td> <td>횟수 기입</td>
-		</tr>
-		<tr>
-			<td>예약 현황</td> <td>예약 내용</td>
-		</tr>
-		<tr>
-			<td>정기권 기간</td> <td> 기간 표시</td>
-		</tr>
-	</table>
-	<br><br><br>
-	<table align = "center" border = "1">
-		<tr>
-			<td>혜택 안내</td>
-		</tr>
-		<tr>
-			<td>감면 혜택</td>
-		</tr>
-	</table>
+
+<div class="row">
+   <div class="col-md-8 col-md-offset-3" style="margin-left: 20%;"> 
+        <div class="well well-sm" >
+    
+      <form class="form-horizontal" role="form" method="get" id="reservationForm" name="reservationForm" action="reservationPro.do" onsubmit="return check()" style="">
+	  <input type="hidden" name="reduction" id="reduction">
+        <fieldset style="padding: 45px;">
+
+           <!-- Form Name -->
+          <legend class="text-center"><h1>Reservation confirm</h1></legend>
+
+           <!-- 예약 횟수-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">예약 횟수 : </label>
+            <div class="col-sm-6">
+              <input type="text" placeholder="횟수 기입" class="form-control" value="${nLastReservationSize}">
+            </div>
+          </div>
+
+           <!-- 예약 현황-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">예약 현황 : </label>
+            <div class="col-sm-6">
+              <input type="text" value="${strLastReservationPlace} &nbsp;시작 시간-${strLastReservationStartTime}~종료시간- ${strLastReservationEndTime}" class="form-control" >
+            </div>
+          </div>
+
+           <!-- 정기권 기간-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">정기권 기간: </label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control"  value="시작 시간-&nbsp;${strLastSeasonStartTime} ~종료시간-${strLastSeasonEndTime}">
+            </div>
+          </div>
+
+           <!-- 혜택 안내-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">혜택 안내  : </label>
+            <div class="col-sm-6">
+              <input type="text" value="${mypageVO.getStr_User_REDUCTION()}" class="form-control" >
+            </div>
+         
+          </div>
+
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
 </body>
 </html>

@@ -1,0 +1,250 @@
+/*-------------테이블-----------------------------  */
+table.boardlist {
+ 	background-color : white;
+    border-collapse: collapse;
+    border-left: none;
+    border-right: none;
+    text-align: left;
+    line-height: 1;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin: 20px 10px;
+}
+table.boardlist thead th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: middle;
+    color: #fff;
+    background: #000000;
+    margin: 20px 10px;
+}
+table.boardlist tbody th {
+    width: 100px;
+    padding: 10px;
+}
+table.boardlist td {
+    width: 1500px;
+    padding: 10px;
+    vertical-align: top;
+}
+table.boardlist .even {
+    background: #fdf3f5;
+}
+table.num th{
+	width:20px;
+}
+/*------------background---------------------  */
+body{
+	background: url('../../images/board/boardbackground.jpg') no-repeat  ;
+	
+ 	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/* ----------------------------------------------------
+공지사항 */
+h2 {
+  font-family: 'Arial';
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 3rem;
+  line-height: 0.75;
+}
+
+span {
+  display: block;
+}
+
+span:not(.notice) {
+  opacity: 0;
+  -webkit-animation: flashText .5s ease-out alternate infinite;
+          animation: flashText .5s ease-out alternate infinite;
+}
+
+span.notice {
+  position: relative;
+  display: inline-block;
+}
+span.notice:before {
+  position: absolute;
+  left: 0;
+  top: -10%;
+  width: 100%;
+  height: 120%;
+  background: #fff;
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+  content: "";
+  opacity: 0;
+  -webkit-animation: flash .5s ease-out alternate infinite;
+          animation: flash .5s ease-out alternate infinite;
+}
+
+@-webkit-keyframes flash {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes flash {
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes flashText {
+  to {
+    opacity: 0.15;
+  }
+}
+@keyframes flashText {
+  to {
+    opacity: 0.15;
+  }
+}
+
+/* -----버튼------------------------------------------ */
+.pagenumber {
+   border: 0px solid #e8f7ff;
+   background: #ffffff;
+   background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#ffffff));
+   background: -webkit-linear-gradient(top, #000000, #ffffff);
+   background: -moz-linear-gradient(top, #000000, #ffffff);
+   background: -ms-linear-gradient(top, #000000, #ffffff);
+   background: -o-linear-gradient(top, #000000, #ffffff);
+   background-image: -ms-linear-gradient(top, #000000 0%, #ffffff 100%);
+   padding: 5px 10px;
+   -webkit-border-radius: 30px;
+   -moz-border-radius: 30px;
+   border-radius: 30px;
+   -webkit-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+   -moz-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+   box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+   text-shadow: #198bd1 0 1px 0;
+   color: #ffffff;
+   font-size: 12px;
+   font-family: helvetica, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.pagenumber:hover {
+   border: 0px solid #ffffff;
+   text-shadow: #1e4158 0 1px 0;
+   background: #6f7375;
+   background: -webkit-gradient(linear, left top, left bottom, from(#fcfeff), to(#6f7375));
+   background: -webkit-linear-gradient(top, #fcfeff, #6f7375);
+   background: -moz-linear-gradient(top, #fcfeff, #6f7375);
+   background: -ms-linear-gradient(top, #fcfeff, #6f7375);
+   background: -o-linear-gradient(top, #fcfeff, #6f7375);
+   background-image: -ms-linear-gradient(top, #fcfeff 0%, #6f7375 100%);
+   color: #000000;
+   }
+.pagenumber:active {
+   text-shadow: #1e4158 0 1px 0;
+   border: 0px solid #0a3c59;
+   background: #386380;
+   background: -webkit-gradient(linear, left top, left bottom, from(#253038), to(#6f7375));
+   background: -webkit-linear-gradient(top, #253038, #386380);
+   background: -moz-linear-gradient(top, #253038, #386380);
+   background: -ms-linear-gradient(top, #253038, #386380);
+   background: -o-linear-gradient(top, #253038, #386380);
+   background-image: -ms-linear-gradient(top, #253038 0%, #386380 100%);
+   color: #ffffff;
+   }
+/*  --------------------count -------------*/  
+
+@-webkit-keyframes sparkle {
+  from {
+    background-position: 0% 100%;
+  }
+  to {
+    background-position: 200% 100%;
+  }
+}
+
+@keyframes sparkle {
+  from {
+    background-position: 0% 100%;
+  }
+  to {
+    background-position: 200% 100%;
+  }
+}
+.listcount {
+  background: black;
+  display: inline-black;
+  padding: 5px;
+  color: white;
+  width: 100px;
+  height: 20px;
+  font-family: Helvetica Neue;
+  border-radius: 4px;
+  position: relative;
+}
+.listcount:before {
+  -webkit-animation: sparkle 4s infinite linear;
+          animation: sparkle 4s infinite linear;
+  background: -webkit-linear-gradient(left, #7FEFBD 0%, #FFF689 11%, #EC0B43 22%, #7FEFBD 33%, #FFF689 44%, #EC0B43 55%, #7FEFBD 66%, #FFF689 77%, #EC0B43 88%, #7FEFBD 100%);
+  background: linear-gradient(90deg, #7FEFBD 0%, #FFF689 11%, #EC0B43 22%, #7FEFBD 33%, #FFF689 44%, #EC0B43 55%, #7FEFBD 66%, #FFF689 77%, #EC0B43 88%, #7FEFBD 100%);
+  background-size: 300% 100%;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  z-index: -1;
+  -webkit-transform: scale(0.99) translateY(3px);
+          transform: scale(0.99) translateY(3px);
+}
+
+/* ---------------textbox---------------- */
+.textbox{
+	
+	padding:10px;
+	-moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+.textbox:focus {
+	outline:none;
+	box-shadow:0 0 10px 5px #900;
+	padding:10px;
+	border:1px 	solid #cc0000; 
+}
+
+/* -----------------------select box----------- */
+select{
+	-webkit-appearance: none;
+	-moz-appearance: none; 
+	appearance: none;
+	width: 130px;
+	padding: .8em .5em; 
+	font-family: inherit; 
+	background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%; 
+	border: 1px solid #999; 
+	border-radius: 10px;
+	-webkit-appearance: none; 
+	-moz-appearance: none; 
+	appearance: none;
+	font-weight: bold;
+
+}
+
+/*----------------------subject-----------------------------------*/
+.subject{
+	
+	 width: 150px;
+    padding: 10px;
+    vertical-align: middle;
+    color: #000000;
+    background: #fff;
+    margin: 20px 10px;
+}
+    

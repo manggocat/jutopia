@@ -85,7 +85,7 @@ function exit(){
 	
 	<tr>
 		<td colspan="2" rowspan="2">
-		<input type="submit" value="확인" 
+		<input type="submit" value="확인" >
 		<input type="button" value="닫기" onclick="exit()" 
 		style="color:#000;font:12px/15px 굴림, Gulim, sans-serif; margin-left: 380px; margin-top: 5px; margin-bottom: 5px;" /></td>
 		

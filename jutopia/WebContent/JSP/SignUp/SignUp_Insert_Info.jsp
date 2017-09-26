@@ -4,64 +4,106 @@
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원가입 약관</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="./CSS/SignUp/info.css" rel="stylesheet" type="text/css">
 
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
+  
+  <style>
+  .insertbtn, .noinsertbtn {
+   width: 7%;
+    padding: 10px 7px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+   border-radius: 10px;
+   text-align:center;
+
+}
+
+#insertinfo {
+      color: white; 
+      margin-top:3%;
+      text-align: center;
+
+}
+
+body{
+   background: #8999A8;
+   background: url("./images/Sign_up/jutopiabackimage.jpg") fixed;
+   background-repeat: no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+   
+    
+}
+
+  </style>
+
 
 <script type="text/javascript">
 
+   $(function() {
 
-	$(function() {
+      $('#btn_infolast').click(function() {
+               if (($('#service_info').is(":checked"))   && ($('#my_info').is(":checked")) && ($('#pos_info').is(":checked")) ) {
+                  return true;
+               }
+               if (!($('#service_info').is(":checked"))) {
+                  alert('필수 약관을 체크해 주세요.')
+                  $('#service_info').focus();
+                  return false;
 
-		$('#btn_infolast').click(function() {
-					if (($('#service_info').is(":checked"))
-							&& ($('#my_info').is(":checked"))) {
-						return true;
-					}
-					if (!($('#service_info').is(":checked"))) {
-						alert('서비스 약관과 개인 정보 동의에 체크해 주세요.')
-						$('#service_info').focus();
-						return false;
+               }
+               if (!($('#my_info').is(":checked"))) {
+                  alert('필수 약관을 체크해 주세요.')
+                  $('#my_info').focus();
+                  return false;
+               }
+               
+               if (!($('#pos_info').is(":checked"))) {
+                  alert('필수 약관을 체크해 주세요.')
+                  $('#pos_info').focus();
+                  return false;
+               }
+               
+            });
+      
+      $('#noAgree').click(function() {
+         alert('동의하지 않으면 가입할 수 없습니다.')
+      });
 
-					}
-					if (!($('#my_info').is(":checked"))) {
-						alert('서비스 약관과 개인 정보 동의에 체크해 주세요.')
-						$('#my_info').focus();
-						return false;
-					}
-
-				});
-		
-		$('#noAgree').click(function() {
-			alert('동의하지 않으면 가입할 수 없습니다.')
-		});
-
-	});
+   });
 </script>
 
-<style>
-.info_n1, .info_n2 {
-	border-collapse:collapse;
-	border:1px gray solid;
-	
-}
-
-</style>
-
 </head>
-<body>
+<body class="bodybackground" >
 <center>
+<div id="insertinfo"><font size="6" ><b>회원가입</b></font></div>
+<hr><br><br>
+<div class="agreeForm">
+
 <form action="SignUp_InsertForm.do" name="agree_form" method="post">
-<table class="info_n1" width="600" border="1" cellpadding="10">
-	<tr>
-		<td bgcolor="#D4F4FA"><b><font face="돋움">
-		(주)주토피아 서비스 약관 동의</font></b>
-		<input type="checkbox" id="service_info" style="margin-left: 378px" ></td>
-	</tr>
-	<tr>
-	<td><textarea cols="86" rows="10" style="resize:none;">제 1 장 총 칙
+
+
+<table class="info_n1"  border="1" >
+   <tr>
+      <td bgcolor="#FFFFFF" width="470" id="serviceId" style="padding:10px 10px 10px 10px;">
+      <b><font face="돋움">
+      (주)주토피아 서비스 약관 동의</font></b>
+      <input type="checkbox" id="service_info" class="css3checkbox" style="margin-left: 400px;"  />
+   </tr>
+   
+   <tr>
+   <td><font style="color:#000; size:20px">
+   <textarea cols="90" rows="7" style="resize:none; font-family: 맑은 고딕;" >제 1 장 총 칙
 제 1 조 목적
 본 약관은 서비스 이용자가 주식회사 주토피아(이하 “회사”라 합니다)가 제공하는 온라인상의 인터넷 서비스(이하 “서비스”라고 하며, 접속 가능한 유∙무선 단말기의 종류와는 상관없이 이용 가능한 “회사”가 제공하는 모든 “서비스”를 의미합니다. 이하 같습니다)에 회원으로 가입하고 이를 이용함에 있어 회사와 회원(본 약관에 동의하고 회원등록을 완료한 서비스 이용자를 말합니다. 이하 “회원”이라고 합니다)의 권리•의무 및 책임사항을 규정함을 목적으로 합니다.
 제 2 조 (약관의 명시, 효력 및 개정)
@@ -270,21 +312,36 @@
 제 22 조 (규정의 준용)
 본 약관에 명시되지 않은 사항에 대해서는 관련법령에 의하고, 법에 명시되지 않은 부분에 대하여는 관습에 의합니다.
 부칙
-본 약관은 2016년 10월 7일부터 적용됩니다. 단, 본 약관의 공지 시점으로부터 적용일 전일까지 기간 동안에 가입한 신규회원에 대해서는 회원 가입시부터 본 약관이 적용됩니다.</textarea>
-	</tr>
+제 23 조 (편의성)
+①
+회원은 주차 검색 기능뿐 아니라 최종 목적지 (주차장) 자리를 미리 예약할 수 있습니다.
+②
+회원은 신청하고자 하는 주차장의 정기권을 이동할 필요 없이 회사 사이트를 이용하여 정기권을 신청할 수 있습니다.
+③
+회원은 회사와 협약하는 해당 주차장의 관리자와 쪽지를 이용하여 연락을 주고받을 수 있습니다.
+④
+예약한 주차장의 자리, 정기권에 대한 정보를 마이 페이지에서 확인할 수 있습니다.
+⑤
+예약한 주차장의 자리, 정기권에 대한 정보를 문자로 확인할 수 있습니다.
+
+본 약관은 2016년 10월 7일부터 적용됩니다. 단, 본 약관의 공지 시점으로부터 적용일 전일까지 기간 동안에 가입한 신규회원에 대해서는 회원 가입시부터 본 약관이 적용됩니다.
+</textarea>
+   </font>
+   </td></tr>
 </table>
 <p/>
 
-<table class="info_n2" width="600" border="1"  cellpadding="10">
-	<tr>
-		<td bgcolor="#D4F4FA">
-		<b><font face="돋움">
-		(주)주토피아 개인정보 수집 및 이용 동의</font></b>
-		<input type="checkbox" id="my_info"  style="margin-left: 303px" ></td>
-	</tr>
-	<tr>
-	<td width="600">
-	<textarea cols="86" rows="10" style="resize:none;">
+<table class="info_n2" border="1" >
+   <tr>
+      <td bgcolor="#FFFFFF" width="470" id="myinfoId" style="padding:10px 10px 10px 10px;">
+      <b><font face="돋움">
+      (주)주토피아 개인정보 수집 및 이용 동의</font></b>
+      <input type="checkbox" id="my_info" class="css3checkbox" style="margin-left: 335px"  />
+   </tr>
+   
+   <tr>
+   <td><font style="color:#000; face:맑은 고딕; size:20px">
+   <textarea cols="90" rows="7" style="resize:none; font-family: 맑은 고딕;">
 주토피아는 아래의 목적으로 개인정보를 수집 및 이용하며, 회원의 개인정보를 안전하게 취급하는데 최선을 다합니다.
 1. 수집목적
 • 이용자 식별, 원활한 의사소통, 부정이용 시 제재 및 기록 
@@ -300,18 +357,100 @@
 
 서비스 제공을 위해 필요한 최소한의 개인정보이므로 동의를 해 주셔야 서비스 이용이 가능합니다. 
 더 자세한 내용에 대해서는 개인정보처리방침을 참고하시기 바랍니다.
-	</textarea>
+</textarea>
+   </font>
+   </td></tr>
 </table>
 <p/>
 
-<!-- <div style="margin-left: 240px;"> -->
-<input type="submit" id="btn_infolast" value="동의하기" 
-style="color:#000;font:12px/15px 굴림, Gulim, sans-serif;" />
-&nbsp;
-<input type="button" id="noAgree" value="동의하지 않음" 
-style="color:#000;font:12px/15px 굴림, Gulim, sans-serif;" />
-<!-- </div> -->
+<table class="info_n3"  border="1" >
+   <tr>
+      <td bgcolor="#FFFFFF" width="470" id="posinfoId" style="padding:10px 10px 10px 10px;">
+      <b><font face="돋움">
+      (주)주토피아 위치 정보 이용 약관 동의</font></b>
+      <input type="checkbox" id="pos_info" class="css3checkbox" style="margin-left: 350px"  />
+   </tr>
+   <tr>
+   <td><font style="color:#000; face:맑은 고딕; size:20px">
+   <textarea cols="90" rows="7" style="resize:none; font-family: 맑은 고딕;">
+위치정보 이용약관에 동의하시면, 위치를 활용한 광고 정보 수신 등을 포함하는 주토피아 위치기반 서비스를 이용할 수 있습니다.
+
+제 1 조 (목적)
+이 약관은 주토피아 주식회사 (이하 “회사”)가 제공하는 위치정보사업 또는 위치기반서비스사업과 관련하여 회사와 개인위치정보주체와의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.
+제 2 조 (약관 외 준칙)
+이 약관에 명시되지 않은 사항은 위치정보의 보호 및 이용 등에 관한 법률, 정보통신망 이용촉진 및 정보보호 등에 관한 법률, 전기통신기본법, 전기통신사업법 등 관계법령과 회사의 이용약관 및 개인정보처리방침, 회사가 별도로 정한 지침 등에 의합니다.
+제 3 조 (서비스 내용 및 요금)
+①회사는 직접 위치정보를 수집하거나 위치정보사업자인 이동통신사로부터 위치정보를 전달받아 아래와 같은 위치기반서비스를 제공합니다.
+1.Geo Tagging 서비스: 게시글 등록 시점의 개인위치정보주체의 위치정보를 게시글과 함께 저장합니다.
+2.위치정보를 활용한 검색결과 제공 서비스: 정보 검색을 요청하거나 개인위치정보주체 또는 이동성 있는 기기의 위치정보를 제공 시 본 위치정보를 이용한 검색결과 및 주변결과(맛집, 주변업체, 교통수단 등)를 제시합니다.
+3.위치정보를 활용한 친구찾기 및 친구맺기: 현재 위치를 활용하여 친구를 찾아주거나 친구를 추천하여 줍니다.
+4.연락처 교환하기: 위치정보를 활용하여 친구와 연락처를 교환할 수 있습니다.
+5.현재 위치를 활용한 광고정보 제공 서비스: 광고정보 제공 요청 시 개인위치정보주체의 현 위치를 이용하여 광고소재를 제시합니다.
+6. 이용자 보호 및 부정 이용 방지: 개인위치정보주체 또는 이동성 있는 기기의 위치를 이용하여 권한없는 자의 비정상적인 서비스 이용 시도 등을 차단합니다.
+7. 위치정보 공유: 개인위치정보주체 또는 이동성 있는 기기의 위치정보를 안심귀가 등을 목적으로 지인 또는 개인위치정보주체가 지정한 제3자에게 공유합니다.
+8. 길 안내 등 생활편의 서비스 제공: 교통정보와 길 안내 등 최적의 경로를 지도로 제공하며, 주변 시설물 찾기, 뉴스/날씨 등 생활정보, 긴급구조 서비스 등 다양한 운전 및 생활 편의 서비스를 제공합니다.
+②제1항 위치기반서비스의 이용요금은 무료입니다.
+제 4 조 (개인위치정보주체의 권리)
+①개인위치정보주체는 개인위치정보 수집 범위 및 이용약관의 내용 중 일부 또는 개인위치정보의 이용ㆍ제공 목적, 제공받는 자의 범위 및 위치기반서비스의 일부에 대하여 동의를 유보할 수 있습니다.
+②개인위치정보주체는 개인위치정보의 수집ㆍ이용ㆍ제공에 대한 동의의 전부 또는 일부를 철회할 수 있습니다.
+③개인위치정보주체는 언제든지 개인위치정보의 수집ㆍ이용ㆍ제공의 일시적인 중지를 요구할 수 있습니다. 이 경우 회사는 요구를 거절하지 아니하며, 이를 위한 기술적 수단을 갖추고 있습니다.
+④개인위치정보주체는 회사에 대하여 아래 자료의 열람 또는 고지를 요구할 수 있고, 당해 자료에 오류가 있는 경우에는 그 정정을 요구할 수 있습니다. 이 경우 회사는 정당한 이유 없이 요구를 거절하지 아니합니다.
+1.개인위치정보주체에 대한 위치정보 수집ㆍ이용ㆍ제공사실 확인자료
+2.개인위치정보주체의 개인위치정보가 위치정보의 보호 및 이용 등에 관한 법률 또는 다른 법령의 규정에 의하여 제3자에게 제공된 이유 및 내용
+⑤회사는 개인위치정보주체가 동의의 전부 또는 일부를 철회한 경우에는 지체 없이 수집된 개인위치정보 및 위치정보 수집ㆍ이용ㆍ제공사실 확인자료를 파기합니다. 단, 동의의 일부를 철회하는 경우에는 철회하는 부분의 개인위치정보 및 위치정보 수집ㆍ이용ㆍ제공사실 확인자료에 한합니다.
+⑥개인위치정보주체는 제1항 내지 제4항 의 권리행사를 위하여 이 약관 제13조의 연락처를 이용하여 회사에 요구할 수 있습니다.
+제 5 조 (법정대리인의 권리)
+①회사는 만14세 미만 아동으로부터 개인위치정보를 수집ㆍ이용 또는 제공하고자 하는 경우에는 만14세 미만 아동과 그 법정대리인의 동의를 받아야 합니다.
+②법정대리인은 만14세 미만 아동의 개인위치정보를 수집ㆍ이용ㆍ제공에 동의하는 경우 동의유보권, 동의철회권 및 일시중지권, 열람ㆍ고지요구권을 행사할 수 있습니다.
+제 6 조 (위치정보 이용ㆍ제공사실 확인자료 보유근거 및 보유기간)
+회사는 위치정보의 보호 및 이용 등에 관한 법률 제16조 제2항에 근거하여 개인위치정보주체에 대한 위치정보 수집ㆍ이용ㆍ제공사실 확인자료를 위치정보시스템에 자동으로 기록하며, 6개월 이상 보관합니다.
+제 7 조 (서비스의 변경 및 중지)
+①회사는 위치정보사업자의 정책변경 등과 같이 회사의 제반 사정 또는 법률상의 장애 등으로 서비스를 유지할 수 없는 경우, 서비스의 전부 또는 일부를 제한, 변경하거나 중지할 수 있습니다.
+②제1항에 의한 서비스 중단의 경우에는 회사는 사전에 인터넷 등에 공지하거나 개인위치정보주체에게 통지합니다.
+제 8 조 (개인위치정보 제3자 제공시 즉시 통보)
+①회사는 개인위치정보주체의 동의 없이 당해 개인위치정보주체의 개인위치정보를 제3자에게 제공하지 아니하며, 제3자 제공 서비스를 제공하는 경우에는 제공 받는 자 및 제공목적을 사전에 개인위치정보주체에게 고지하고 동의를 받습니다.
+②회사는 개인위치정보를 개인위치정보주체가 지정하는 제3자에게 제공하는 경우에는 개인위치정보를 수집한 당해 통신단말장치로 매회 개인위치정보주체에게 제공받는 자, 제공일시 및 제공목적을 즉시 통보합니다.
+③다만, 아래에 해당하는 경우에는 개인위치정보주체가 미리 특정하여 지정한 통신단말장치 또는 전자우편주소 등으로 통보합니다.
+1.개인위치정보를 수집한 당해 통신단말장치가 문자, 음성 또는 영상의 수신기능을 갖추지 아니한 경우
+2.개인위치정보주체가 개인위치정보를 수집한 당해 통신단말장치 외의 통신단말장치 또는 전자우편주소 등으로 통보할 것을 미리 요청한 경우
+제 9 조 (8세 이하의 아동 등의 보호의무자의 권리)
+①회사는 아래의 경우에 해당하는 자(이하 “8세 이하의 아동”등이라 한다)의 보호의무자가 8세 이하의 아동 등의 생명 또는 신체보호를 위하여 개인위치정보의 이용 또는 제공에 동의하는 경우에는 본인의 동의가 있는 것으로 봅니다.
+1. 8세 이하의 아동
+2. 금치산자
+3. 장애인복지법제2조제2항제2호의 규정에 의한 정신적 장애를 가진 자로서 장애인고용촉진및직업재활법 제2조제2호의 규정에 의한 중증장애인에 해당하는 자(장애인복지법 제29조의 규정에 의하여 장애인등록을 한 자에 한한다)
+② 8세 이하의 아동 등의 생명 또는 신체의 보호를 위하여 개인위치정보의 이용 또는 제공에 동의를 하고자 하는 보호의무자는 서면동의서에 보호의무자임을 증명하는 서면을 첨부하여 회사에 제출하여야 합니다.
+③보호의무자는 8세 이하의 아동 등의 개인위치정보 이용 또는 제공에 동의하는 경우 개인위치정보주체 권리의 전부를 행사할 수 있습니다.
+제 10 조 (손해배상)
+개인위치정보주체는 회사의 위치정보의 보호 및 이용 등에 관한 법률 제15조 내지 26조의 규정을 위반한 행위로 손해를 입은 경우에 회사에 대하여 손해배상을 청구할 수 있습니다. 이 경우 회사는 고의 또는 과실이 없음을 입증하지 아니하면 책임을 면할 수 없습니다.
+제 11 조 (분쟁의 조정)
+① 회사는 위치정보와 관련된 분쟁에 대하여 개인위치정보주체와 협의가 이루어지지 아니하거나 협의를 할 수 없는 경우에는 방송통신위원회에 재정을 신청할 수 있습니다.
+② 회사 또는 개인정보위치 주체는 위치정보와 관련된 분쟁에 대해 당사자간 협의가 이루어지지 아니하거나 협의를 할 수 없는 경우에는 개인정보보호법에 따라 개인정보분쟁조정위원회에 조정을 신청할 수 있습니다.
+제 12 조 (사업자 정보)
+회사의 상호, 주소, 전화번호 그 밖의 연락처는 다음과 같습니다.
+상호: 주토피아 주식회사
+주소: 경기도 성남시 분당구 대왕판교로 670 유스페이스2
+전화번호: 3333-8282
+이메일 주소: herochding@jutopia.com
+부칙
+제1조 시행일
+2015년 6월 2일부터 시행되던 종전의 약관은 본 약관으로 대체하며, 본 약관은 2015년 11월 26일부터 적용됩니다.
+제2조 위치정보관리 책임자 정보
+회사는 다음과 같이 위치정보 관리책임자를 지정하여 이용자들이 서비스 이용과정에서 발생한 민원사항 처리를 비롯하여 개인위치정보 주체의 권리 보호를 위해 힘쓰고 있습니다.
+위치정보 관리책임자 : (개인)정보보호 담당 부서 임원(개인정보 보호책임자 겸직)
+전화번호 : 3333-8282
+이메일 주소 : herochding@jutopia.com
+</textarea>
+   </font>
+   </td></tr>
+</table>
+<p/>
+
+ <button type="submit" class="btn btn-primary" id="btn_infolast" >동의 하기</button> &nbsp;
+ <button type="button" class="btn btn-default" data-dismiss="modal" id="noAgree">동의하지 않음</button>
+ 
+
 </form>
+</div>
 </center>
 </body>
 </html>

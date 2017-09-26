@@ -29,8 +29,7 @@ public class MapParkInfoAction implements CommandAction {
 		
 		req.setAttribute("name", strname);
 		req.setAttribute("address", straddress);
-		req.setAttribute("url", strUrl);
-		System.out.println((String)session.getAttribute("memID"));
+		
 		if((String)session.getAttribute("memID")!=null){
 		mapparkinfoVO.setStr_User_ID_Email((String)session.getAttribute("memID"));
 		mapparkinfoVO.setStr_Searchword(strname);

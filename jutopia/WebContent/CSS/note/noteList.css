@@ -1,0 +1,9 @@
+body {
+	padding-top: 20px;
+	margin-top: 5%;
+}
+
+tr>th, td {
+	text-align: center;
+	vertical-align: middle;
+}

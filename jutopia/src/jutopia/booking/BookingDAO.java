@@ -1,14 +1,8 @@
 package jutopia.booking;
 
-import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,11 +32,11 @@ public class BookingDAO {
 	{
 		Context ctx = new InitialContext();
 		DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc:jutopiaDB");
+		
 		return ds.getConnection();
 	}
 	
-	
-	
+
 	public MypageVO BookingInfoSelect(MypageVO mypageVO) {
 
 		Connection conn = null;
@@ -76,14 +70,13 @@ public class BookingDAO {
 		
 		return mypageVO;
 	}
-	
 	public void insert(BookingVO vo) throws Exception
 	{
 		Connection conn = null;
 		PreparedStatement pstmt=null;
 
 		StringBuffer sb = new StringBuffer();
-		sb.append("INSERT INTO BOOKING(N_BOOK_NUM, SZ_PARKING_LOCATION, SZ_BOOK_ID_EMAIL, SZ_BOOK_NAME, SZ_BOOK_CAR_NUM, SZ_BOOK_CAR_KINDS, SZ_BOOK_TEL, DATE_BOOK_DAY, SZ_BOOK_START, SZ_BOOK_END, SZ_PARKING_PLACE, N_RESERVE_DISCRIMINATE ) ");
+		sb.append("INSERT INTO BOOKING(N_BOOK_NUM, SZ_PARKING_LOCATION, SZ_BOOK_ID_EMAIL, SZ_BOOK_NAME, SZ_BOOK_CAR_NUM, SZ_BOOK_CAR_KINDS, SZ_BOOK_TEL, DATE_BOOK_DAY, N_BOOK_START, N_BOOK_END, SZ_PARKING_PLACE, N_RESERVE_DISCRIMINATE ) ");
 		sb.append(" VALUES(BOOKING_N_BOOK_NUM.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) ");
 		conn = getConnection();
 		pstmt = conn.prepareStatement(sb.toString());
@@ -96,8 +89,8 @@ public class BookingDAO {
 		pstmt.setString(6, vo.getStr_book_tel());
 		
 		pstmt.setString(7, vo.getDate_book_day());
-		pstmt.setString(8,vo.getDate_book_start_time());
-		pstmt.setString(9,vo.getDate_book_end_time());
+		pstmt.setInt(8,vo.getN_book_start());
+		pstmt.setInt(9,vo.getN_book_end());
 		pstmt.setString(10, vo.getStr_parking_place());
 		pstmt.setInt(11, vo.getN_reserve_discrimintae());
 						
@@ -160,7 +153,7 @@ public class BookingDAO {
 		
 	}
 	
-	public List<BookingVO> getSelectPosition(String str_parking_location, String Date_book_day, String Date_book_start_time, String Date_book_end_time)
+	public List<BookingVO> getSelectPosition(String str_parking_location, String Date_book_day)
 	{
 		Connection conn = null;
 	    PreparedStatement pstmt = null;
@@ -172,18 +165,15 @@ public class BookingDAO {
 			conn = getConnection();
 			StringBuffer sb = new StringBuffer();
 			
-			sb.append("SELECT SZ_PARKING_PLACE, N_RESERVE_DISCRIMINATE FROM BOOKING WHERE SZ_PARKING_LOCATION = ? AND SZ_BOOK_START=? AND DATE_BOOK_DAY=? ");
+			sb.append("SELECT SZ_PARKING_PLACE, N_RESERVE_DISCRIMINATE, N_BOOK_START, N_BOOK_END FROM BOOKING WHERE SZ_PARKING_LOCATION=? AND DATE_BOOK_DAY=? ");
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sb.toString());
 			BookingVO vo = new BookingVO();
 			
 			pstmt.setString(1, str_parking_location);
-			pstmt.setString(3, Date_book_day);
-			pstmt.setString(2, Date_book_start_time);
+			pstmt.setString(2, Date_book_day);
 			
 			System.out.println("Date_book_day = " + Date_book_day);
-			System.out.println("Date_book_start_time = " + Date_book_start_time);
-			/*pstmt.setString(3, Date_book_end_time);*/
 			
 			rs = pstmt.executeQuery();
 			System.out.println("rs = " + rs);
@@ -198,12 +188,15 @@ public class BookingDAO {
 					System.out.println("SZ_PARKING_PLACE_list = " + rs.getString("SZ_PARKING_PLACE"));
 					lvo.setN_reserve_discrimintae(rs.getInt("N_RESERVE_DISCRIMINATE"));
 					System.out.println("N_RESERVE_DISCRIMINATE_list = " + rs.getInt("N_RESERVE_DISCRIMINATE"));
-					
+					lvo.setN_book_start(rs.getInt("N_BOOK_START"));
+					lvo.setN_book_end(rs.getInt("N_BOOK_END"));
+					System.out.println("bookingdao n_book_start = " + rs.getInt("N_BOOK_START"));
+					System.out.println("bookingdao n_book_end = " + rs.getInt("N_BOOK_END"));
 					Booking_list.add(lvo);
 					
 					for(int i = 0 ; i < Booking_list.size(); i++)
 					{
-					System.out.println("由ъ뒪�듃 = " + Booking_list.get(i));
+					System.out.println("리스트 = " + Booking_list.get(i));
 					}
 				}while(rs.next());
 				

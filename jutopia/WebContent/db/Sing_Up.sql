@@ -20,6 +20,7 @@ create table SIGN_UP (
 
 ALTER TABLE SIGN_UP add SIGN_UP_REDUCTION varchar2(50);
 DELETE FROM SIGN_UP where szSIGN_UP_ID_EMAIL = 'wangi0304@naver.com';
+ 15150304@hanmail.net ÃÖ¹ÎÇõ            vfX8KV        01047960313   ÇØ´ç¾øÀ½                NULL
 
 select * from SIGN_UP;
 drop table SIGN_UP;

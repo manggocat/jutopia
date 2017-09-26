@@ -1,0 +1,15 @@
+
+select{
+  padding: 9px;
+  border: 1px solid #c3c3c3;
+  border-radius: 7px;
+}
+
+
+fieldset {
+ 
+    min-width: 0;
+    padding: 45px;
+    margin: 0;
+    border: 0;
+}

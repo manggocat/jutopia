@@ -1,0 +1,188 @@
+@font-face {font-family:'NanumGothic'; src: url('images/NanumGothic.eot');}  
+
+@font-face {font-family:MalgunGothic; src:url(images/MalgunGothic.eot);}
+
+@font-face {
+
+    font-family:'NanumGothic';
+
+    src: url('images/NanumGothic.eot');
+
+    src: url('images/NanumGothic.eot?#iefix') format('embedded-opentype'),
+
+         url('images/NanumGothic.woff') format('woff'),
+
+         url('images/NanumGothic.ttf') format('truetype');
+
+    font-weight: normal;
+
+    font-style: normal;
+
+}
+
+<style>
+
+/* 타입 인풋 --> 조절 텍스트 */
+
+/* #text_mail_1 {
+	width: 25%;
+    padding: 6px 10px;
+    margin: 3px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+	border-radius: 15px;
+} */
+
+#text_mail_2 {
+	width: 30%;
+    padding: 6px 10px;
+    margin: 3px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+	border-radius: 15px;
+}
+
+body {
+font-family:'맑은고딕' 'NanumGothic', 'MalgunGothic';
+
+}
+
+/* 점선 */
+/* #tableId  {
+	
+	border-color: rgb(255, 255, 255) 1px;
+	border-color: rgb(255, 255, 255) 2px dashed;
+
+} */
+
+#insertinfo {
+      color: white; 
+      margin-top:3%;
+      text-align: center;
+
+}
+
+#minmax {
+  color: red;
+  
+  /* text-shadow: #FFFFFF 3px 5px 10px 10px; */
+}
+
+.textname, .textcheck, .textpass1, .textpass2, .textphone {
+	width: 60%;
+    padding: 10px 15px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+	border-radius: 15px;
+}
+
+input[type=text] {
+	padding: 10px 15px;
+    margin: 5px 0;
+    /* display: inline-block; */
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+
+}
+	
+input[type=password] {
+    width: 60%;
+	padding: 10px 15px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+
+}
+
+/* input[type=select] {
+    width: 70%;
+	padding: 10px 15px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+	border-radius: 7px;
+} */
+
+/* .insert_form {
+	width: 90%;
+    border-top: 1px solid #444444;
+	border-collapse:collapse;
+	border-radius: 10px;
+	border:1px gray solid;
+	border-collapse:collapse;
+	border:1px gray solid;
+} */
+
+form td select{
+/*   width: 300px; */
+  padding: 9px;
+  border: 1px solid #c3c3c3;
+
+}
+
+#sign_up_Reduction {
+	width: 300px;
+	padding: 9px;
+	border: 1px solid #c3c3c3;
+	border-radius: 15px;
+	
+	
+}
+
+
+#select_email  {
+  width: 130px;
+  padding: 9px;
+  border: 1px solid #c3c3c3;
+  border-radius: 15px;
+
+}
+
+	
+/* 타입 인풋 --> 조절 버튼 */
+.btnemailcheck, .btnpush, .btncheck {
+	width: 23%;
+    padding: 8px 10px;
+    margin: 3px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+	border-radius: 15px;
+	button-align:center;
+}
+
+.btnjoin, .btnmain {
+	width: 10%;
+    padding: 8px 15px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+	border-radius: 15px;
+	text-align:center;
+}
+
+
+/* Set a style for all buttons */
+/* button {
+	text-align:center;
+    background-color: #CCFFFF;
+    color: white;
+    padding: 8px 15px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-align: center;
+ 	border-radius: 15px;   
+} */
+
+
+
+</style>

@@ -5,13 +5,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>JSP Basic</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
+
 <body>
-<label>도로명주소&nbsp;&nbsp;</label><input type='text' class='postcodify_address' id = 'street_address'/>
-<button id='search_button' >검색</button>&nbsp;&nbsp;&nbsp;
-<label>우편번호&nbsp;&nbsp;</label><input type='text' size='4' class='postcodify_postcode6_1' />&nbsp;&nbsp;
-<label>-</label>&nbsp;&nbsp;<input type='text' size='4' class='postcodify_postcode6_2' />&nbsp;&nbsp;
-<label>참고항목&nbsp;&nbsp;</label><input type='text' class='postcodify_extra_info' />
+<label>도로명주소&nbsp;&nbsp;</label><input type='text' class='postcodify_address' id ='street_address' autofocus style="border-style:groove;" />
+
+<button id='search_button' class="btn btn-primary btn-sm" style="background-color: #581276;" >검색</button>&nbsp;&nbsp;&nbsp;
+
+<label>우편번호&nbsp;&nbsp;</label><input type='text' size='4' class='postcodify_postcode6_1' style="border-style:groove;" />&nbsp;&nbsp;
+
+<label>-</label>&nbsp;&nbsp;<input type='text' size='4' class='postcodify_postcode6_2' style="border-style:groove;" />&nbsp;&nbsp;
+
+<label>참고항목&nbsp;&nbsp;</label><input type='text' class='postcodify_extra_info' style="border-style:groove;"/>
+
 <script type = "text/javascript">
 			
 			$('#street_address').click(function(){

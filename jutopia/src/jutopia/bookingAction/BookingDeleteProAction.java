@@ -16,7 +16,7 @@ public class BookingDeleteProAction implements CommandAction {
 		BookingDAO dao = BookingDAO.getInstance();
 		String str_book_car_num = request.getParameter("str_book_car_num");
 		
-		int check = dao.delete(str_book_car_num);
+		int ncheck = dao.delete(str_book_car_num);
 		System.out.println("test1");
 		
 		request.setAttribute("str_book_car_num", str_book_car_num);

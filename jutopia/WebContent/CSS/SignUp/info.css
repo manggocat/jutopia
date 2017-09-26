@@ -1,0 +1,85 @@
+<style>
+
+/* .agreeForm {
+	border-style: Strong;
+	border : 2px
+	background : #EAEAEA;
+	margin-top: 100px;
+	margin-left: 100px;
+	width: 60px;
+	height: 540px;
+	font-face: 맑은 고딕;
+	font-size: 12px;
+	
+	background-color: rgba( 051, 000, 204, 0.5 );
+	opacity: 0.5;		배경, 글자 모두 투명
+	 */
+}
+
+#insertinfo {
+		color: black; 
+		text-shadow: 3px 5px 5px rgba(187, 187, 187, 1);
+		text-align: center;
+
+}
+
+#serviceId, #myinfoId, #posinfoId {
+	
+	border-bottom: rgb(0, 0, 0) 3px dashed;
+/* 	background-color: rgba( 255, 255, 255, 0.2 ); */
+	background-color: rgba(255, 255, 255, 1.0);
+
+}
+
+.noinsertbtn, .insertbtn {
+	width: 50%;
+    padding: 10px 12px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+	border-radius: 15px;
+	text-align:center;
+
+}
+
+button {
+	text-align:center;
+    background-color: #CCFFFF;
+    color: black;
+    padding: 8px 15px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+
+}
+
+/* .insertbtn {
+	width: 30%;
+    padding: 12px 15px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+	border-radius: 15px;
+	text-align:center;
+
+} */
+
+
+
+.info_n1, .info_n2, .info_n3 {
+	
+	border-collapse:collapse;
+	border:2px white solid;
+}
+
+/* #info_n1, #info_n2, #info_n3 {
+	
+	border-collapse:collapse;
+	border:2px black solid;
+	
+} */
+
+
+</style>

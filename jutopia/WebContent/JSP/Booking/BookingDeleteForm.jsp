@@ -21,7 +21,6 @@
 		</tr>
 		<tr height="30"> 
 			<input type="submit"  value="예약 삭제">
-			
 			</td>
 		</tr>
 	</table>

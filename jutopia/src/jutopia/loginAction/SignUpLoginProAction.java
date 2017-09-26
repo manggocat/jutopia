@@ -19,10 +19,10 @@ public class SignUpLoginProAction extends HttpServlet implements CommandAction {
 		/*
 		String strEmail = request.getParameter("email");*/
 		
-		String text_mail_1 = request.getParameter("text_mail_1");
-		String text_mail_2 = request.getParameter("text_mail_2");
+		/*String text_mail_1 = request.getParameter("text_mail_1");
+		String text_mail_2 = request.getParameter("text_mail_2");*/
 		
-		String SIGN_UP_ID_EMAIL = text_mail_1 + "@" + text_mail_2 ;
+		String SIGN_UP_ID_EMAIL = request.getParameter("email");
 		
 		//String SIGN_UP_ID_EMAIL = request.getParameter("SIGN_UP_ID_EMAIL");
 		String SIGN_UP_PWD = request.getParameter("login_pwd");

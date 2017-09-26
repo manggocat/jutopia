@@ -22,8 +22,6 @@ public class SmsProAction implements CommandAction {
 		SmsVO smsvo = new SmsVO();
 		
 		SmsDAO smsdao = new SmsDAO(req, resp);
-	
-		String a = "asdf";
 		
 		smsdao.send(smsdao.smsSelect(strSIGN_UP_ID_EMAIL));
 		int smsCheck =1;

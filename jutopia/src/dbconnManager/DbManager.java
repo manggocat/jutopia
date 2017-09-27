@@ -61,7 +61,7 @@ public class DbManager {
 		
 		String strQuery = "select " + Attribute + " from " + strDbname + " where " + strWhereAttribute + " = '"
 				+ strWhere + "'";
-		System.out.println("strQuery:" + strQuery);
+		
 		return strQuery;
 	}
 
@@ -123,7 +123,7 @@ public class DbManager {
 
 		String strQuery = "update " + strDbname + " set " + strSetAttribute + " where " + strWhereAttribute + " = "
 				+"'" +strWhere+"'";
-		System.out.println("strQuery:" + strQuery);
+	
 		return strQuery;
 	}
 

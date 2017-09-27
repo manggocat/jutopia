@@ -20,8 +20,7 @@ public class Season_Tickiet_Parkinplace_Form_Action implements CommandAction {
 		ArrayList seat_discriminate = new ArrayList<Boolean>();
 		SeasonticketDAO dao = SeasonticketDAO.getInstance();
 		
-		System.out.println("parking �꽆�뼱�삩媛� = " + request.getParameter("str_season_ticket_parking_lot"));
-		System.out.println("parking �꽆�뼱�삩�닽�옄 = " + request.getParameter("n_season_ticket_start_date"));
+		
 		
 		String str_season_ticket_parking_lot = request.getParameter("str_season_ticket_parking_lot");
 		int n_season_ticket_start_date = Integer.parseInt(request.getParameter("n_season_ticket_start_date"));
@@ -40,7 +39,7 @@ public class Season_Tickiet_Parkinplace_Form_Action implements CommandAction {
 				list_result = false;
 				for(int i = 0 ; i < list_season_reserved.size() ; i++)
 				{
-					System.out.println("二쇱감 醫뚯꽍 = " + list_season_reserved.get(i).getStr_season_ticket_position());
+					
 					if(result.equals(list_season_reserved.get(i).getStr_season_ticket_position()))
 					{
 						list_result = true;

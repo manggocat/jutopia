@@ -97,8 +97,7 @@ public class MyPageImformationAction implements CommandAction {
 			strLastSeasonEndTime = " ¾øÀ½ ";
 		}
 
-		System.out.println("start " + strLastReservationStartTime);
-		System.out.println("end " + strLastReservationEndTime);
+		
 
 		request.setAttribute("strLastReservationPlace", strLastReservationPlace);
 		request.setAttribute("strLastReservationStartTime", strLastReservationStartTime);

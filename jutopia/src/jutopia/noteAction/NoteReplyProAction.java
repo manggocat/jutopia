@@ -18,9 +18,7 @@ public class NoteReplyProAction implements CommandAction {
 		vo.setNote_num(Integer.parseInt(request.getParameter("note_num")));
 		vo.setNote_reply(request.getParameter("note_reply"));
 		
-		System.out.println("note_num : " + request.getParameter("note_num"));
-		System.out.println("note_reply : " + request.getParameter("note_reply"));
-
+		
 		NoteDAO dao = NoteDAO.getInstance();
 
 		int check = dao.insertReply(vo);

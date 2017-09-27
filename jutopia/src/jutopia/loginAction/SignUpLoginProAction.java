@@ -16,15 +16,11 @@ public class SignUpLoginProAction extends HttpServlet implements CommandAction {
 		HttpSession session = request.getSession(true);
 		request.setCharacterEncoding("UTF-8");
 		Sign_up_VO vo = new Sign_up_VO();
-		/*
-		String strEmail = request.getParameter("email");*/
 		
-		/*String text_mail_1 = request.getParameter("text_mail_1");
-		String text_mail_2 = request.getParameter("text_mail_2");*/
 		
 		String SIGN_UP_ID_EMAIL = request.getParameter("email");
 		
-		//String SIGN_UP_ID_EMAIL = request.getParameter("SIGN_UP_ID_EMAIL");
+		
 		String SIGN_UP_PWD = request.getParameter("login_pwd");
 
 		Sign_up_DAO dao = Sign_up_DAO.getInstance();

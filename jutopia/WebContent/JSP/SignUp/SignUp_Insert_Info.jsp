@@ -12,7 +12,21 @@
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
-  
+  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="./resource/alertify.core.css" />
+<link rel="stylesheet" href="./resource/alertify.default.css" id="toggleCSS" />
+<script src="resource/alertify.min.js"></script>
+<script>
+$(document).ready(function(){
+    
+    $("alert").on( 'click', function () {
+     alertify.alert("");
+     return false;
+    });
+});
+ 
+ 
+</script>
   <style>
   .insertbtn, .noinsertbtn {
    width: 7%;
@@ -57,19 +71,19 @@ body{
                   return true;
                }
                if (!($('#service_info').is(":checked"))) {
-                  alert('필수 약관을 체크해 주세요.')
+            	   alertify.alert('필수 약관을 체크해 주세요.')
                   $('#service_info').focus();
                   return false;
 
                }
                if (!($('#my_info').is(":checked"))) {
-                  alert('필수 약관을 체크해 주세요.')
+            	   alertify.alert('필수 약관을 체크해 주세요.')
                   $('#my_info').focus();
                   return false;
                }
                
                if (!($('#pos_info').is(":checked"))) {
-                  alert('필수 약관을 체크해 주세요.')
+            	   alertify.alert('필수 약관을 체크해 주세요.')
                   $('#pos_info').focus();
                   return false;
                }
@@ -77,7 +91,7 @@ body{
             });
       
       $('#noAgree').click(function() {
-         alert('동의하지 않으면 가입할 수 없습니다.')
+         alertify.alert('동의하지 않으면 가입할 수 없습니다.')
       });
 
    });

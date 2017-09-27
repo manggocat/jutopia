@@ -6,18 +6,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>주토피아 회원 정보 수정</title>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="./CSS/MypageForm/My_Secession.css" rel="stylesheet" type="text/css">
-
+ -->
 </head>
 
 
 <body><!-- Sign_Up_Update_Form.do -->
 
 <div class="col-md-8 col-md-offset-3" style="margin-left: 20%;"> 
-        <div class="well well-sm" >
+        <div class="well well-sm" style="background: rgba(255,255,255,0.6);">
           <form class="form-horizontal" action="MyPageSecessionProAction.do" method="post">
           <fieldset>
             <legend class="text-center"><font size="6">회원 정보 수정</font></legend>

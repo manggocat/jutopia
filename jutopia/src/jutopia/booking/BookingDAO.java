@@ -103,23 +103,23 @@ public class BookingDAO {
 	
 	public int delete(String str_book_car_num)
 	{
-		System.out.println("test4");
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		String dbstr_book_car_num = "";
 		int result = 0;
-		System.out.println("test3");
+		
 		try
 		{
 			
 			conn = getConnection();
 			pstmt = conn.prepareStatement("SELECT SZ_BOOK_CAR_NUM FROM BOOKING WHERE SZ_BOOK_CAR_NUM = ?");
 			pstmt.setString(1, str_book_car_num);
-			System.out.println(str_book_car_num);
+			
 			rs = pstmt.executeQuery();
-			System.out.println("test5");
+			
 			if(rs.next())
 			{
 				dbstr_book_car_num = rs.getString("SZ_BOOK_CAR_NUM");
@@ -129,13 +129,13 @@ public class BookingDAO {
 					pstmt.setString(1, str_book_car_num);
 					result = pstmt.executeUpdate();
 					result = 1;
-					System.out.println("test2");
+				
 				}
 			
 				else
 				{
 					result = 0;
-					System.out.println("test7");
+					
 				}
 			}
 		}
@@ -173,10 +173,9 @@ public class BookingDAO {
 			pstmt.setString(1, str_parking_location);
 			pstmt.setString(2, Date_book_day);
 			
-			System.out.println("Date_book_day = " + Date_book_day);
-			
+					
 			rs = pstmt.executeQuery();
-			System.out.println("rs = " + rs);
+			
 			if(rs.next())
 			{
 				Booking_list = new ArrayList();
@@ -185,18 +184,18 @@ public class BookingDAO {
 				{			
 					BookingVO lvo = new BookingVO();
 					lvo.setStr_parking_place(rs.getString("SZ_PARKING_PLACE"));
-					System.out.println("SZ_PARKING_PLACE_list = " + rs.getString("SZ_PARKING_PLACE"));
+					
 					lvo.setN_reserve_discrimintae(rs.getInt("N_RESERVE_DISCRIMINATE"));
-					System.out.println("N_RESERVE_DISCRIMINATE_list = " + rs.getInt("N_RESERVE_DISCRIMINATE"));
+					
 					lvo.setN_book_start(rs.getInt("N_BOOK_START"));
 					lvo.setN_book_end(rs.getInt("N_BOOK_END"));
-					System.out.println("bookingdao n_book_start = " + rs.getInt("N_BOOK_START"));
-					System.out.println("bookingdao n_book_end = " + rs.getInt("N_BOOK_END"));
+					
+					
 					Booking_list.add(lvo);
 					
 					for(int i = 0 ; i < Booking_list.size(); i++)
 					{
-					System.out.println("리스트 = " + Booking_list.get(i));
+					
 					}
 				}while(rs.next());
 				

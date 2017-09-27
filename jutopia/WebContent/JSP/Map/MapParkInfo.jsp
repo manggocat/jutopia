@@ -16,11 +16,28 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <link href="./CSS/Map/mapparkinfo.css" rel="stylesheet" type="text/css">
 <link href="./CSS/MainForm/MainForm.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	function loginshowPopup() {
+		window.open("SignUp_LoginForm.do", "로그인",
+				"width=500, height=350, left=100, top=50");
+	}
+</script>
 <script type="text/javascript" src="../../JS/send_Sms/sms.js"></script>
+
+
+<style type="text/css">
+div {
+font-weight: bold;
+}
+</style>
+
 
 </head>
 
 <body onload="loadJSON()">
+	
+	<c:set var="searchlist" value="${searchlist }" />
+
 	<c:if test="${sessionScope.memID != null}">
 		<form class="background">
 			<div class="navbar-wrapper">
@@ -36,33 +53,44 @@
 										class="icon-bar"></span> <span class="icon-bar"></span> <span
 										class="icon-bar"></span>
 								</button>
-								
-						<div style="position: relative;">
-									<img src="./images/MainForm/Logo.png" style="width: 160px; height: 90px; position: absolute;"/></div>
-						
+
+								<div style="position: relative;"><a href="mapmainForm.do" >
+									<img src="./images/MainForm/Logo.png"
+										style="width: 160px; height: 90px; position: absolute;" /></a>
+								</div>
+
 							</div>
 							<div id="navbar" class="navbar-collapse collapse">
 								<ul class="nav navbar-nav" style="padding-left: 17%;">
-									<li class="active" style="padding-right: 20px; padding-left: 20px;"><a href="mapmainForm.do" class="">Home</a></li> 
-									
-									<li class=" dropdown" style="padding-right: 30px; padding-left: 20px;">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">예약 하기<span class="caret"></span></a>
+									<li class="active"
+										style="padding-right: 20px; padding-left: 20px;"><a
+										href="mapmainForm.do" class="">Home</a></li>
+
+									<li class=" dropdown"
+										style="padding-right: 30px; padding-left: 20px;"><a
+										href="#" class="dropdown-toggle" data-toggle="dropdown"
+										role="button" aria-haspopup="true" aria-expanded="false">예약
+											하기<span class="caret"></span>
+									</a>
 										<ul class="dropdown-menu">
 											<li><a href="Season_Ticket_Info_Action.do"><font
 													color="white">주차 정기권</font></a></li>
-													<li><a href="BookingForm.do"><font color="white">주차 예약권</font></a></li>
+											<li><a href="BookingForm.do"><font color="white">주차
+														예약권</font></a></li>
 										</ul></li>
-									 <c:if test="${sessionScope.memID!='jutopia@gmail.com'}">
+									<c:if test="${sessionScope.memID!='jutopia@gmail.com'}">
 										<li style="padding-right: 20px;"><a href="noteList.do">
 												쪽지함 </a></li>
 									</c:if>
 									<c:if test="${sessionScope.memID=='jutopia@gmail.com'}">
 										<li style="padding-right: 20px;"><a
 											href="noteListAdmin.do"> 쪽지함 </a></li>
-									</c:if>									<li style="padding-right: 20px;"><a href="list.do">공지사항</a></li>
-									
-									<li><a href="#">회사 소개</a></li>
-								
+									</c:if>
+
+									<li style="padding-right: 20px;"><a href="list.do">공지사항</a></li>
+
+									<li><a href="CompanyinfoAction.do">회사 소개</a></li>
+
 								</ul>
 								<ul class="nav navbar-nav pull-right">
 									<li class=""><a href="MyPageMainForm.do">MyPage</a></li>
@@ -93,21 +121,40 @@
 										class="icon-bar"></span> <span class="icon-bar"></span> <span
 										class="icon-bar"></span>
 								</button>
-								
-								<div style="position: relative;">
-									<img src="./images/MainForm/Logo.png" style="width: 160px; height: 90px; position: absolute;"/></div>
+
+								<div style="position: relative;"><a href="mapmainForm.do" >
+									<img src="./images/MainForm/Logo.png"
+										style="width: 160px; height: 90px; position: absolute;" /></a>
+								</div>
 							</div>
 							<div id="navbar" class="navbar-collapse collapse">
 								<ul class="nav navbar-nav" style="padding-left: 17%;">
-									<li class="active" style="padding-right: 20px; padding-left: 20px;"><a href="mapmainForm.do" class="">Home</a></li> 
-									
+									<li class="active"
+										style="padding-right: 20px; padding-left: 20px;"><a
+										href="#" class="">Home</a></li>
+										
+										<li class=" dropdown"
+										style="padding-right: 30px; padding-left: 20px;"><a
+										href="#" class="dropdown-toggle" data-toggle="dropdown"
+										role="button" aria-haspopup="true" aria-expanded="false">예약
+											하기<span class="caret"></span>
+									</a>
+										<ul class="dropdown-menu">
+											<li><a href="Season_Ticket_Info_Action.do"><font
+													color="white">주차 정기권</font></a></li>
+											<li><a href="BookingForm.do"><font color="white">주차
+														예약권</font></a></li>
+										</ul></li>
+
+
 									<li style="padding-right: 20px;"><a href="list.do">공지사항</a></li>
-									
-									<li><a href="#">회사 소개</a></li>
-								
+
+									<li><a href="CompanyinfoAction.do">회사 소개</a></li>
+
 								</ul>
 								<ul class="nav navbar-nav pull-right">
-									<li class="" style="padding-right: 20px;"><a href="" onclick="loginshowPopup();">Login</a></li>
+									<li class="" style="padding-right: 20px;"><a href=""
+										onclick="loginshowPopup();">Login</a></li>
 									<li class=""><a href="SignUp_InsertForm.do">SignUp</a></li>
 								</ul>
 
@@ -131,7 +178,7 @@
 	<br>
 	<br>
 		<div class="container center">
-			<div class="well" style="width: 100%; height: 600px;">
+			<div class="well" style="width: 100%; height: 600px; background: rgba(255,255,255,0.4);">
 				<form action="smsPro.do">
 					<input type="hidden" name="smsType" value="L"> <input
 						type="hidden" name="name" value="${name }"> <input
@@ -245,7 +292,7 @@
 
 						<c:if test="${sessionScope.memID!=null}">
 							
-							<button type = "submit" class="btn btn-info" style="margin-left: 5%;" >주차장 정보 문자로 전송<span class="icon-cog icon-white"></span></button>
+							<button type = "button" class="btn btn-info" style="margin-left: 5%;" >주차장 정보 문자로 전송<span class="icon-cog icon-white"></span></button>
 						</c:if>
 					</div>
 			</div>

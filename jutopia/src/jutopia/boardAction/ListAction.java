@@ -36,7 +36,7 @@ public class ListAction implements CommandAction {
 		BoardDAO  dao = BoardDAO.getInstance();
 		count = dao.getListAllCount(startRow, endRow,Str_option,Str_search);
 		
-		System.out.println("count"+count);
+		
 		if( count > 0 ) {
 			list = dao.getSelectAll(startRow, endRow,Str_option,Str_search); 
 			

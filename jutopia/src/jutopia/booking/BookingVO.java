@@ -81,12 +81,7 @@ public class BookingVO {
 	
 	public void setDate_book_day(String date_book_day) throws ParseException 
 	{
-		/*DateFormat	 sdf = new SimpleDateFormat("yyyy-MM-dd");
-		System.out.println(date_book_day);
-		java.util.Date utildate = sdf.parse(date_book_day);
-		java.sql.Date sqlDate = new java.sql.Date(utildate.getTime());
-		this.date_book_day = sqlDate;
-		System.out.println("result: "+this.date_book_day);*/
+		
 		this.date_book_day = date_book_day;
 	}
 

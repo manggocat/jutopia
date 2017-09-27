@@ -60,3 +60,8 @@ constraint  board_num_pk  primary key(N_NUM)
 ) SEGMENT creation IMMEDIATE ;
 
 create sequence board_n_num;
+
+
+select * from sign_up;
+
+delete SIGN_UP where szsign_up_name='NULL';

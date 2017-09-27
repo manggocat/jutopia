@@ -75,7 +75,7 @@ public class SmsDAO {
 		BASE64Encoder encoder = new BASE64Encoder();
 		byte[] strByte = str.getBytes();
 		String result = encoder.encode(strByte);
-		System.out.println("result : "+result);
+		
 		return result;
 	}
 
@@ -93,8 +93,8 @@ public class SmsDAO {
 		        String user_id = base64Encode("wangi0304"); // SMS�븘�씠�뵒
 		        String secure = base64Encode("76cbbe87090606943f1c49cf98588d5d");//�씤利앺궎
 		        String msg = base64Encode(nullcheck(request.getParameter("msg"), ""));
-		        System.out.println("msg:"+request.getParameter("msg"));
-		        System.out.println("msg64:"+msg);
+		       
+		       
 		        String rphone = base64Encode(nullcheck(strPhone, ""));
 		        String sphone1 = base64Encode(nullcheck(request.getParameter("sphone1"), ""));
 		        String sphone2 = base64Encode(nullcheck(request.getParameter("sphone2"), ""));

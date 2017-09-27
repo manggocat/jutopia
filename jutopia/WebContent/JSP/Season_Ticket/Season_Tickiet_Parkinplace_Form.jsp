@@ -17,7 +17,7 @@
   		 </tr>
    
    		 <tr>
-			<td colspan = "2"> 선택한 주차공간 : <input type="text"  placeholder = "위에서 좌석을 선택주세요" id ="str_season_ticket_position" name = "str_season_ticket_position"></td>
+			<td colspan = "2"> 선택한 주차공간 : <input type="text"  style="color: black;" placeholder = "위에서 좌석을 선택주세요" id ="str_season_ticket_position" name = "str_season_ticket_position"></td>
   		 </tr>
    
   		 <tr>
@@ -33,13 +33,13 @@
 					<td>
 
 						<c:if test="${season_seat_discriminate.get(count)}">
-						<input id="${season_position}" class = "season_choiced" type ="button" value = "${season_position}" disabled>
+						<input id="${season_position}" class = "choiced"  type ="button" value = "${season_position}" disabled>
 						<c:set var="place_count" value="${place_count + 1}"/>
 						
 						</c:if>	
 								
 						<c:if test="${!season_seat_discriminate.get(count)}">
-						<input id="${season_position}" class = "season_choice" type ="button" value = "${season_position}" >
+						<input id="${season_position}"  class = "choice" type ="button" value = "${season_position}" >
 						</c:if>						
 					</td>
 					<c:set var="count" value="${count+1}"/>

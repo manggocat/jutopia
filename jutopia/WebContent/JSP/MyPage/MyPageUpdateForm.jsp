@@ -16,6 +16,21 @@
 	type="text/css">
 <link href="./CSS/MypageForm/MyPageUpdateForm" rel="stylesheet"
 	type="text/css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="./resource/alertify.core.css" />
+<link rel="stylesheet" href="./resource/alertify.default.css" id="toggleCSS" />
+<script src="resource/alertify.min.js"></script>
+<script>
+$(document).ready(function(){
+    
+    $("alert").on( 'click', function () {
+     alertify.alert("");
+     return false;
+    });
+});
+ 
+ 
+</script>
 <title>회원 정보 수정</title>
 
 <script type="text/javascript">
@@ -24,7 +39,7 @@
 		var passwd_filter = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/;
 		
 		if (!passwd_filter.test(strUserpwd.value)) {
-			alert("비밀번호 양식을 지켜서 입력해 주세요");
+			alertify.alert("비밀번호 양식을 지켜서 입력해 주세요");
 			return false;
 		}
 

@@ -32,7 +32,7 @@ public class MapParkInfoDAO {
 			conn = DbManager.getConnection("jutopiaDB");
 
 			StringBuffer sb = new StringBuffer();
-			System.out.println("mapparkinfoVO.getStr_User_ID_Email()"+mapparkinfoVO.getStr_User_ID_Email());
+			
 			sb.append("INSERT INTO searchword values(?, ?, ?,?) ");
 			pstmt = conn.prepareStatement(sb.toString());
 			pstmt.setString(1, mapparkinfoVO.getStr_User_ID_Email());

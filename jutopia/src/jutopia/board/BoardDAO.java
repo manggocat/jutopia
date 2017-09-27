@@ -213,7 +213,7 @@ public class BoardDAO { // Controller
 	// getListAllCount():
 	public int getListAllCount(int start, int end, String Str_option, String Str_search) {
 
-		System.out.println("testLog:getListAllCount");
+	
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

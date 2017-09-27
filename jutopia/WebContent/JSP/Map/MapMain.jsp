@@ -26,7 +26,7 @@
 <script type="text/javascript">
 	function loginshowPopup() {
 		window.open("SignUp_LoginForm.do", "로그인",
-				"width=450, height=200, left=100, top=50");
+				"width=500, height=350, left=100, top=50");
 	}
 </script>
 
@@ -42,6 +42,7 @@ window.onclick = function(event) {
 }
 </script>
  -->
+ 
 </head>
 
 <body>
@@ -63,17 +64,16 @@ window.onclick = function(event) {
 										class="icon-bar"></span>
 								</button>
 
-								<div style="position: relative;">
+								<div style="position: relative;"><a href="mapmainForm.do" >
 									<img src="./images/MainForm/Logo.png"
-										style="width: 160px; height: 90px; position: absolute;" />
+										style="width: 160px; height: 90px; position: absolute;" /></a>
 								</div>
 
 							</div>
 							<div id="navbar" class="navbar-collapse collapse">
 								<ul class="nav navbar-nav" style="padding-left: 17%;">
 									<li class="active"
-										style="padding-right: 20px; padding-left: 20px;"><a
-										href="mapmainForm.do" class="">Home</a></li>
+										style="padding-right: 20px; padding-left: 20px;"><a href="mapmainForm.do" class="">Home</a>
 
 									<li class=" dropdown"
 										style="padding-right: 30px; padding-left: 20px;"><a
@@ -98,7 +98,8 @@ window.onclick = function(event) {
 
 									<li style="padding-right: 20px;"><a href="list.do">공지사항</a></li>
 
-									<li><a href="#">회사 소개</a></li>
+									<li><a href="CompanyinfoAction.do">회사 소개</a></li>
+									<li><a href="QnAFormAction.do">QnA</a></li>
 
 								</ul>
 								<ul class="nav navbar-nav pull-right">
@@ -131,21 +132,37 @@ window.onclick = function(event) {
 										class="icon-bar"></span>
 								</button>
 
-								<div style="position: relative;">
+								<div style="position: relative;"><a href="mapmainForm.do" >
 									<img src="./images/MainForm/Logo.png"
-										style="width: 160px; height: 90px; position: absolute;" />
+										style="width: 160px; height: 90px; position: absolute;" /></a>
 								</div>
 							</div>
 							<div id="navbar" class="navbar-collapse collapse">
 								<ul class="nav navbar-nav" style="padding-left: 17%;">
 									<li class="active"
 										style="padding-right: 20px; padding-left: 20px;"><a
-										href="#" class="">Home</a></li>
+										href="mapmainForm.do" class="">Home</a></li>
+										
+										<li class=" dropdown"
+										style="padding-right: 30px; padding-left: 20px;"><a
+										href="#" class="dropdown-toggle" data-toggle="dropdown"
+										role="button" aria-haspopup="true" aria-expanded="false">예약
+											하기<span class="caret"></span>
+									</a>
+										<ul class="dropdown-menu">
+											<li><a href="Season_Ticket_Info_Action.do"><font
+													color="white">주차 정기권</font></a></li>
+											<li><a href="BookingForm.do"><font color="white">주차
+														예약권</font></a></li>
+										</ul></li>
 
 
 									<li style="padding-right: 20px;"><a href="list.do">공지사항</a></li>
 
-									<li><a href="#">회사 소개</a></li>
+									
+
+									<li><a href="CompanyinfoAction.do">회사 소개</a></li>
+									<li><a href="QnAFormAction.do">QnA</a></li>
 
 								</ul>
 								<ul class="nav navbar-nav pull-right">
@@ -169,7 +186,7 @@ window.onclick = function(event) {
 	<div style="margin-top: 3%;">
 
 		<div class="container well"
-			style="width: 85%; height: 500px; opacity: 0.7; position: absolute; align: center; margin-left: 120px;"></div>
+			style="width: 85%; height: 500px; opacity: 0.7; position: absolute; align: center; margin-left: 120px; background: rgba(255,255,255,0.4);"></div>
 		<br>
 		<div style="position: relative;">
 			<div style="margin-left: 15%; margin-top: 1%;">
@@ -378,6 +395,7 @@ window.onclick = function(event) {
 
 				// 검색결과 항목을 Element로 반환하는 함수입니다
 				function getListItem(index, places) {
+
 					var el = document.createElement('li'), itemStr = '<span class="markerbg marker_'
 							+ (index + 1)
 							+ '"></span>'
@@ -391,6 +409,7 @@ window.onclick = function(event) {
 							+ "'"
 							+ '">'
 							+ ' <h5>' + places.place_name + '</h5>';
+
 					if (places.road_address_name) {
 						itemStr += '    <span>' + places.road_address_name
 								+ '</span>' + '   <span class="jibun gray">'
@@ -402,6 +421,7 @@ window.onclick = function(event) {
 
 					itemStr += '  <span class="tel">' + places.phone
 							+ '</span>' + '</div>';
+
 					el.innerHTML = itemStr;
 					el.className = 'item';
 

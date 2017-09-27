@@ -24,17 +24,7 @@ public class Sign_up_DAO {
 	// 생성자
 	private Sign_up_DAO(){}  
 	
-	// DB연결
-	/*public Connection getConnection() throws Exception {
-		// 연결은 JNDI & Pool 형태로 연결 객체 생성해서 리턴 할것임
-		Context ctx = new InitialContext();
-		Context env = (Context) ctx.lookup("java:comp/env");
-		DataSource ds = (DataSource) env.lookup("jdbc:JUTOPIADB");
-
-		return ds.getConnection();
-	}// getConnection();
-	*/
-	// insert 처리 - 회원 가입 처리 메소드(삽입)
+	
 	public int insert(Sign_up_VO vo) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -56,7 +46,7 @@ public class Sign_up_DAO {
 			pstmt.setString(5, vo.getSIGN_UP_REDUCTION());
 
 			result = pstmt.executeUpdate();
-			System.out.println("result : " + result);
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -89,7 +79,7 @@ public class Sign_up_DAO {
 		} else {
 			result = -1; // 해당 아이디 없음
 		} // if end
-		System.out.println(result);
+		
 
 		CloseUtil.close(rs);
 		CloseUtil.close(pstmt);

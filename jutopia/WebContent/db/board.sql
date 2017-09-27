@@ -24,6 +24,7 @@ select * from seasonticket;
 create sequence board_num;		-- 占쌘듸옙 占쏙옙占쏙옙 占쏙옙호
 drop sequence board_num;
 
+delete from SEASONTICKET where sz_season_ticket_parking_lot='광교주차장';
 ----------------------------------------------------------------
 select* from board;
 create table SEASONTICKET(
@@ -76,6 +77,10 @@ SELECT SZ_PARKING_LOCATION, DATE_BOOK_DAY, N_BOOK_START, N_BOOK_END FROM BOOKING
 select * from booking;
 select * from parking;
 select * from SEASONTICKET;
+
+
+delete from parking where sz_parking_lot='잠실주차장';
+delete from booking where sz_parking_location='잠실주차장';
 
 delete from booking where sz_book_id_email='15150304@hanmail.net';
 
@@ -153,7 +158,12 @@ delete from board;
 UPDATE BOARD SET RE_STEP = RE_STEP + 1, RE_LEVEL = RE_LEVEL + 1 WHERE ref=1;
 
 SELECT MAX(RE_STEP) FROM BOARD where ref = 83 and re_level = 1
+delete booking where n_book_num = 43;
+delete booking where n_book_num = 44;
+delete parking where n_parking_num = 83;
+delete parking where n_parking_num = 84;
 
+select * from PARKING;
 select * from booking;
 SELECT SZ_PARKING_PLACE, N_RESERVE_DISCRIMINATE,N_BOOK_START FROM (select * from BOOKING WHERE SZ_PARKING_LOCATION = '占쏙옙占쏙옙占쏙옙占쏙옙占�' AND DATE_BOOK_DAY='2017-09-24');
 SELECT SZ_PARKING_PLACE, N_RESERVE_DISCRIMINATE,N_BOOK_START FROM (select * from BOOKING WHERE SZ_PARKING_LOCATION = '占쏙옙占쏙옙占쏙옙占쏙옙占�' AND DATE_BOOK_DAY='2017-09-24')where N_BOOK_START BETWEEN 600 AND 700;

@@ -55,7 +55,7 @@ public class FindpwdDAO {
 					DbManager.select("Sign_up", arrAttribute, "szSIGN_UP_ID_EMAIL", findpwdVO.getSIGN_UP_ID_EMAIL()));
 
 			rs = pstmt.executeQuery();
-			System.out.println("namedkdkdkdkd" + findpwdVO.getSIGN_UP_NAME());
+			
 			while (rs.next()) {
 				if (rs.getString(1).equals(findpwdVO.getSIGN_UP_ID_EMAIL())) {
 					if (rs.getString(2).equals(findpwdVO.getSIGN_UP_NAME())) {

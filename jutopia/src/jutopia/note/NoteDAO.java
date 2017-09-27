@@ -15,31 +15,31 @@ import java.util.List;
 
 public class NoteDAO { //controller
 
-    // ?•œ ë²? ê°ì²´ë¥? ?ƒ?„±?•˜?—¬ ëª¨ë“  ?´?˜?Š¤ê°? ê³µìœ ?•œ?‹¤(?‹±?´?†¤)
-    private static NoteDAO instance = new NoteDAO();//?•œ ë²? ê°ì²´ë¥? ?ƒ?„±?•˜?—¬ ëª¨ë“  ?´?˜?Š¤ê°? ê³µìœ ?•œ?‹¤(?‹±?´?†¤)
+    // ?ï¿½ï¿½ ï¿½? ê°ì²´ï¿½? ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ëª¨ë“  ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ï¿½? ê³µìœ ?ï¿½ï¿½?ï¿½ï¿½(?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½)
+    private static NoteDAO instance = new NoteDAO();//?ï¿½ï¿½ ï¿½? ê°ì²´ï¿½? ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ëª¨ë“  ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ï¿½? ê³µìœ ?ï¿½ï¿½?ï¿½ï¿½(?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½)
 
     public static NoteDAO getInstance() {
         return instance;
     }
 
-    // ?ƒ?„±?(?””?´?Š¸)//?•„ë¬´ê²ƒ?„ ?…? ¥ ?•ˆ ?•  ?ˆ˜?„ ?ˆê¸? ?•Œë¬¸ì— ?””?´?Š¸ ?ƒ?„±?ê°? ?ˆ?–´?•¼ ?•œ?‹¤
+    // ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½(?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½)//?ï¿½ï¿½ë¬´ê²ƒ?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½ ?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½ï¿½? ?ï¿½ï¿½ë¬¸ì— ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ï¿½? ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½
     private NoteDAO() {}
 
-    // DB?—°ê²?
+    // DB?ï¿½ï¿½ï¿½?
     public Connection getConnection() throws Exception {
-        //?—°ê²°ì? JNDI & Pool ?˜•?ƒœë¡? ?—°ê²? ê°ì²´ ?ƒ?„±?•´?„œ ë¦¬í„´ ?• ê²ƒì„
-        Context ctx = new InitialContext(); //context : ê°ì²´?˜ ? •ë³? ?†?„± ë¦¬ìŠ¤?Š¸ë¥? ?‹´?Š” ê°ì²´
+        //?ï¿½ï¿½ê²°ï¿½? JNDI & Pool ?ï¿½ï¿½?ï¿½ï¿½ï¿½? ?ï¿½ï¿½ï¿½? ê°ì²´ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ë¦¬í„´ ?ï¿½ï¿½ê²ƒì„
+        Context ctx = new InitialContext(); //context : ê°ì²´?ï¿½ï¿½ ?ï¿½ï¿½ï¿½? ?ï¿½ï¿½?ï¿½ï¿½ ë¦¬ìŠ¤?ï¿½ï¿½ï¿½? ?ï¿½ï¿½?ï¿½ï¿½ ê°ì²´
         Context env = (Context) ctx.lookup("java:comp/env");
-        DataSource ds = (DataSource) env.lookup("jdbc:jutopiaDB"); //dbc:BoardDBë¥? ì°¾ì•„?„œ ds?— ?„£?Œ
+        DataSource ds = (DataSource) env.lookup("jdbc:jutopiaDB"); //dbc:BoardDBï¿½? ì°¾ì•„?ï¿½ï¿½ ds?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½
 
-        System.out.println("db------------------------------------");
-        System.out.println(ds.toString());
+        
+        
 
         return ds.getConnection();
     }
 
     /**
-     * ìª½ì? ë³´ë‚´ê¸?
+     * ìª½ï¿½? ë³´ë‚´ï¿½?
      *
      * @param vo
      * @return
@@ -78,7 +78,7 @@ public class NoteDAO { //controller
     }
 
     /**
-     * ë³´ê??•¨ ì¡°íšŒ (ì´ì¹´?š´?Š¸)
+     * ë³´ï¿½??ï¿½ï¿½ ì¡°íšŒ (ì´ì¹´?ï¿½ï¿½?ï¿½ï¿½)
      * @param email
      * @return
      */
@@ -93,7 +93,7 @@ public class NoteDAO { //controller
 
             StringBuffer sb = new StringBuffer();
 
-            //ë°©ë²• 4> //?˜?´ì§•ê¸°ë²? ?˜?´ì§?ë¥? ?‹¤ ê°?? ¸?˜¤ë©? ë¡œë“œê°? ?Š? ¤ì§?ê¸? ?•Œë¬¸ì— ?˜?´ì§?ë¥? ? œ?•œ?•˜?Š” ê²?
+            //ë°©ë²• 4> //?ï¿½ï¿½?ï¿½ï¿½ì§•ê¸°ï¿½? ?ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½? ?ï¿½ï¿½ ï¿½??ï¿½ï¿½?ï¿½ï¿½ï¿½? ë¡œë“œï¿½? ?ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½? ?ï¿½ï¿½ë¬¸ì— ?ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½? ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ï¿½?
             sb.append("select count(*) cnt ");
             sb.append("from   note ");
             sb.append("where  note_sender = ? ");
@@ -117,7 +117,7 @@ public class NoteDAO { //controller
     }
 
     /**
-     * ë³´ê??•¨ ì¡°íšŒ (ë¯¸ë‹µë³? ì¹´ìš´?Š¸)
+     * ë³´ï¿½??ï¿½ï¿½ ì¡°íšŒ (ë¯¸ë‹µï¿½? ì¹´ìš´?ï¿½ï¿½)
      * @param email
      * @return
      */
@@ -132,7 +132,7 @@ public class NoteDAO { //controller
 
             StringBuffer sb = new StringBuffer();
 
-            //ë°©ë²• 4> //?˜?´ì§•ê¸°ë²? ?˜?´ì§?ë¥? ?‹¤ ê°?? ¸?˜¤ë©? ë¡œë“œê°? ?Š? ¤ì§?ê¸? ?•Œë¬¸ì— ?˜?´ì§?ë¥? ? œ?•œ?•˜?Š” ê²?
+            //ë°©ë²• 4> //?ï¿½ï¿½?ï¿½ï¿½ì§•ê¸°ï¿½? ?ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½? ?ï¿½ï¿½ ï¿½??ï¿½ï¿½?ï¿½ï¿½ï¿½? ë¡œë“œï¿½? ?ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½? ?ï¿½ï¿½ë¬¸ì— ?ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½? ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ï¿½?
             sb.append("select count(*) cnt ");
             sb.append("from   note ");
             sb.append("where  note_sender = ? ");
@@ -157,7 +157,7 @@ public class NoteDAO { //controller
     }
 
     /**
-     * ë³´ê??•¨ ì¡°íšŒ
+     * ë³´ï¿½??ï¿½ï¿½ ì¡°íšŒ
      * @param start
      * @param end
      * @return
@@ -173,7 +173,7 @@ public class NoteDAO { //controller
 
             StringBuffer sb = new StringBuffer();
 
-            //ë°©ë²• 4> //?˜?´ì§•ê¸°ë²? ?˜?´ì§?ë¥? ?‹¤ ê°?? ¸?˜¤ë©? ë¡œë“œê°? ?Š? ¤ì§?ê¸? ?•Œë¬¸ì— ?˜?´ì§?ë¥? ? œ?•œ?•˜?Š” ê²?
+            //ë°©ë²• 4> //?ï¿½ï¿½?ï¿½ï¿½ì§•ê¸°ï¿½? ?ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½? ?ï¿½ï¿½ ï¿½??ï¿½ï¿½?ï¿½ï¿½ï¿½? ë¡œë“œï¿½? ?ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½? ?ï¿½ï¿½ë¬¸ì— ?ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½? ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ï¿½?
             sb.append("select note_num, note_sender, note_recipient, note_contents, note_reply, TO_CHAR(note_send_time, 'YYYY-MM-DD HH24:MI:SS') note_send_time, TO_CHAR(note_reply_time, 'YYYY-MM-DD HH24:MI:SS') note_reply_time, R ");
             sb.append("from (select  note_num, note_sender, note_recipient, note_contents, note_reply, note_send_time, note_reply_time, ROWNUM R ");
             sb.append("      from (select note_num, note_sender, note_recipient, note_contents, note_reply, note_send_time, note_reply_time ");
@@ -202,10 +202,10 @@ public class NoteDAO { //controller
                     vo.setNote_send_time(rs.getString("note_send_time"));
                     vo.setNote_reply_time(rs.getString("note_reply_time"));
 
-                    //list ê°ì²´?— ?°?´?„° ???¥ Bean?¸ BoardVO ê°ì²´?— ???¥?•œ?‹¤.
-                    list.add(vo);//???¥?–ˆ?˜ listê°ì²´ë¥? ë¦¬í„´?•´ ì¤??‹¤
+                    //list ê°ì²´?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ???ï¿½ï¿½ Bean?ï¿½ï¿½ BoardVO ê°ì²´?ï¿½ï¿½ ???ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½.
+                    list.add(vo);//???ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ listê°ì²´ï¿½? ë¦¬í„´?ï¿½ï¿½ ï¿½??ï¿½ï¿½
 
-                } while (rs.next()); //?‹¤?Œ?š”?†Œê°? ?ˆ?„ ?•Œê¹Œì? ê³„ì† ë°˜ë³µë¬¸ìœ¼ë¡? ?ˆ?‹¤
+                } while (rs.next()); //?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ï¿½? ?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½ê¹Œï¿½? ê³„ì† ë°˜ë³µë¬¸ìœ¼ï¿½? ?ï¿½ï¿½?ï¿½ï¿½
             }
 
         } catch (Exception e) {
@@ -220,7 +220,7 @@ public class NoteDAO { //controller
     }
 
     /**
-     * ìª½ì? ?‚­? œ
+     * ìª½ï¿½? ?ï¿½ï¿½?ï¿½ï¿½
      * @param note_num
      * @return
      * @throws Exception
@@ -250,7 +250,7 @@ public class NoteDAO { //controller
     }
 
     /**
-     * ê´?ë¦¬ì ë³´ê??•¨ ì¡°íšŒ (ì´ì¹´?š´?Š¸)
+     * ï¿½?ë¦¬ì ë³´ï¿½??ï¿½ï¿½ ì¡°íšŒ (ì´ì¹´?ï¿½ï¿½?ï¿½ï¿½)
      * @param email
      * @return
      */
@@ -265,7 +265,7 @@ public class NoteDAO { //controller
 
             StringBuffer sb = new StringBuffer();
 
-            //ë°©ë²• 4> //?˜?´ì§•ê¸°ë²? ?˜?´ì§?ë¥? ?‹¤ ê°?? ¸?˜¤ë©? ë¡œë“œê°? ?Š? ¤ì§?ê¸? ?•Œë¬¸ì— ?˜?´ì§?ë¥? ? œ?•œ?•˜?Š” ê²?
+            //ë°©ë²• 4> //?ï¿½ï¿½?ï¿½ï¿½ì§•ê¸°ï¿½? ?ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½? ?ï¿½ï¿½ ï¿½??ï¿½ï¿½?ï¿½ï¿½ï¿½? ë¡œë“œï¿½? ?ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½? ?ï¿½ï¿½ë¬¸ì— ?ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½? ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ï¿½?
             sb.append("select count(*) cnt ");
             sb.append("from   note ");
             sb.append("where  note_recipient = ? ");
@@ -289,7 +289,7 @@ public class NoteDAO { //controller
     }
 
     /**
-     * ê´?ë¦¬ì ë³´ê??•¨ ì¡°íšŒ (ë¯¸ë‹µë³? ì¹´ìš´?Š¸)
+     * ï¿½?ë¦¬ì ë³´ï¿½??ï¿½ï¿½ ì¡°íšŒ (ë¯¸ë‹µï¿½? ì¹´ìš´?ï¿½ï¿½)
      * @param email
      * @return
      */
@@ -304,7 +304,7 @@ public class NoteDAO { //controller
 
             StringBuffer sb = new StringBuffer();
 
-            //ë°©ë²• 4> //?˜?´ì§•ê¸°ë²? ?˜?´ì§?ë¥? ?‹¤ ê°?? ¸?˜¤ë©? ë¡œë“œê°? ?Š? ¤ì§?ê¸? ?•Œë¬¸ì— ?˜?´ì§?ë¥? ? œ?•œ?•˜?Š” ê²?
+            //ë°©ë²• 4> //?ï¿½ï¿½?ï¿½ï¿½ì§•ê¸°ï¿½? ?ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½? ?ï¿½ï¿½ ï¿½??ï¿½ï¿½?ï¿½ï¿½ï¿½? ë¡œë“œï¿½? ?ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½? ?ï¿½ï¿½ë¬¸ì— ?ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½? ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ï¿½?
             sb.append("select count(*) cnt ");
             sb.append("from   note ");
             sb.append("where  note_recipient = ? ");
@@ -329,7 +329,7 @@ public class NoteDAO { //controller
     }
 
     /**
-     * ê´?ë¦¬ì ë³´ê??•¨ ì¡°íšŒ
+     * ï¿½?ë¦¬ì ë³´ï¿½??ï¿½ï¿½ ì¡°íšŒ
      * @param start
      * @param end
      * @return
@@ -344,11 +344,9 @@ public class NoteDAO { //controller
             conn = getConnection();
 
             StringBuffer sb = new StringBuffer();
+           
             
-            System.out.println("------start: "+ start);
-            System.out.println("------end: "+ end);
-            
-            //ë°©ë²• 4> //?˜?´ì§•ê¸°ë²? ?˜?´ì§?ë¥? ?‹¤ ê°?? ¸?˜¤ë©? ë¡œë“œê°? ?Š? ¤ì§?ê¸? ?•Œë¬¸ì— ?˜?´ì§?ë¥? ? œ?•œ?•˜?Š” ê²?
+            //ë°©ë²• 4> //?ï¿½ï¿½?ï¿½ï¿½ì§•ê¸°ï¿½? ?ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½? ?ï¿½ï¿½ ï¿½??ï¿½ï¿½?ï¿½ï¿½ï¿½? ë¡œë“œï¿½? ?ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½? ?ï¿½ï¿½ë¬¸ì— ?ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½? ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ï¿½?
             sb.append("select note_num, note_sender, note_recipient, note_contents, note_reply, TO_CHAR(note_send_time, 'YYYY-MM-DD HH24:MI:SS') note_send_time, TO_CHAR(note_reply_time, 'YYYY-MM-DD HH24:MI:SS') note_reply_time, R ");
             sb.append("from (select  note_num, note_sender, note_recipient, note_contents, note_reply, note_send_time, note_reply_time, ROWNUM R ");
             sb.append("      from (select note_num, note_sender, note_recipient, note_contents, note_reply, note_send_time, note_reply_time ");
@@ -377,10 +375,10 @@ public class NoteDAO { //controller
                     vo.setNote_send_time(rs.getString("note_send_time"));
                     vo.setNote_reply_time(rs.getString("note_reply_time"));
 
-                    //list ê°ì²´?— ?°?´?„° ???¥ Bean?¸ BoardVO ê°ì²´?— ???¥?•œ?‹¤.
-                    list.add(vo);//???¥?–ˆ?˜ listê°ì²´ë¥? ë¦¬í„´?•´ ì¤??‹¤
+                    //list ê°ì²´?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ???ï¿½ï¿½ Bean?ï¿½ï¿½ BoardVO ê°ì²´?ï¿½ï¿½ ???ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½.
+                    list.add(vo);//???ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ listê°ì²´ï¿½? ë¦¬í„´?ï¿½ï¿½ ï¿½??ï¿½ï¿½
 
-                } while (rs.next()); //?‹¤?Œ?š”?†Œê°? ?ˆ?„ ?•Œê¹Œì? ê³„ì† ë°˜ë³µë¬¸ìœ¼ë¡? ?ˆ?‹¤
+                } while (rs.next()); //?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ï¿½? ?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½ê¹Œï¿½? ê³„ì† ë°˜ë³µë¬¸ìœ¼ï¿½? ?ï¿½ï¿½?ï¿½ï¿½
             }
 
         } catch (Exception e) {
@@ -395,7 +393,7 @@ public class NoteDAO { //controller
     }
 
     /**
-     * ìª½ì? ?‹µë³? ë³´ë‚´ê¸?
+     * ìª½ï¿½? ?ï¿½ï¿½ï¿½? ë³´ë‚´ï¿½?
      *
      * @param vo
      * @return
@@ -430,10 +428,10 @@ public class NoteDAO { //controller
         return result;
     }
 
-    //?ƒ?„¸?™•?¸
+    //?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½
 	public NoteVo getDataDetail(int num) {
-		// getDataDetail(num) - noteShowForm.jsp ?ƒ?„¸ë³´ê¸° ?˜?´ì§?
-		//num?— ?•´?‹¹?•˜?Š” ? ˆì½”ë“œë¥?  note?…Œ?´ë¸”ì—?„œ ê²??ƒ‰?•¨
+		// getDataDetail(num) - noteShowForm.jsp ?ï¿½ï¿½?ï¿½ï¿½ë³´ê¸° ?ï¿½ï¿½?ï¿½ï¿½ï¿½?
+		//num?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½ì½”ë“œï¿½?  note?ï¿½ï¿½?ï¿½ï¿½ë¸”ì—?ï¿½ï¿½ ï¿½??ï¿½ï¿½?ï¿½ï¿½
 		
 			Connection conn = null;
 			PreparedStatement pstmt = null;
@@ -445,7 +443,7 @@ public class NoteDAO { //controller
 			try {
 				conn = getConnection();
 				
-				//?‹¤ì§ˆì ?œ¼ë¡? ë³´ì—¬ì£¼ëŠ” ë¶?ë¶?
+				//?ï¿½ï¿½ì§ˆì ?ï¿½ï¿½ï¿½? ë³´ì—¬ì£¼ëŠ” ï¿½?ï¿½?
 				pstmt = conn.prepareStatement("select * from note where note_num = ?");
 				pstmt.setInt(1, num);
 				rs = pstmt.executeQuery();

@@ -17,7 +17,7 @@ public class DeleteProAction implements CommandAction {
 		BoardDAO  dao = BoardDAO.getInstance();
 		String N_num = request.getParameter("num");
 		String pageNum = request.getParameter("pageNum");
-		System.out.println(N_num);
+		
 		
 		dao.delete(new Integer(N_num)); 
 		

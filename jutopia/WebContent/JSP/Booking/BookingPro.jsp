@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri= "http://java.sun.com/jstl/core_rt" prefix = "c" %>
     
-<meta http-equiv = "Refresh" content = "0; url=ParkingplaceForm.do">
+<meta http-equiv = "Refresh" content = "0; url=BookingCheckAction.do">
 

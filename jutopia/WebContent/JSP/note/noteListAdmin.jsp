@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    
-  <link href="./CSS/note/noteListAdmin.css" rel="stylesheet" type="text/css">
+  <!-- <link href="./CSS/note/noteListAdmin.css" rel="stylesheet" type="text/css"> -->
+  <link href="./CSS/MainForm/MainForm2.css" rel="stylesheet" type="text/css">
     <script>
 
     // 페이지 클릭시 호출
@@ -58,11 +59,91 @@
         );
     }
 </script>
+
+<style type="text/css">
+tr > th,td {
+            text-align: center;
+        }
+</style>
 </head>
 
 <body>
+ 
+ <c:if test="${sessionScope.memID!=null}">
+      <form class="background">
+         <div class="navbar-wrapper">
+            <div class="container-fluid">
+               <nav id="aaa" class="navbar navbar-fixed-top"
+                  style="position: relative;">
+                  <div class="container">
+                     <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed"
+                           data-toggle="collapse" data-target="#navbar"
+                           aria-expanded="false" aria-controls="navbar">
+                           <span class="sr-only">Toggle navigation</span> <span
+                              class="icon-bar"></span> <span class="icon-bar"></span> <span
+                              class="icon-bar"></span>
+                        </button>
+
+                        <div style="position: relative;"><a href="mapmainForm.do">
+                           <img src="./images/MainForm/Logo.png"
+                              style="width: 160px; height: 90px; position: absolute;" /></a>
+                        </div>
+
+                     </div>
+                     <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav" style="padding-left: 17%;">
+                           <li class="active"
+                              style="padding-right: 20px; padding-left: 20px;"><a
+                              href="mapmainForm.do" class="">Home</a></li>
+
+                           <li class=" dropdown"
+                              style="padding-right: 30px; padding-left: 20px;"><a
+                              href="#" class="dropdown-toggle" data-toggle="dropdown"
+                              role="button" aria-haspopup="true" aria-expanded="false">예약
+                                 하기<span class="caret"></span>
+                           </a>
+                              <ul class="dropdown-menu">
+                                 <li><a href="Season_Ticket_Info_Action.do"><font
+                                       color="white">주차 정기권</font></a></li>
+                                 <li><a href="BookingForm.do"><font color="white">주차
+                                          예약권</font></a></li>
+                              </ul></li>
+                           <c:if test="${sessionScope.memID!='jutopia@gmail.com'}">
+                              <li style="padding-right: 20px;"><a href="noteList.do">
+                                    쪽지함 </a></li>
+                           </c:if>
+                           <c:if test="${sessionScope.memID=='jutopia@gmail.com'}">
+                              <li style="padding-right: 20px;"><a
+                                 href="noteListAdmin.do"> 쪽지함 </a></li>
+                           </c:if>
+
+                           <li style="padding-right: 20px;"><a href="list.do">공지사항</a></li>
+
+									<li><a href="CompanyinfoAction.do">회사 소개</a></li>
+									<li><a href="QnAFormAction.do">QnA</a></li>
+
+                        </ul>
+                        <ul class="nav navbar-nav pull-right">
+                           <li class=""><a href="MyPageMainForm.do">MyPage</a></li>
+                           <li class=""><a href="SignUp_Logout.do">LogOut</a></li>
+                        </ul>
+
+                     </div>
+
+                  </div>
+
+               </nav>
+            </div>
+         </div>
+      </form>
+   </c:if>
+ 
+ <!-- 관리자 리스트 함 -->
+ 
  <c:if test="${sessionScope.memID=='jutopia@gmail.com'}">
-<div class="container-fluid">
+ 
+<div class="container-fluid" style="margin-top: 2%;">
     <div class="row">
         <div class="col-lg-12">
             <form name="searchForm" id="searchForm">

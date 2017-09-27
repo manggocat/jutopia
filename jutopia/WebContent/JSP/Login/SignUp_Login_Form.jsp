@@ -41,6 +41,10 @@
       document.inform.text_mail_1.focus();
    }
 
+   function setclose() {
+	   self.close()
+	
+}
    function checkIt() {
       //var inputForm = eval("document.inputForm");
       inputForm = eval("document.inForm");
@@ -151,7 +155,7 @@
                   <button type="submit" class="btn btn-primary btn-lg"
                       style="width: 20%;">Login</button> &nbsp;
                       <button type="button" class="btn btn-default btn-lg"
-                      onclick="setclose"
+                      onclick="setclose()"
                      style="width: 20%;">Cancel</button>
                      
                   &nbsp;

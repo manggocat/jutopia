@@ -174,13 +174,13 @@ public class MypageDAO {
 				{
 					MypageVO mvo = new MypageVO();
 					mvo.setStr_parking_location(rs.getString("SZ_PARKING_LOCATION"));
-					System.out.println("DAO 파킹로케이션 = " + rs.getString("SZ_PARKING_LOCATION"));
+					
 					mvo.setDate_book_day(rs.getString("DATE_BOOK_DAY"));
-					System.out.println("DAO 날짜 = " + rs.getString("DATE_BOOK_DAY"));
+					
 					mvo.setN_book_start(rs.getInt("N_BOOK_START"));
-					System.out.println("DAO 시작시간 = " + rs.getInt("N_BOOK_START"));
+					
 					mvo.setN_book_end(rs.getInt("N_BOOK_END"));
-					System.out.println("DAO 끝 시간 = " + rs.getInt("N_BOOK_END"));
+					
 					
 					Imformation_list.add(mvo);
 					
@@ -236,7 +236,7 @@ public class MypageDAO {
 					svo.setStr_season_ticket_parking_lot(rs.getString("SZ_SEASON_TICKET_PARKING_LOT"));
 					svo.setStr_season_ticket_reduction(rs.getString("SZ_SEASON_TICKET_REDUCTION"));
 					svo.setN_season_ticket_start_date(rs.getInt("N_SEASON_TICKET_START_DATE"));
-					System.out.println();
+				
 					Imformation_Season_list.add(svo);
 					
 				}while(rs.next());

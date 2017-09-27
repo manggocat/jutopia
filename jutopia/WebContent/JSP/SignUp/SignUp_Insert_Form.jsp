@@ -19,6 +19,21 @@
 <link href="./CSS/Login/insert.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="./resource/alertify.core.css" />
+<link rel="stylesheet" href="./resource/alertify.default.css" id="toggleCSS" />
+<script src="resource/alertify.min.js"></script>
+<script>
+$(document).ready(function(){
+    
+    $("alert").on( 'click', function () {
+     alertify.alert("");
+     return false;
+    });
+});
+ 
+ 
+</script>
 <script type="text/javascript">
 
    function checkIt() { //사용자가 입력폼에 입력한 상황을 체크
@@ -27,76 +42,74 @@
    
    		
 		// 패스워드
-      	//var passwd_filter = /^((?=.*[0-9]).{1,}(?=.*[~!@#$%^&*()-_]).{1,}(?=.*[a-zA-Z]).{1,}).{3,20}$/;
            var passwd_filter = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/;
 
-		//var passwd_filter =/^(?=.*[a-zA-Z])(?=.*[!@#$%^~*&+=-])(?=.*[0.9]).{3,20}$/;
-		//var passwd_filter = /^.*(?=.{8,17})(?=.*[0-9])(?=.*[a-zA-Z]).*$/; 
-        //var passwd_filter = /^.*(?=^.{8,20}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
-		//var passwd_filter =  /^[0-9]$/;
+	
 		// 휴대 전화
 		var phone_fileter = /^01([0-9]{1})([0-9]{3,4})([0-9]{4})$/;
-		//var phone_fileter = /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{10,11})$/;
+		
         
         if(!userinfo.sign_up_name.value) { //이름
-            alert("사용자 이름을 입력하세요");
+        	alertify.alert("사용자 이름을 입력하세요");
             userinfo.sign_up_name.focus();
             return false;
         }
 
         if(!userinfo.text_mail_1.value) { //이메일 아이디
-            alert("이메일 아이디를 입력하세요");
+        	alertify.alert("이메일 아이디를 입력하세요");
             userinfo.text_mail_1.focus();
             return false; //사용자가 서비스를 요청한 시점으로 돌아감
         }
         
         if(!userinfo.text_mail_2.value) { //이메일 주소
-            alert("이메일 주소를 입력하세요");
+        	alertify.alert("이메일 주소를 입력하세요");
             userinfo.text_mail_2.focus();
             return false; //사용자가 서비스를 요청한 시점으로 돌아감
         }
         
 		if($('#emailYn').val() == 'N') { // 인증번호
+			alertify.alert("이메일 인증을 해주세요");
             userinfo.user_number.focus();
+		
              return false;
          }
         
         if(!userinfo.user_number.value) { // 인증번호
-            alert("인증번호를 확인하세요");
+        	alertify.alert("인증번호를 확인하세요");
             return false;
         }
    
         if(!userinfo.sign_up_pwd.value) { //비밀번호1
-            alert("비밀번호 입력하세요");
+        	alertify.alert("비밀번호 입력하세요");
             userinfo.sign_up_pwd.focus();
             return false;
         }
  		
 		if (!userinfo.sign_up_pwd2.value ) { //비밀번호2
-            alert("비밀번호 확인을 입력하세요");
+			alertify.alert("비밀번호 확인을 입력하세요");
             userinfo.sign_up_pwd2.focus();
             return false;
         }
         
 		if (userinfo.sign_up_pwd.value != userinfo.sign_up_pwd2.value)
         {  //비밀번호와 비밀번호 확인이 같지 않으면 수행
-            alert("암호를 동일하게 입력하세요");
+			alertify.alert("암호를 동일하게 입력하세요");
             return false;
         }
 		
 		if (!passwd_filter.test(sign_up_pwd.value) ) {
-        	alert("비밀번호 양식을 지켜서 입력해 주세요");
+			alertify.alert("비밀번호 양식을 지켜서 입력해 주세요");
         	return false;
         }
         
 	 	if (!userinfo.sign_up_tel.value) { //핸드폰
-            alert("핸드폰 번호를 입력하세요");
+	 		alertify.alert("핸드폰 번호를 입력하세요");
             userinfo.sign_up_tel.focus();
             return false;
         }
         
 		if (!phone_fileter.test(sign_up_tel.value) ) {
-	    	alert("양식을 지켜서 입력해 주세요.");
+			alertify.alert("양식을 지켜서 입력해 주세요.");
 	    	return false;
     	} 
          
@@ -118,11 +131,11 @@
 		
 		if (!userinfo.text_mail_1.value || !userinfo.text_mail_2.value) { 
         	//아이디를 입력했는지 검사
-            alert("이메일 아이디와 주소를 입력하세요");
+            alertify.alert("이메일 아이디와 주소를 입력하세요");
             return;
             
         } else if ( !email_filter.test(text_mail_3) ) {
-    		alert("이메일 형식이 아닙니다. 다시 입력하세요.");
+        	alertify.alert("이메일 형식이 아닙니다. 다시 입력하세요.");
     		
     		return;
     	} 
@@ -161,7 +174,7 @@
       
        var email = $('#text_mail_1').val() +"@"+ $('#text_mail_2').val();
        
-      alert("test");
+      
        $.get(
             'EmailAuthAction.do?email='+email+'&code='+code,
             function(data){
@@ -172,7 +185,7 @@
          
             });
       
-       alert("이메일 인증을 보냈습니다");
+       alertify.alert("이메일 인증을 보냈습니다");
       
    }
    
@@ -182,11 +195,11 @@
       var confirmCode =  $('#user_number').val();
       
       if (code != confirmCode) {
-         alert("이메일 인증이 잘못되었습니다.");
+    	  alertify.alert("이메일 인증이 잘못되었습니다.");
          return false;
       } else {
          $('#emailYn').val('Y');
-         alert("이메일 인증 되었습니다.");
+         alertify.alert("이메일 인증 되었습니다.");
          return false;
       }
       
@@ -199,11 +212,11 @@
       var emailYn = $('#emailYn').val();
       
       if (emailYn == 'N') {
-         alert("이메일 인증이 잘못되었습니다. 인증받으세요.");
+    	  alertify.alert("이메일 인증이 잘못되었습니다. 인증받으세요.");
          return;
       } 
       
-      alert("가입되었습니다.");
+      alertify.alert("가입되었습니다.");
    }   
 
 </script>
@@ -337,7 +350,7 @@
 					id="join_go" name="join_go">가입하기</button>
 				&nbsp;
 				
-				<button type="button" class="btn btn-default" data-dismiss="modal"
+				<button type="button" onclick="window.location.href='mapmainForm.do'" class="btn btn-default" data-dismiss="modal"
 					style="width:10%;" id="noAgree">메인으로</button>
 
 </form>

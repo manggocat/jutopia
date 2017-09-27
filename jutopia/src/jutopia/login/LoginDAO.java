@@ -32,15 +32,14 @@ public class LoginDAO {
 		
 		try{
 			conn =DbManager.getConnection("SignupDB");
-			// 현재 board 테이블에 레코드 유무 판단과 글 번호 지정
+			// �쁽�옱 board �뀒�씠釉붿뿉 �젅肄붾뱶 �쑀臾� �뙋�떒怨� 湲� 踰덊샇 吏��젙
 			String[] arrAttribute={"sz_user_id_email","sz_user_pwd"};
 			
 			
 			pstmt = conn.prepareStatement(DbManager.select("Sign_Up", arrAttribute, 
 					"sz_user_id_email", loginVO.getStr_User_ID_Email()));
 			
-			/*System.out.println(DbManager.select("Sign_Up", arrAttribute, 
-					"sz_user_id_email", loginVO.getStr_User_ID_Email()));*/
+			
 			rs = pstmt.executeQuery();
 			
 			

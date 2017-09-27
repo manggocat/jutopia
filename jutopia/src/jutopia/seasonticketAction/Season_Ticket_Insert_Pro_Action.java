@@ -24,7 +24,7 @@ public class Season_Ticket_Insert_Pro_Action implements CommandAction {
 		vo.setStr_season_ticket_car_num(request.getParameter("str_season_ticket_car_num"));
 		vo.setStr_season_ticket_position(request.getParameter("str_season_ticket_position"));
 		vo.setStr_season_ticket_car_kinds(request.getParameter("str_season_ticket_car_kinds"));
-		vo.setStr_season_ticket_reduction(request.getParameter("str_season_ticket_reduction"));
+		vo.setStr_season_ticket_reduction(request.getParameter("book_reduction"));
 		vo.setN_season_ticket_start_date(Integer.parseInt(request.getParameter("n_season_ticket_start_date")));
 		vo.setStr_season_ticket_end_date(request.getParameter("str_season_ticket_end_date"));
 		vo.setStr_season_ticket_tel(request.getParameter("str_season_ticket_tel"));
@@ -47,8 +47,8 @@ public class Season_Ticket_Insert_Pro_Action implements CommandAction {
 		request.setAttribute("str_season_ticket_car_kinds", request.getParameter("str_season_ticket_car_kinds"));
 		request.setAttribute("str_season_ticket_parking_lot", request.getParameter("str_season_ticket_parking_lot"));
 		request.setAttribute("str_season_ticket_position", request.getParameter("str_season_ticket_position"));
-		request.setAttribute("n_season_ticket_start_date", request.getParameter("n_season_ticket_start_date") + "�썡");
-		request.setAttribute("str_season_ticket_reduction", request.getParameter("str_season_ticket_reduction"));
+		request.setAttribute("n_season_ticket_start_date", request.getParameter("n_season_ticket_start_date") + "월");
+		request.setAttribute("str_book_reduction", request.getParameter("book_reduction"));
 		
 		
 		return "JSP/Season_Ticket/Season_Ticket_Check.jsp";

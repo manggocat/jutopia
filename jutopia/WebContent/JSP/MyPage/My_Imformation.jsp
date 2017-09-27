@@ -11,7 +11,7 @@
 
 <div class="row">
    <div class="col-md-8 col-md-offset-3" style="margin-left: 20%;"> 
-        <div class="well well-sm" >
+        <div class="well well-sm" style="background: rgba(255,255,255,0.6);" >
     
       <form class="form-horizontal" role="form" method="get" id="reservationForm" name="reservationForm" action="reservationPro.do" onsubmit="return check()" style="">
 	  <input type="hidden" name="reduction" id="reduction">
@@ -37,12 +37,7 @@
           </div>
 
            <!-- 정기권 기간-->
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="textinput">정기권 기간: </label>
-            <div class="col-sm-6">
-              <input type="text" class="form-control"  value="시작 시간-&nbsp;${strLastSeasonStartTime} ~종료시간-${strLastSeasonEndTime}">
-            </div>
-          </div>
+          
 
            <!-- 혜택 안내-->
           <div class="form-group">

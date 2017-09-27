@@ -16,6 +16,21 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="./CSS/MainForm/MainForm.css" rel="stylesheet" type="text/css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="./resource/alertify.core.css" />
+<link rel="stylesheet" href="./resource/alertify.default.css" id="toggleCSS" />
+<script src="resource/alertify.min.js"></script>
+<script>
+$(document).ready(function(){
+    
+    $("alert").on( 'click', function () {
+     alertify.alert("");
+     return false;
+    });
+});
+ 
+ 
+</script>
 <!-- <link href="./CSS/MypageForm/MyPage_Main.css" rel="stylesheet" type="text/css"> -->
 <script type="text/javascript">
     $(document).ready(function() {
@@ -38,14 +53,14 @@
 <body>
 <c:if test="${nCheck==1 }">
 <script type="text/javascript">
-alert("삭제 완료");
+alertify.alert("삭제 완료");
 window.location.href="mapmainForm.do";
 </script>
 </c:if>
 
 <c:if test="${nCheck==-1}">
 <script type="text/javascript">
-alert("비밀번호가 다릅니다");
+alertify.alert("비밀번호가 다릅니다");
 </c:if>
 </script>
 
@@ -57,7 +72,7 @@ window.location.href="MyPageUpdateFormAction.do";
 </c:if>
 <c:if test="${nUpdateCheck==-1}">
 <script type="text/javascript">
-alert("비밀번호가 다릅니다");
+alertify.alert("비밀번호가 다릅니다");
 </script>
 
 </c:if>
@@ -81,7 +96,7 @@ alert("비밀번호가 다릅니다");
 								</button>
 								
 						<div style="position: relative;">
-									<img src="./images/MainForm/Logo.png" style="width: 160px; height: 90px; position: absolute;"/></div>
+								<a href="mapmainForm.do" >	<img src="./images/MainForm/Logo.png" style="width: 160px; height: 90px; position: absolute;"/></a></div>
 						
 							</div>
 							<div id="navbar" class="navbar-collapse collapse">
@@ -105,9 +120,9 @@ alert("비밀번호가 다릅니다");
 											
 									</c:if>
 									<li style="padding-right: 20px;"><a href="list.do">공지사항</a></li>
-									
-									<li><a href="#">회사 소개</a></li>
-								
+
+									<li><a href="CompanyinfoAction.do">회사 소개</a></li>
+									<li><a href="QnAFormAction.do">QnA</a></li>
 								</ul>
 								<ul class="nav navbar-nav pull-right">
 									<li class=""><a href="MyPageMainForm.do">MyPage</a></li>

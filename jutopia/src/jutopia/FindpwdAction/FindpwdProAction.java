@@ -35,7 +35,7 @@ public class FindpwdProAction extends Authenticator implements CommandAction {
 		// TODO Auto-generated method stub
 		req.setCharacterEncoding("utf-8");
 		String toEmail = req.getParameter("text_mail_1")+"@"+req.getParameter("text_mail_2");
-		System.out.println("tomail"+toEmail);
+		
 		String strName = req.getParameter("name");
 		String strTel = req.getParameter("tel");
 	
@@ -105,7 +105,7 @@ public class FindpwdProAction extends Authenticator implements CommandAction {
 
 			}
 		}
-		System.out.println("pwdcheck"+check);
+		
 		req.setAttribute("pwdcheck", check);
 		return "FindpwdFormAction.do";
 	}

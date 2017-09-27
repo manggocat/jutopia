@@ -6,6 +6,21 @@
 
 <html>
 <head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="./resource/alertify.core.css" />
+<link rel="stylesheet" href="./resource/alertify.default.css" id="toggleCSS" />
+<script src="resource/alertify.min.js"></script>
+<script>
+$(document).ready(function(){
+    
+    $("alert").on( 'click', function () {
+     alertify.alert("");
+     return false;
+    });
+});
+ 
+ 
+</script>
 <title>게시판</title>
 
 
@@ -13,7 +28,7 @@
 	function checkValue(){
 
 		if (document.form.Str_search.value=="") {
-			alert("검색어를 입력해주세요.");
+			alertify.alert("검색어를 입력해주세요.");
 			return false;
 		
 		}
@@ -24,9 +39,153 @@
 
 
 </head>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="./CSS/MainForm/MainForm.css" rel="stylesheet"
+	type="text/css">
+<link href="./CSS/Map/manubar.css" rel="stylesheet" type="text/css">
+
  <link href="./CSS/board/boardlist.css" rel="stylesheet" type="text/css"> 
+ <script type="text/javascript">
+	function loginshowPopup() {
+		window.open("SignUp_LoginForm.do", "로그인",
+				"width=500, height=350, left=100, top=50");
+	}
+</script>
  
 <body >
+<c:if test="${sessionScope.memID != null}">
+		<form class="background">
+			<div class="navbar-wrapper">
+				<div class="container-fluid">
+					<nav id="aaa" class="navbar navbar-fixed-top"
+						style="position: relative;">
+						<div class="container">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed"
+									data-toggle="collapse" data-target="#navbar"
+									aria-expanded="false" aria-controls="navbar">
+									<span class="sr-only">Toggle navigation</span> <span
+										class="icon-bar"></span> <span class="icon-bar"></span> <span
+										class="icon-bar"></span>
+								</button>
+
+								<div style="position: relative;"><a href="mapmainForm.do">
+									<img src="./images/MainForm/Logo.png"
+										style="width: 160px; height: 90px; position: absolute;" /></a>
+								</div>
+
+							</div>
+							<div id="navbar" class="navbar-collapse collapse">
+								<ul class="nav navbar-nav" style="padding-left: 17%;">
+									<li class="active"
+										style="padding-right: 20px; padding-left: 20px;"><a
+										href="mapmainForm.do" class="">Home</a></li>
+
+									<li class=" dropdown"
+										style="padding-right: 30px; padding-left: 20px;"><a
+										href="#" class="dropdown-toggle" data-toggle="dropdown"
+										role="button" aria-haspopup="true" aria-expanded="false">예약
+											하기<span class="caret"></span>
+									</a>
+										<ul class="dropdown-menu">
+											<li><a href="Season_Ticket_Info_Action.do"><font
+													color="white">주차 정기권</font></a></li>
+											<li><a href="BookingForm.do"><font color="white">주차
+														예약권</font></a></li>
+										</ul></li>
+									<c:if test="${sessionScope.memID!='jutopia@gmail.com'}">
+										<li style="padding-right: 20px;"><a href="noteList.do">
+												쪽지함 </a></li>
+									</c:if>
+									<c:if test="${sessionScope.memID=='jutopia@gmail.com'}">
+										<li style="padding-right: 20px;"><a
+											href="noteListAdmin.do"> 쪽지함 </a></li>
+									</c:if>
+
+									<li style="padding-right: 20px;"><a href="list.do">공지사항</a></li>
+
+									<li><a href="CompanyinfoAction.do">회사 소개</a></li>
+
+								</ul>
+								<ul class="nav navbar-nav pull-right">
+									<li class=""><a href="MyPageMainForm.do">MyPage</a></li>
+									<li class=""><a href="SignUp_Logout.do">LogOut</a></li>
+								</ul>
+
+							</div>
+
+						</div>
+
+					</nav>
+				</div>
+			</div>
+		</form>
+	</c:if>
+	<c:if test="${sessionScope.memID == null}">
+		<form class="background">
+			<div class="navbar-wrapper">
+				<div class="container-fluid">
+					<nav id="aaa" class="navbar navbar-fixed-top"
+						style="position: relative;">
+						<div class="container">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed"
+									data-toggle="collapse" data-target="#navbar"
+									aria-expanded="false" aria-controls="navbar">
+									<span class="sr-only">Toggle navigation</span> <span
+										class="icon-bar"></span> <span class="icon-bar"></span> <span
+										class="icon-bar"></span>
+								</button>
+
+								<div style="position: relative;"><a href="mapmainForm.do" >
+									<img src="./images/MainForm/Logo.png"
+										style="width: 160px; height: 90px; position: absolute;" /></a>
+								</div>
+							</div>
+							<div id="navbar" class="navbar-collapse collapse">
+								<ul class="nav navbar-nav" style="padding-left: 17%;">
+									<li class="active"
+										style="padding-right: 20px; padding-left: 20px;"><a
+										href="mapmainForm.do" class="">Home</a></li>
+										
+										<li class=" dropdown"
+										style="padding-right: 30px; padding-left: 20px;"><a
+										href="BookingForm.do" class="dropdown-toggle" data-toggle="dropdown"
+										role="button" aria-haspopup="true" aria-expanded="false">예약
+											하기<span class="caret"></span>
+									</a>
+										<ul class="dropdown-menu">
+											<li><a href="Season_Ticket_Info_Action.do"><font
+													color="white">주차 정기권</font></a></li>
+											<li><a href="BookingForm.do"><font color="white">주차
+														예약권</font></a></li>
+										</ul></li>
+
+
+									<li style="padding-right: 20px;"><a href="list.do">공지사항</a></li>
+
+									<li><a href="CompanyinfoAction.do">회사 소개</a></li>
+
+								</ul>
+								<ul class="nav navbar-nav pull-right">
+									<li class="" style="padding-right: 20px;"><a href=""
+										onclick="loginshowPopup();">Login</a></li>
+									<li class=""><a href="SignUp_InsertInfo.do">SignUp</a></li>
+								</ul>
+
+							</div>
+
+						</div>
+
+					</nav>
+				</div>
+			</div>
+		</form>
+	</c:if>
 	<center>
 	<h2><span class="notice"> List</span></h2>
 		

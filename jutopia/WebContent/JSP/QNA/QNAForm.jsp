@@ -6,13 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>JSP Basic</title>
 
-<style>
-
-</style>
-
+<link href="./CSS/MainForm/MainForm.css" rel="stylesheet" type="text/css">
 <link href="./CSS/QnA/qna.css" rel="stylesheet" type="text/css">
 </head>
-<body background='../../image/QnA.jpg';>
+<body>
 
 <div class="allfontcolor">
 

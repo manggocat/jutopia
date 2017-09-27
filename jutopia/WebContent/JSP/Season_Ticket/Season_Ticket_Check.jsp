@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt"%>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt"%>   
 
 <!DOCTYPE html>
 <html>
@@ -13,33 +13,203 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
 <script src="./JS/reservation/bootstrap.min.js"></script>
 <link rel="stylesheet" href="./CSS/reservation/bootstrap.min.css" type="text/css">
+<link href="./CSS/MainForm/MainForm.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 body {
-margin-top: 5%;
+
+   background: #8999A8;
+   background: url('./images/MainForm/background.jpg') fixed; 
+   background-repeat: no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+
 }
 
+
 div.contents {
-margin-left: 40%;
+margin-left: 20%;
+}
+
+h3 {
+font-weight: bold;
+}
+
+tr{
+font-weight: bold;
+font-size: 15px;
+}
+
+select{
+  padding: 9px;
+  border: 1px solid #c3c3c3;
+  border-radius: 7px;
+}
+
+.well-sm {
+    margin-left: 25%;
+    margin-top: 5%;
+    padding: 13px;
+    border-radius: 3px;
+    width: 50%;
 }
 </style>
 </head>
 <body>
+
+<c:if test="${sessionScope.memID!=null}">
+		<form class="background">
+			<div class="navbar-wrapper">
+				<div class="container-fluid">
+					<nav id="aaa" class="navbar navbar-fixed-top"
+						style="position: relative;">
+						<div class="container">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed"
+									data-toggle="collapse" data-target="#navbar"
+									aria-expanded="false" aria-controls="navbar">
+									<span class="sr-only">Toggle navigation</span> <span
+										class="icon-bar"></span> <span class="icon-bar"></span> <span
+										class="icon-bar"></span>
+								</button>
+
+								<div style="position: relative;">
+								<a href="mapmainForm.do" >	<img src="./images/MainForm/Logo.png" style="width: 160px; height: 90px; position: absolute;"/></a></div>
+
+							</div>
+							<div id="navbar" class="navbar-collapse collapse">
+								<ul class="nav navbar-nav" style="padding-left: 17%;">
+									<li class="active"
+										style="padding-right: 20px; padding-left: 20px;"><a
+										href="mapmainForm.do" class="">Home</a></li>
+
+									<li class=" dropdown"
+										style="padding-right: 30px; padding-left: 20px;"><a
+										href="#" class="dropdown-toggle" data-toggle="dropdown"
+										role="button" aria-haspopup="true" aria-expanded="false">예약
+											하기<span class="caret"></span>
+									</a>
+										<ul class="dropdown-menu">
+											<li><a href="Season_Ticket_Info_Action.do"><font
+													color="white">주차 정기권</font></a></li>
+											<li><a href="BookingForm.do"><font color="white">주차
+														예약권</font></a></li>
+										</ul></li>
+									<c:if test="${sessionScope.memID!='jutopia@gmail.com'}">
+										<li style="padding-right: 20px;"><a href="noteList.do">
+												쪽지함 </a></li>
+									</c:if>
+									<c:if test="${sessionScope.memID=='jutopia@gmail.com'}">
+										<li style="padding-right: 20px;"><a
+											href="noteListAdmin.do"> 쪽지함 </a></li>
+									</c:if>
+
+									<li style="padding-right: 20px;"><a href="list.do">공지사항</a></li>
+
+									<li><a href="CompanyinfoAction.do">회사 소개</a></li>
+									<li><a href="QnAFormAction.do">QnA</a></li>
+								</ul>
+								<ul class="nav navbar-nav pull-right">
+									<li class=""><a href="MyPageMainForm.do">MyPage</a></li>
+									<li class=""><a href="SignUp_Logout.do">LogOut</a></li>
+								</ul>
+
+							</div>
+
+						</div>
+
+					</nav>
+				</div>
+			</div>
+		</form>
+	</c:if>
+
+	<c:if test="${sessionScope.memID == null}">
+		<form class="background">
+			<div class="navbar-wrapper">
+				<div class="container-fluid">
+					<nav id="aaa" class="navbar navbar-fixed-top"
+						style="position: relative;">
+						<div class="container">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed"
+									data-toggle="collapse" data-target="#navbar"
+									aria-expanded="false" aria-controls="navbar">
+									<span class="sr-only">Toggle navigation</span> <span
+										class="icon-bar"></span> <span class="icon-bar"></span> <span
+										class="icon-bar"></span>
+								</button>
+
+								<div style="position: relative;">
+								<a href="mapmainForm.do" >	<img src="./images/MainForm/Logo.png" style="width: 160px; height: 90px; position: absolute;"/></a></div>
+							</div>
+							<div id="navbar" class="navbar-collapse collapse">
+								<ul class="nav navbar-nav" style="padding-left: 17%;">
+									<li class="active"
+										style="padding-right: 20px; padding-left: 20px;"><a
+										href="mapmainForm.do" class="">Home</a></li>
+										
+										<li class=" dropdown"
+										style="padding-right: 30px; padding-left: 20px;"><a
+										href="#" class="dropdown-toggle" data-toggle="dropdown"
+										role="button" aria-haspopup="true" aria-expanded="false">예약
+											하기<span class="caret"></span>
+									</a>
+										<ul class="dropdown-menu">
+											<li><a href="Season_Ticket_Info_Action.do"><font
+													color="white">주차 정기권</font></a></li>
+											<li><a href="BookingForm.do"><font color="white">주차
+														예약권</font></a></li>
+										</ul></li>
+
+
+									<li style="padding-right: 20px;"><a href="list.do">공지사항</a></li>
+
+									<li><a href="CompanyinfoAction.do">회사 소개</a></li>
+
+								</ul>
+								<ul class="nav navbar-nav pull-right">
+									<li class="" style="padding-right: 20px;"><a href=""
+										onclick="loginshowPopup();">Login</a></li>
+									<li class=""><a href="SignUp_InsertInfo.do">SignUp</a></li>
+								</ul>
+
+							</div>
+
+						</div>
+
+					</nav>
+				</div>
+			</div>
+		</form>
+	</c:if>
+
+<!-- 정기권 예약 -->
+<div class="well well-sm" style="background: rgba(255,255,255,0.7);" >
 <div align="center">
 <h1>정기권 예약이 완료 되었습니다.</h1> <br>
 </div>
 <div class="contents">
 <h3>이름 : ${str_season_ticket_name}</h3>
 <h3>전화번호 : ${str_season_ticket_tel}</h3>
-<h3>차량번호 : <c:out value="${str_season_ticket_car_num}" /></h3>
 <h3>차 종 : <c:out value="${str_season_ticket_car_kinds}" /></h3>
+<h3>차량번호 : <c:out value="${str_season_ticket_car_num}" /></h3>
 <h3>예약 주차장 : <c:out value="${str_season_ticket_parking_lot}" /></h3>
 <h3>예약 좌석 : <c:out value="${str_season_ticket_position}" /></h3>
 <h3>예약 월 : <c:out value="${n_season_ticket_start_date}" /></h3>
-<h3>감면자격 : <c:out value="${str_season_ticket_reduction}" /></h3>
+<h3>감면자격 : <c:out value="${str_book_reduction}" /></h3>
+<br>
+
+<div style="margin-left: 22%;">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Order_CardModal">결제창띄우기</button>
+<button type="submit" class="btn btn-default" style="width: 25%;"><a href="mapmainForm.do">취소</a></button>
+</div>   
+</div>
 </div>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Order_CardModal">결제창띄우기</button>
-   
+<!--결제창 띄우기 -->
+
    <div class="modal fade" id="Order_CardModal" tabindex="-1" role="dialog" aria-hidden="false"  aria-labelledby="myModalLabel">
       <div class="vertical-alignment-helper">
          <div class="modal-dialog vertical-align-center">
@@ -93,7 +263,7 @@ margin-left: 40%;
                            </tr>
                            <tr>
                               <td colspan="2">
-                                 <input class="btn btn-primary" type="button" id="btn_cardClear" value="결제하기">
+                                 <input class="btn btn-primary" type="submit" id="btn_cardClear" value="결제하기">
                                  <button class="btn btn-default" type="button" id="btn_cancel" data-dismiss="modal">결제취소</button>
                               </td>
                            </tr>

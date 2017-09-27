@@ -16,10 +16,9 @@ public class MapMainDAO {
 
 	private static MapMainDAO instance = new MapMainDAO();
 
-	/* private static DbConnection dbConnection; */
+	
 	public MapMainDAO() {
-		/* DbConnection.getData(); */
-		// TODO Auto-generated constructor stub
+	
 	}
 
 	public static MapMainDAO getInstance() {
@@ -73,16 +72,11 @@ public class MapMainDAO {
 						count--;
 					}
 				}
-				/*if (count >= 1) {
-					if (search.get(count).getName().equals(search.get(count - 1).getName())) {
-						search.remove(count);
-						count--;
-					}
-				}*/
+				
 				count++;
 				
 			}
-			System.out.println(search.size());
+		
 		
 			
 			
@@ -94,9 +88,7 @@ public class MapMainDAO {
 
 		CloseUtil.close(pstmt);
 		CloseUtil.close(conn);
-/*for(int i = 0 ; i<2;i++){
-		System.out.println(search.get(i));
-}*/
+
 		return search;
 	}
 

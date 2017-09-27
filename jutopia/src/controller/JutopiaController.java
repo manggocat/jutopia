@@ -36,18 +36,17 @@ public class JutopiaController extends HttpServlet {
 		
 		try{
 			String strcommand = req.getRequestURI();
-			System.out.println("command : "+ strcommand);
-			System.out.println("req.getContextPath() : "+req.getContextPath());//
+			
 			
 			if(strcommand.indexOf(req.getContextPath()) == 0){ 
 				strcommand = strcommand.substring(req.getContextPath().length()+1);
-				System.out.println("if command : "+strcommand);
+			
 			}
 			
 			action = (CommandAction)commandMap.get(strcommand);
-			System.out.println("action : "+action); 
+			
 			strview = action.process(req, resp);
-			System.out.println("view : "+ strview);
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -90,7 +89,7 @@ public class JutopiaController extends HttpServlet {
 			try {
 				Class className = Class.forName(strvalue);// 臾몄옄�뿴�쓣 �겢�옒�뒪濡� 蹂��솚
 				Object instance = className.newInstance();
-				System.out.println("strcommand: "+strcommand);
+				
 				
 				
 				commandMap.put(strcommand, instance);
